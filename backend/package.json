@@ -1,6 +1,9 @@
 {
   "name": "meyden-backend",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "description": "Meyden Phase 1 Backend Infrastructure - Complete platform backend with authentication, vendor management, community features, and AI readiness assessments",
   "main": "dist/server.js",
   "scripts": {
