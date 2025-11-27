@@ -1,0 +1,338 @@
+import { Router, Request, Response } from 'express';
+import { z } from 'zod';
+import prisma from '../config/database';
+import { logger } from '../utils/logger';
+
+const router = Router();
+
+// Validation schemas
+const createPostSchema = z.object({
+  title: z.string().min(1).max(200),
+  content: z.string().min(10),
+  type: z.enum(['ARTICLE', 'QUESTION', 'DISCUSSION', 'ANNOUNCEMENT', 'SHOWCASE']).default('ARTICLE'),
+  categoryId: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+});
+
+const createCommentSchema = z.object({
+  content: z.string().min(1),
+  postId: z.string().optional(),
+  parentId: z.string().optional(),
+});
+
+// Get all posts
+router.get('/posts', async (req: Request, res: Response) => {
+  try {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 20;
+    const category = req.query.category as string;
+    const type = req.query.type as string;
+    const offset = (page - 1) * limit;
+
+    // Build where clause
+    const where: any = {
+      status: 'PUBLISHED',
+    };
+
+    if (type) {
+      where.type = type;
+    }
+
+    if (category) {
+      where.category = {
+        name: { contains: category, mode: 'insensitive' }
+      };
+    }
+
+    const [posts, totalCount] = await Promise.all([
+      prisma.post.findMany({
+        where,
+        include: {
+          user: {
+            select: {
+              id: true,
+              firstName: true,
+              lastName: true,
+              profile: true,
+            }
+          },
+          category: true,
+          comments: {
+            where: { status: 'PUBLISHED' },
+            take: 3,
+            orderBy: { createdAt: 'desc' },
+          },
+          _count: {
+            select: {
+              comments: { where: { status: 'PUBLISHED' } },
+            }
+          }
+        },
+        orderBy: { createdAt: 'desc' },
+        skip: offset,
+        take: limit,
+      }),
+      prisma.post.count({ where }),
+    ]);
+
+    const totalPages = Math.ceil(totalCount / limit);
+
+    res.json({
+      posts,
+      pagination: {
+        page,
+        limit,
+        totalCount,
+        totalPages,
+        hasNextPage: page < totalPages,
+        hasPrevPage: page > 1,
+      },
+    });
+
+  } catch (error) {
+    logger.error('Error fetching posts:', error);
+    res.status(500).json({
+      error: 'Internal server error',
+      code: 'FETCH_POSTS_ERROR',
+    });
+  }
+});
+
+// Get post by ID
+router.get('/posts/:id', async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const post = await prisma.post.findUnique({
+      where: { id },
+      include: {
+        user: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+            profile: true,
+          }
+        },
+        category: true,
+        comments: {
+          where: { status: 'PUBLISHED' },
+          include: {
+            user: {
+              select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                profile: true,
+              }
+            },
+            replies: {
+              where: { status: 'PUBLISHED' },
+              include: {
+                user: {
+                  select: {
+                    id: true,
+                    firstName: true,
+                    lastName: true,
+                  }
+                },
+              },
+              orderBy: { createdAt: 'asc' },
+            },
+          },
+          orderBy: { createdAt: 'desc' },
+        },
+        reactions: {
+          include: {
+            user: {
+              select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+              }
+            },
+          },
+        },
+      },
+    });
+
+    if (!post) {
+      return res.status(404).json({
+        error: 'Post not found',
+        code: 'POST_NOT_FOUND',
+      });
+    }
+
+    if (post.status !== 'PUBLISHED') {
+      return res.status(404).json({
+        error: 'Post not available',
+        code: 'POST_UNAVAILABLE',
+      });
+    }
+
+    // Increment view count
+    await prisma.post.update({
+      where: { id },
+      data: { viewCount: { increment: 1 } },
+    });
+
+    res.json({ post });
+
+  } catch (error) {
+    logger.error('Error fetching post:', error);
+    res.status(500).json({
+      error: 'Internal server error',
+      code: 'FETCH_POST_ERROR',
+    });
+  }
+});
+
+// Create post
+router.post('/posts', async (req: Request, res: Response) => {
+  try {
+    const validatedData = createPostSchema.parse(req.body);
+
+    // In a real implementation, get user ID from JWT token
+    const user = await prisma.user.findFirst();
+    
+    if (!user) {
+      return res.status(404).json({
+        error: 'User not found',
+        code: 'USER_NOT_FOUND',
+      });
+    }
+
+    const post = await prisma.post.create({
+      data: {
+        ...validatedData,
+        userId: user.id,
+        slug: validatedData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+        status: 'PUBLISHED',
+        publishedAt: new Date(),
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+          }
+        },
+        category: true,
+      },
+    });
+
+    logger.info('Post created', { postId: post.id, userId: user.id });
+
+    res.status(201).json({
+      message: 'Post created successfully',
+      post,
+    });
+
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        error: 'Validation failed',
+        code: 'VALIDATION_ERROR',
+        details: error.errors,
+      });
+    }
+
+    logger.error('Error creating post:', error);
+    res.status(500).json({
+      error: 'Internal server error',
+      code: 'CREATE_POST_ERROR',
+    });
+  }
+});
+
+// Create comment
+router.post('/comments', async (req: Request, res: Response) => {
+  try {
+    const validatedData = createCommentSchema.parse(req.body);
+
+    // In a real implementation, get user ID from JWT token
+    const user = await prisma.user.findFirst();
+    
+    if (!user) {
+      return res.status(404).json({
+        error: 'User not found',
+        code: 'USER_NOT_FOUND',
+      });
+    }
+
+    const comment = await prisma.comment.create({
+      data: {
+        ...validatedData,
+        userId: user.id,
+        status: 'PUBLISHED',
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+          }
+        },
+        post: {
+          select: {
+            id: true,
+            title: true,
+          }
+        },
+      },
+    });
+
+    // Update comment count on post
+    if (validatedData.postId) {
+      await prisma.post.update({
+        where: { id: validatedData.postId },
+        data: { commentCount: { increment: 1 } },
+      });
+    }
+
+    logger.info('Comment created', { commentId: comment.id, userId: user.id });
+
+    res.status(201).json({
+      message: 'Comment created successfully',
+      comment,
+    });
+
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        error: 'Validation failed',
+        code: 'VALIDATION_ERROR',
+        details: error.errors,
+      });
+    }
+
+    logger.error('Error creating comment:', error);
+    res.status(500).json({
+      error: 'Internal server error',
+      code: 'CREATE_COMMENT_ERROR',
+    });
+  }
+});
+
+// Get categories
+router.get('/categories', async (req: Request, res: Response) => {
+  try {
+    const categories = await prisma.category.findMany({
+      where: { isActive: true },
+      orderBy: { name: 'asc' },
+    });
+
+    res.json({ categories });
+
+  } catch (error) {
+    logger.error('Error fetching categories:', error);
+    res.status(500).json({
+      error: 'Internal server error',
+      code: 'FETCH_CATEGORIES_ERROR',
+    });
+  }
+});
+
+export default router;
