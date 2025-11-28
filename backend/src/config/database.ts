@@ -16,9 +16,25 @@ if (process.env.NODE_ENV !== 'production') {
 
 export const connectDatabase = async (): Promise<void> => {
   try {
+    // Check if DATABASE_URL is provided
+    const databaseUrl = process.env.DATABASE_URL;
+    
+    if (!databaseUrl) {
+      if (process.env.NODE_ENV === 'production') {
+        logger.warn('⚠️  DATABASE_URL not provided. Running without database connection.');
+        return; // Allow app to start without database in production
+      } else {
+        throw new Error('DATABASE_URL is required for database connection');
+      }
+    }
+    
     await prisma.$connect();
     logger.info('✅ Database connection established');
   } catch (error) {
+    if (process.env.NODE_ENV === 'production') {
+      logger.warn('⚠️  Database connection failed. Running without database:', error);
+      return; // Allow app to continue without database in production
+    }
     logger.error('❌ Database connection failed:', error);
     throw error;
   }
