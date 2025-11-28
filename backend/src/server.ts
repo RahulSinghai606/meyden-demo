@@ -27,30 +27,13 @@ async function startServer() {
       `);
     });
 
-    // Graceful shutdown handling
-    process.on('SIGTERM', () => {
-      logger.info('🔄 SIGTERM received, shutting down gracefully');
-      server.close(() => {
-        logger.info('✅ Server closed');
-        process.exit(0);
-      });
-    });
+    // Heartbeat to keep process alive and logging
+    setInterval(() => {
+      logger.info('💓 Server heartbeat - Process is alive');
+    }, 10000);
 
-    process.on('SIGINT', () => {
-      logger.info('🔄 SIGINT received, shutting down gracefully');
-      server.close(() => {
-        logger.info('✅ Server closed');
-        process.exit(0);
-      });
-    });
-
-    // Handle unhandled promise rejections
-    process.on('unhandledRejection', (err: Error) => {
-      logger.error('💥 Unhandled Promise Rejection:', err);
-      server.close(() => {
-        process.exit(1);
-      });
-    });
+    // Note: Removed custom signal handlers to let the orchestrator manage the process lifecycle naturally.
+    // This avoids potential conflicts where the process exits too early or swallows signals.
 
   } catch (error) {
     logger.error('❌ Failed to start server:', error);
