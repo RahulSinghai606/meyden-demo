@@ -44,7 +44,21 @@ app.use(helmet({
 
 // CORS configuration
 app.use(cors({
-  origin: config.corsOrigin,
+  origin: (requestOrigin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!requestOrigin) return callback(null, true);
+
+    const allowedOrigins = Array.isArray(config.corsOrigin) ? config.corsOrigin : [config.corsOrigin];
+
+    logger.info(`🔒 CORS Check: Request from ${requestOrigin}`, { allowed: allowedOrigins });
+
+    if (allowedOrigins.indexOf(requestOrigin) !== -1 || allowedOrigins.includes('*')) {
+      callback(null, true);
+    } else {
+      logger.warn(`🚫 CORS Blocked: Origin ${requestOrigin} not allowed`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: config.corsCredentials,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
