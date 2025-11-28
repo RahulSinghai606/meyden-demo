@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Connection Test</title>
+</head>
+<body>
+    <h1>Meyden API Connection Test</h1>
+    <button onclick="testAPI()">Test Backend Connection</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+
+            try {
+                const response = await fetch('http://localhost:3002/health');
+                const data = await response.json();
+                
+                resultDiv.innerHTML = `
+                    <h2>✅ Connection Successful!</h2>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+                
+                // Test community posts API
+                const postsResponse = await fetch('http://localhost:3002/api/v1/community/posts');
+                const postsData = await postsResponse.json();
+                
+                resultDiv.innerHTML += `
+                    <h3>Community Posts API Test:</h3>
+                    <pre>${JSON.stringify(postsData, null, 2)}</pre>
+                `;
+                
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <h2>❌ Connection Failed</h2>
+                    <p>Error: ${error.message}</p>
+                    <p>This indicates a CORS or network issue.</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

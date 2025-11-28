@@ -4,6 +4,53 @@ import { logger } from '../utils/logger';
 
 const router = Router();
 
+// Get pending vendors
+router.get('/vendors/pending', async (req: Request, res: Response) => {
+  try {
+    const vendors = await prisma.vendor.findMany({
+      where: { status: 'PENDING_APPROVAL' },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    res.json({ vendors });
+  } catch (error) {
+    logger.error('Error fetching pending vendors:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Approve vendor
+router.patch('/vendors/:id/approve', async (req: Request, res: Response) => {
+  try {
+    const vendor = await prisma.vendor.update({
+      where: { id: req.params.id },
+      data: { status: 'ACTIVE' },
+    });
+
+    logger.info('Vendor approved', { vendorId: vendor.id });
+    res.json({ vendor });
+  } catch (error) {
+    logger.error('Error approving vendor:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Reject vendor
+router.patch('/vendors/:id/reject', async (req: Request, res: Response) => {
+  try {
+    const vendor = await prisma.vendor.update({
+      where: { id: req.params.id },
+      data: { status: 'INACTIVE' },
+    });
+
+    logger.info('Vendor rejected', { vendorId: vendor.id });
+    res.json({ vendor });
+  } catch (error) {
+    logger.error('Error rejecting vendor:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Get platform analytics
 router.get('/analytics', async (req: Request, res: Response) => {
   try {
