@@ -14,13 +14,13 @@ async function startServer() {
 
     // Create HTTP server
     const server = createServer(app);
-    
+
     // Start server
-    server.listen(PORT, () => {
+    server.listen(PORT, '0.0.0.0', () => {
       logger.info(`
 🚀 Meyden Backend Server Started!
 
-📍 Server running on: http://localhost:${PORT}
+📍 Server running on: http://0.0.0.0:${PORT}
 🔗 API prefix: ${config.apiPrefix}
 🌍 Environment: ${config.nodeEnv}
 ⏰ Started at: ${new Date().toISOString()}
