@@ -85,15 +85,20 @@ export const config = {
   sentryEnabled: process.env.SENTRY_ENABLED === 'true',
 };
 
-// Validate required environment variables (only in development)
-const requiredEnvVars = config.nodeEnv === 'production' ? ['JWT_SECRET'] : ['DATABASE_URL', 'JWT_SECRET'];
+// Validate required environment variables (only require in development)
+const requiredEnvVars = config.nodeEnv === 'production' ? [] : ['DATABASE_URL', 'JWT_SECRET'];
 
 const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
 
 if (missingEnvVars.length > 0) {
-  // In production, allow missing DATABASE_URL for Railway deployment
-  if (config.nodeEnv === 'production' && missingEnvVars.includes('DATABASE_URL')) {
-    console.warn('⚠️  WARNING: DATABASE_URL not provided. Database features will be disabled.');
+  // In production, allow missing environment variables for Railway deployment
+  if (config.nodeEnv === 'production') {
+    if (missingEnvVars.includes('DATABASE_URL')) {
+      console.warn('⚠️  WARNING: DATABASE_URL not provided. Database features will be disabled.');
+    }
+    if (missingEnvVars.includes('JWT_SECRET')) {
+      console.warn('⚠️  WARNING: JWT_SECRET not provided. Using fallback secret.');
+    }
   } else {
     throw new Error(`Missing required environment variables: ${missingEnvVars.join(', ')}`);
   }
