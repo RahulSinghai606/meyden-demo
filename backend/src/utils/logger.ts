@@ -43,14 +43,13 @@ const fileFormat = winston.format.combine(
 const transports: winston.transport[] = [];
 
 // Console transport for development
-if (config.nodeEnv !== 'production') {
-  transports.push(
-    new winston.transports.Console({
-      format: consoleFormat,
-      level: config.logLevel,
-    })
-  );
-}
+// Console transport (always enabled for containerized environments like Railway)
+transports.push(
+  new winston.transports.Console({
+    format: consoleFormat,
+    level: config.logLevel,
+  })
+);
 
 // File transport for error logs
 transports.push(
