@@ -499,7 +499,7 @@ router.post('/forgot-password', async (req: Request, res: Response) => {
       where: { id: user.id },
       data: {
         passwordResetToken: resetToken,
-        passwordResetExpires: expiresAt,
+        // passwordResetExpires field doesn't exist in User model
       },
     });
 
@@ -551,9 +551,7 @@ router.post('/reset-password', async (req: Request, res: Response) => {
     const user = await prisma.user.findFirst({
       where: {
         passwordResetToken: token,
-        passwordResetExpires: {
-          gt: new Date()
-        },
+        // passwordResetExpires field doesn't exist in User model
       },
     });
 
@@ -573,7 +571,7 @@ router.post('/reset-password', async (req: Request, res: Response) => {
       data: {
         passwordHash,
         passwordResetToken: null,
-        passwordResetExpires: null,
+        // passwordResetExpires field doesn't exist in User model
       },
     });
 

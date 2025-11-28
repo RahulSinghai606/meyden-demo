@@ -142,17 +142,7 @@ router.get('/posts/:id', async (req: Request, res: Response) => {
           },
           orderBy: { createdAt: 'desc' },
         },
-        reactions: {
-          include: {
-            user: {
-              select: {
-                id: true,
-                firstName: true,
-                lastName: true,
-              }
-            },
-          },
-        },
+        // reactions field doesn't exist in Post model - removing this
       },
     });
 
@@ -204,11 +194,15 @@ router.post('/posts', async (req: Request, res: Response) => {
 
     const post = await prisma.post.create({
       data: {
-        ...validatedData,
         userId: user.id,
-        slug: validatedData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+        title: validatedData.title,
+        content: validatedData.content,
+        type: validatedData.type || 'ARTICLE',
         status: 'PUBLISHED',
         publishedAt: new Date(),
+        slug: validatedData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+        categoryId: validatedData.categoryId,
+        tags: validatedData.tags ? validatedData.tags.join(',') : null,
       },
       include: {
         user: {
@@ -263,9 +257,11 @@ router.post('/comments', async (req: Request, res: Response) => {
 
     const comment = await prisma.comment.create({
       data: {
-        ...validatedData,
         userId: user.id,
+        content: validatedData.content,
         status: 'PUBLISHED',
+        postId: validatedData.postId,
+        parentId: validatedData.parentId,
       },
       include: {
         user: {

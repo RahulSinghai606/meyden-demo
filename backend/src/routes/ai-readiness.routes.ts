@@ -142,7 +142,13 @@ router.post('/surveys', async (req: Request, res: Response) => {
     // In a real implementation, check admin permissions
     const survey = await prisma.survey.create({
       data: {
-        ...validatedData,
+        title: validatedData.title,
+        description: validatedData.description,
+        timeLimit: validatedData.timeLimit,
+        maxAttempts: validatedData.maxAttempts,
+        passingScore: validatedData.passingScore,
+        isPublic: validatedData.isPublic,
+        category: validatedData.category,
         status: 'ACTIVE',
         publishedAt: new Date(),
       },

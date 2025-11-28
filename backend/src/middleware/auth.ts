@@ -62,11 +62,12 @@ export const authenticate = async (req: AuthenticatedRequest, res: Response, nex
       });
     }
 
-    // Update last used time
-    await prisma.session.update({
-      where: { id: session.id },
-      data: { lastUsed: new Date() }
-    });
+    // Note: lastUsed field doesn't exist in Session model
+    // Update session with other fields if needed
+    // await prisma.session.update({
+    //   where: { id: session.id },
+    //   data: { updatedAt: new Date() }
+    // });
 
     // Attach user to request
     req.user = {

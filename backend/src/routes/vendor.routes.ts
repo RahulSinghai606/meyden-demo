@@ -20,15 +20,7 @@ const createVendorSchema = z.object({
   businessType: z.string().min(1),
   yearEstablished: z.number().int().min(1800).max(new Date().getFullYear()).optional(),
   employeeCount: z.string().optional(),
-  annualRevenue: z.string().optional(),
   website: z.string().url().optional(),
-  linkedin: z.string().url().optional(),
-  twitter: z.string().url().optional(),
-  facebook: z.string().url().optional(),
-  instagram: z.string().url().optional(),
-  hourlyRate: z.number().positive().optional(),
-  projectRate: z.number().positive().optional(),
-  retainerRate: z.number().positive().optional(),
 });
 
 // Get all vendors with search and filtering
@@ -179,8 +171,20 @@ router.post('/', async (req: Request, res: Response) => {
     // Create a demo vendor with PENDING_APPROVAL status
     const vendor = await prisma.vendor.create({
       data: {
-        ...validatedData,
-        userId: null, // For demo purposes
+        companyName: validatedData.companyName,
+        businessName: validatedData.businessName,
+        description: validatedData.description,
+        email: validatedData.email,
+        phone: validatedData.phone,
+        address: validatedData.address,
+        city: validatedData.city,
+        state: validatedData.state,
+        country: validatedData.country,
+        postalCode: validatedData.postalCode,
+        businessType: validatedData.businessType,
+        yearEstablished: validatedData.yearEstablished,
+        employeeCount: validatedData.employeeCount,
+        website: validatedData.website,
         status: 'PENDING_APPROVAL',
       },
     });

@@ -19,7 +19,7 @@ export const auditLogger = (req: Request, res: Response, next: NextFunction): vo
 
   // Override res.end to log response
   const originalEnd = res.end;
-  res.end = function(chunk?: any, encoding?: any) {
+  res.end = function(chunk?: any, encoding?: any): Response<any, Record<string, any>> {
     const duration = Date.now() - startTime;
     
     // Log response
@@ -35,7 +35,7 @@ export const auditLogger = (req: Request, res: Response, next: NextFunction): vo
     });
 
     // Call original end method
-    originalEnd.call(this, chunk, encoding);
+    return originalEnd.call(this, chunk, encoding);
   };
 
   next();
