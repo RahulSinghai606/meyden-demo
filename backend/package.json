@@ -14,7 +14,7 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
-    "db:seed": "tsx src/database/seed.ts",
+    "db:seed": "node dist/database/seed.js",
     "db:reset": "prisma migrate reset",
     "deploy:prepare": "npm run db:migrate:deploy && npm run db:seed",
     "lint": "eslint src --ext .ts",
