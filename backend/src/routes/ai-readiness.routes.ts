@@ -35,7 +35,7 @@ router.get('/surveys', async (req: Request, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 20;
-    const category = req.query.category as string;
+    const category = typeof req.query.category === 'string' ? req.query.category : undefined;
     const isPublic = req.query.public === 'true';
     const offset = (page - 1) * limit;
 
@@ -210,7 +210,7 @@ router.post('/responses', async (req: Request, res: Response) => {
 
     for (const question of survey.questions) {
       maxScore += question.maxScore;
-      
+
       const answer = validatedData.answers.find(a => a.questionId === question.id);
       if (answer) {
         // Simple scoring logic - in reality, this would be more complex
@@ -287,7 +287,7 @@ router.get('/responses/my', async (req: Request, res: Response) => {
   try {
     // In a real implementation, get user ID from JWT token
     const user = await prisma.user.findFirst();
-    
+
     if (!user) {
       return res.status(404).json({
         error: 'User not found',

@@ -28,8 +28,8 @@ router.get('/posts', async (req: Request, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 20;
-    const category = req.query.category as string;
-    const type = req.query.type as string;
+    const category = typeof req.query.category === 'string' ? req.query.category : undefined;
+    const type = typeof req.query.type === 'string' ? req.query.type : undefined;
     const offset = (page - 1) * limit;
 
     // Build where clause
@@ -187,7 +187,7 @@ router.post('/posts', async (req: Request, res: Response) => {
 
     // In a real implementation, get user ID from JWT token
     const user = await prisma.user.findFirst();
-    
+
     if (!user) {
       return res.status(404).json({
         error: 'User not found',
@@ -250,7 +250,7 @@ router.post('/comments', async (req: Request, res: Response) => {
 
     // In a real implementation, get user ID from JWT token
     const user = await prisma.user.findFirst();
-    
+
     if (!user) {
       return res.status(404).json({
         error: 'User not found',

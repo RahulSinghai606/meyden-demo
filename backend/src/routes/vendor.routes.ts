@@ -30,11 +30,12 @@ const createVendorSchema = z.object({
 // Get all vendors with search and filtering
 router.get('/', async (req: Request, res: Response) => {
   try {
-    const query = req.query.query as string;
-    const industry = req.query.industry as string;
-    const country = req.query.country as string;
-    const city = req.query.city as string;
-    const minRating = req.query.minRating ? parseFloat(req.query.minRating as string) : undefined;
+    const query = typeof req.query.query === 'string' ? req.query.query : undefined;
+    const industry = typeof req.query.industry === 'string' ? req.query.industry : undefined;
+    const country = typeof req.query.country === 'string' ? req.query.country : undefined;
+    const city = typeof req.query.city === 'string' ? req.query.city : undefined;
+    const minRatingStr = typeof req.query.minRating === 'string' ? req.query.minRating : undefined;
+    const minRating = minRatingStr ? parseFloat(minRatingStr) : undefined;
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 20;
     const offset = (page - 1) * limit;

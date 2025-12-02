@@ -85,7 +85,7 @@ router.put('/profile', requireAuth, async (req: Request, res: Response) => {
 
     // In a real implementation, get user ID from JWT token
     const user = await prisma.user.findFirst();
-    
+
     if (!user) {
       return res.status(404).json({
         error: 'User not found',
@@ -119,7 +119,7 @@ router.put('/profile', requireAuth, async (req: Request, res: Response) => {
       },
     });
 
-    logger.info('Profile updated', maskPII({ userId: user.id  }));
+    logger.info('Profile updated', maskPII({ userId: user.id }));
 
     res.json({
       message: 'Profile updated successfully',
@@ -148,17 +148,17 @@ router.get('/', async (req: Request, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 20;
-    const role = req.query.role as string;
-    const status = req.query.status as string;
+    const role = typeof req.query.role === 'string' ? req.query.role : undefined;
+    const status = typeof req.query.status === 'string' ? req.query.status : undefined;
     const offset = (page - 1) * limit;
 
     // Build where clause
     const where: any = {};
-    
+
     if (role) {
       where.role = role;
     }
-    
+
     if (status) {
       where.status = status;
     }
