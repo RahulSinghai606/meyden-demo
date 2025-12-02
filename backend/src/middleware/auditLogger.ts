@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
+
 import { logger } from '../utils/logger';
+import { getCurrentUTC } from '../utils/datetime';
 
 // Audit logging middleware
 export const auditLogger = (req: Request, res: Response, next: NextFunction): void => {
@@ -14,7 +16,7 @@ export const auditLogger = (req: Request, res: Response, next: NextFunction): vo
     userAgent: req.get('User-Agent'),
     contentLength: req.get('Content-Length'),
     contentType: req.get('Content-Type'),
-    timestamp: new Date().toISOString(),
+    timestamp: getCurrentUTC().toISOString(),
   });
 
   // Override res.end to log response
@@ -31,7 +33,7 @@ export const auditLogger = (req: Request, res: Response, next: NextFunction): vo
       duration: `${duration}ms`,
       ip: req.ip,
       userAgent: req.get('User-Agent'),
-      timestamp: new Date().toISOString(),
+      timestamp: getCurrentUTC().toISOString(),
     });
 
     // Call original end method

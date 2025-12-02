@@ -1,11 +1,13 @@
 import { Router, Request, Response } from 'express';
 import prisma from '../config/database';
 import { logger } from '../utils/logger';
+import { requireAuth, requireAdmin } from '../middleware/requireAuth';
+import { maskPII } from '../utils/sanitize';
 
 const router = Router();
 
 // Get pending vendors
-router.get('/vendors/pending', async (req: Request, res: Response) => {
+router.get('/vendors/pending', requireAuth, requireAdmin, async (req: Request, res: Response) => {
   try {
     const vendors = await prisma.vendor.findMany({
       where: { status: 'PENDING_APPROVAL' },
@@ -14,39 +16,39 @@ router.get('/vendors/pending', async (req: Request, res: Response) => {
 
     res.json({ vendors });
   } catch (error) {
-    logger.error('Error fetching pending vendors:', error);
+    logger.error('Error fetching pending vendors:', maskPII(error));
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
 // Approve vendor
-router.patch('/vendors/:id/approve', async (req: Request, res: Response) => {
+router.patch('/vendors/:id/approve', requireAuth, requireAdmin, async (req: Request, res: Response) => {
   try {
     const vendor = await prisma.vendor.update({
       where: { id: req.params.id },
       data: { status: 'ACTIVE' },
     });
 
-    logger.info('Vendor approved', { vendorId: vendor.id });
+    logger.info('Vendor approved', maskPII({ vendorId: vendor.id }));
     res.json({ vendor });
   } catch (error) {
-    logger.error('Error approving vendor:', error);
+    logger.error('Error approving vendor:', maskPII(error));
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
 // Reject vendor
-router.patch('/vendors/:id/reject', async (req: Request, res: Response) => {
+router.patch('/vendors/:id/reject', requireAuth, requireAdmin, async (req: Request, res: Response) => {
   try {
     const vendor = await prisma.vendor.update({
       where: { id: req.params.id },
       data: { status: 'INACTIVE' },
     });
 
-    logger.info('Vendor rejected', { vendorId: vendor.id });
+    logger.info('Vendor rejected', maskPII({ vendorId: vendor.id }));
     res.json({ vendor });
   } catch (error) {
-    logger.error('Error rejecting vendor:', error);
+    logger.error('Error rejecting vendor:', maskPII(error));
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -95,7 +97,7 @@ router.get('/analytics', async (req: Request, res: Response) => {
     res.json({ analytics });
 
   } catch (error) {
-    logger.error('Error fetching analytics:', error);
+    logger.error('Error fetching analytics:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_ANALYTICS_ERROR',
@@ -113,7 +115,7 @@ router.get('/settings', async (req: Request, res: Response) => {
     res.json({ settings });
 
   } catch (error) {
-    logger.error('Error fetching settings:', error);
+    logger.error('Error fetching settings:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_SETTINGS_ERROR',

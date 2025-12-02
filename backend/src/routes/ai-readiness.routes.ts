@@ -1,7 +1,10 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import prisma from '../config/database';
+
+import { maskPII } from '../utils/sanitize';
 import { logger } from '../utils/logger';
+import { getCurrentUTC } from '../utils/datetime';
 
 const router = Router();
 
@@ -82,7 +85,7 @@ router.get('/surveys', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Error fetching surveys:', error);
+    logger.error('Error fetching surveys:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_SURVEYS_ERROR',
@@ -126,7 +129,7 @@ router.get('/surveys/:id', async (req: Request, res: Response) => {
     res.json({ survey });
 
   } catch (error) {
-    logger.error('Error fetching survey:', error);
+    logger.error('Error fetching survey:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_SURVEY_ERROR',
@@ -150,7 +153,7 @@ router.post('/surveys', async (req: Request, res: Response) => {
         isPublic: validatedData.isPublic,
         category: validatedData.category,
         status: 'ACTIVE',
-        publishedAt: new Date(),
+        publishedAt: getCurrentUTC(),
       },
     });
 
@@ -170,7 +173,7 @@ router.post('/surveys', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Error creating survey:', error);
+    logger.error('Error creating survey:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'CREATE_SURVEY_ERROR',
@@ -223,7 +226,7 @@ router.post('/responses', async (req: Request, res: Response) => {
         surveyId: validatedData.surveyId,
         userId: user?.id,
         status: 'completed',
-        completedAt: new Date(),
+        completedAt: getCurrentUTC(),
         totalScore,
         maxScore,
         percentage,
@@ -271,7 +274,7 @@ router.post('/responses', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Error submitting response:', error);
+    logger.error('Error submitting response:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'SUBMIT_RESPONSE_ERROR',
@@ -309,7 +312,7 @@ router.get('/responses/my', async (req: Request, res: Response) => {
     res.json({ responses });
 
   } catch (error) {
-    logger.error('Error fetching user responses:', error);
+    logger.error('Error fetching user responses:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_RESPONSES_ERROR',

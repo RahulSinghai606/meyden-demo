@@ -50,4 +50,17 @@ export const disconnectDatabase = async (): Promise<void> => {
   }
 };
 
+// Graceful shutdown handlers
+process.on('SIGINT', async () => {
+  logger.info('SIGINT received, closing database connection');
+  await prisma.$disconnect();
+  process.exit(0);
+});
+
+process.on('SIGTERM', async () => {
+  logger.info('SIGTERM received, closing database connection');
+  await prisma.$disconnect();
+  process.exit(0);
+});
+
 export default prisma;

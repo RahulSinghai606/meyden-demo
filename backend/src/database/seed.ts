@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { hashPassword } from '../utils/auth';
 import { logger } from '../utils/logger';
+import { getCurrentUTC } from '../utils/datetime';
 
 const prisma = new PrismaClient();
 
@@ -241,7 +242,7 @@ async function main() {
         status: 'ACTIVE',
         isPublic: true,
         category: 'General',
-        publishedAt: new Date(),
+        publishedAt: getCurrentUTC(),
       },
     });
     logger.info('📊 Created AI Readiness survey');
@@ -423,7 +424,7 @@ async function main() {
         type: 'ARTICLE',
         status: 'PUBLISHED',
         categoryId: (await prisma.category.findFirst({ where: { slug: 'government-ai' } }))?.id,
-        publishedAt: new Date(),
+        publishedAt: getCurrentUTC(),
         tags: 'government,AI,best-practices',
         slug: 'best-practices-ai-government',
         viewCount: 45,
@@ -439,7 +440,7 @@ async function main() {
         type: 'QUESTION',
         status: 'PUBLISHED',
         categoryId: (await prisma.category.findFirst({ where: { slug: 'ai-readiness' } }))?.id,
-        publishedAt: new Date(),
+        publishedAt: getCurrentUTC(),
         tags: 'assessment,readiness,planning',
         slug: 'ai-readiness-what-to-focus',
         viewCount: 23,

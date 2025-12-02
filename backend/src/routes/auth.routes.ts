@@ -1,10 +1,11 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
+import rateLimit from 'express-rate-limit';
 import prisma from '../config/database';
-import { 
-  hashPassword, 
-  comparePassword, 
-  generateTokens, 
+import {
+  hashPassword,
+  comparePassword,
+  generateTokens,
   createSession,
   invalidateSession,
   invalidateAllUserSessions,
@@ -22,8 +23,27 @@ import {
 import { logger } from '../utils/logger';
 import { config } from '../config/environment';
 import { AuthenticatedRequest } from '../middleware/auth';
+import { maskPII, sanitizeUserForBroadcast } from '../utils/sanitize';
+import { getCurrentUTC } from '../utils/datetime';
 
 const router = Router();
+
+// Rate limiters for authentication endpoints
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // 5 login attempts
+  message: { error: 'Too many login attempts, please try again later', code: 'RATE_LIMITED' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+const registerLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 3, // 3 registration attempts
+  message: { error: 'Too many accounts created, please try again later', code: 'RATE_LIMITED' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 // Validation schemas
 const registerSchema = z.object({
@@ -55,12 +75,12 @@ const verifyEmailSchema = z.object({
 // Helper function to send emails (mock implementation)
 const sendEmail = async (to: string, subject: string, content: string) => {
   // In production, integrate with AWS SES, SendGrid, or similar
-  logger.info(`Email would be sent to ${to}: ${subject}`);
+  logger.info(`Email would be sent to ${maskPII({ email: to })}: ${subject}`);
   console.log('Email Content:', content);
 };
 
 // Register endpoint
-router.post('/register', async (req: Request, res: Response) => {
+router.post('/register', registerLimiter, async (req: Request, res: Response) => {
   try {
     if (!config.enableRegistration) {
       return res.status(403).json({
@@ -145,7 +165,7 @@ router.post('/register', async (req: Request, res: Response) => {
       );
     }
 
-    logger.info('User registered successfully', { userId: user.id, email: user.email });
+    logger.info('User registered successfully', maskPII({ userId: user.id, email: user.email }));
 
     res.status(201).json({
       message: 'User registered successfully',
@@ -164,7 +184,7 @@ router.post('/register', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Registration error:', error);
+    logger.error('Registration error:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error during registration',
       code: 'REGISTRATION_ERROR',
@@ -173,7 +193,7 @@ router.post('/register', async (req: Request, res: Response) => {
 });
 
 // Login endpoint
-router.post('/login', async (req: Request, res: Response) => {
+router.post('/login', loginLimiter, async (req: Request, res: Response) => {
   try {
     const validatedData = loginSchema.parse(req.body);
     const { email, password } = validatedData;
@@ -251,7 +271,7 @@ router.post('/login', async (req: Request, res: Response) => {
     // Update last login
     await prisma.user.update({
       where: { id: user.id },
-      data: { lastLogin: new Date() },
+      data: { lastLogin: getCurrentUTC() },
     });
 
     // Create session
@@ -275,7 +295,7 @@ router.post('/login', async (req: Request, res: Response) => {
       profile: user.profile,
     };
 
-    logger.info('User logged in successfully', { userId: user.id, email: user.email });
+    logger.info('User logged in successfully', maskPII({ userId: user.id, email: user.email }));
 
     res.json({
       message: 'Login successful',
@@ -300,7 +320,7 @@ router.post('/login', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Login error:', error);
+    logger.error('Login error:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error during login',
       code: 'LOGIN_ERROR',
@@ -326,14 +346,14 @@ router.post('/logout', async (req: Request, res: Response) => {
       }
     }
 
-    logger.info('User logged out', { userId });
+    logger.info('User logged out', maskPII({ userId }));
 
     res.json({
       message: 'Logout successful',
     });
 
   } catch (error) {
-    logger.error('Logout error:', error);
+    logger.error('Logout error:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error during logout',
       code: 'LOGOUT_ERROR',
@@ -369,7 +389,7 @@ router.post('/refresh', async (req: Request, res: Response) => {
       where: {
         refreshToken,
         expiresAt: {
-          gt: new Date()
+          gt: getCurrentUTC()
         }
       },
       include: { user: true }
@@ -405,7 +425,7 @@ router.post('/refresh', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Token refresh error:', error);
+    logger.error('Token refresh error:', maskPII(error));
     res.status(401).json({
       error: 'Failed to refresh tokens',
       code: 'REFRESH_ERROR',
@@ -442,7 +462,7 @@ router.post('/verify-email', async (req: Request, res: Response) => {
       },
     });
 
-    logger.info('Email verified successfully', { userId: user.id });
+    logger.info('Email verified successfully', maskPII({ userId: user.id }));
 
     res.json({
       message: 'Email verified successfully',
@@ -457,7 +477,7 @@ router.post('/verify-email', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Email verification error:', error);
+    logger.error('Email verification error:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error during email verification',
       code: 'VERIFICATION_ERROR',
@@ -511,7 +531,7 @@ router.post('/forgot-password', async (req: Request, res: Response) => {
       `You requested a password reset. Click this link to reset your password: ${resetUrl}`
     );
 
-    logger.info('Password reset email sent', { userId: user.id });
+    logger.info('Password reset email sent', maskPII({ userId: user.id }));
 
     res.json(genericResponse);
 
@@ -524,7 +544,7 @@ router.post('/forgot-password', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Forgot password error:', error);
+    logger.error('Forgot password error:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FORGOT_PASSWORD_ERROR',
@@ -578,7 +598,7 @@ router.post('/reset-password', async (req: Request, res: Response) => {
     // Invalidate all sessions
     await invalidateAllUserSessions(user.id);
 
-    logger.info('Password reset successfully', { userId: user.id });
+    logger.info('Password reset successfully', maskPII({ userId: user.id }));
 
     res.json({
       message: 'Password reset successfully',
@@ -593,7 +613,7 @@ router.post('/reset-password', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Reset password error:', error);
+    logger.error('Reset password error:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error during password reset',
       code: 'RESET_PASSWORD_ERROR',

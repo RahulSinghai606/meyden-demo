@@ -1,7 +1,10 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import prisma from '../config/database';
+
+import { maskPII } from '../utils/sanitize';
 import { logger } from '../utils/logger';
+import { getCurrentUTC } from '../utils/datetime';
 
 const router = Router();
 
@@ -90,7 +93,7 @@ router.get('/posts', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Error fetching posts:', error);
+    logger.error('Error fetching posts:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_POSTS_ERROR',
@@ -169,7 +172,7 @@ router.get('/posts/:id', async (req: Request, res: Response) => {
     res.json({ post });
 
   } catch (error) {
-    logger.error('Error fetching post:', error);
+    logger.error('Error fetching post:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_POST_ERROR',
@@ -199,7 +202,7 @@ router.post('/posts', async (req: Request, res: Response) => {
         content: validatedData.content,
         type: validatedData.type || 'ARTICLE',
         status: 'PUBLISHED',
-        publishedAt: new Date(),
+        publishedAt: getCurrentUTC(),
         slug: validatedData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
         categoryId: validatedData.categoryId,
         tags: validatedData.tags ? validatedData.tags.join(',') : null,
@@ -232,7 +235,7 @@ router.post('/posts', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Error creating post:', error);
+    logger.error('Error creating post:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'CREATE_POST_ERROR',
@@ -304,7 +307,7 @@ router.post('/comments', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Error creating comment:', error);
+    logger.error('Error creating comment:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'CREATE_COMMENT_ERROR',
@@ -323,7 +326,7 @@ router.get('/categories', async (req: Request, res: Response) => {
     res.json({ categories });
 
   } catch (error) {
-    logger.error('Error fetching categories:', error);
+    logger.error('Error fetching categories:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_CATEGORIES_ERROR',

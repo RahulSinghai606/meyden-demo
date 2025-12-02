@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { logger } from '../utils/logger';
+import { getCurrentUTC } from '../utils/datetime';
 
 // Request validation middleware
 export const requestValidator = (req: Request, res: Response, next: NextFunction): void => {

@@ -1,7 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import { verifyToken } from '../utils/auth';
 import prisma from '../config/database';
+
 import { logger } from '../utils/logger';
+import { getCurrentUTC } from '../utils/datetime';
+import { maskPII } from '../utils/sanitize';
 
 export interface AuthenticatedRequest extends Request {
   user?: {
@@ -47,7 +50,7 @@ export const authenticate = async (req: AuthenticatedRequest, res: Response, nex
       where: {
         token,
         expiresAt: {
-          gt: new Date()
+          gt: getCurrentUTC()
         }
       },
       include: {
@@ -66,7 +69,7 @@ export const authenticate = async (req: AuthenticatedRequest, res: Response, nex
     // Update session with other fields if needed
     // await prisma.session.update({
     //   where: { id: session.id },
-    //   data: { updatedAt: new Date() }
+    //   data: { updatedAt: getCurrentUTC() }
     // });
 
     // Attach user to request
@@ -79,7 +82,7 @@ export const authenticate = async (req: AuthenticatedRequest, res: Response, nex
 
     next();
   } catch (error) {
-    logger.error('Authentication error:', error);
+    logger.error('Authentication error:', maskPII(error));
     res.status(401).json({
       error: 'Authentication failed',
       code: 'AUTH_ERROR'
@@ -160,7 +163,7 @@ export const optionalAuth = async (req: AuthenticatedRequest, res: Response, nex
         where: {
           token,
           expiresAt: {
-            gt: new Date()
+            gt: getCurrentUTC()
           }
         },
         include: {

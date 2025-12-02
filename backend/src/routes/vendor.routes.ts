@@ -1,7 +1,11 @@
+import { body, validationResult } from 'express-validator';
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import prisma from '../config/database';
+
+import { maskPII } from '../utils/sanitize';
 import { logger } from '../utils/logger';
+import { getCurrentUTC } from '../utils/datetime';
 
 const router = Router();
 
@@ -18,7 +22,7 @@ const createVendorSchema = z.object({
   country: z.string().optional(),
   postalCode: z.string().optional(),
   businessType: z.string().min(1),
-  yearEstablished: z.number().int().min(1800).max(new Date().getFullYear()).optional(),
+  yearEstablished: z.number().int().min(1800).max(getCurrentUTC().getFullYear()).optional(),
   employeeCount: z.string().optional(),
   website: z.string().url().optional(),
 });
@@ -106,7 +110,7 @@ router.get('/', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Error fetching vendors:', error);
+    logger.error('Error fetching vendors:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_VENDORS_ERROR',
@@ -155,7 +159,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Error fetching vendor:', error);
+    logger.error('Error fetching vendor:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_VENDOR_ERROR',
@@ -205,7 +209,7 @@ router.post('/', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Error creating vendor:', error);
+    logger.error('Error creating vendor:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'CREATE_VENDOR_ERROR',
@@ -256,7 +260,7 @@ router.get('/:id/reviews', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Error fetching vendor reviews:', error);
+    logger.error('Error fetching vendor reviews:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_REVIEWS_ERROR',
@@ -296,7 +300,7 @@ router.get('/popular/list', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Error fetching popular vendors:', error);
+    logger.error('Error fetching popular vendors:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_POPULAR_VENDORS_ERROR',

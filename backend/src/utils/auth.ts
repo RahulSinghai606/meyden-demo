@@ -3,6 +3,9 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
 import { config } from '../config/environment';
+
+import { getCurrentUTC } from './datetime';
+import { maskPII } from './sanitize';
 import { logger } from './logger';
 import prisma from '../config/database';
 
@@ -45,7 +48,7 @@ export const verifyToken = (token: string): any => {
       audience: 'meyden-client'
     });
   } catch (error) {
-    logger.warn('Token verification failed:', error);
+    logger.warn('Token verification failed:', maskPII(error));
     return null;
   }
 };
@@ -101,7 +104,7 @@ export const invalidateSession = async (token: string) => {
       where: { token },
     });
   } catch (error) {
-    logger.error('Failed to invalidate session:', error);
+    logger.error('Failed to invalidate session:', maskPII(error));
   }
 };
 
@@ -111,7 +114,7 @@ export const invalidateAllUserSessions = async (userId: string) => {
       where: { userId },
     });
   } catch (error) {
-    logger.error('Failed to invalidate user sessions:', error);
+    logger.error('Failed to invalidate user sessions:', maskPII(error));
   }
 };
 
@@ -123,7 +126,7 @@ export const generateOAuthState = (): { state: string; expiresAt: Date } => {
 };
 
 export const validateOAuthState = (state: string, storedState: { state: string; expiresAt: Date }): boolean => {
-  return state === storedState.state && storedState.expiresAt > new Date();
+  return state === storedState.state && storedState.expiresAt > getCurrentUTC();
 };
 
 // Rate limiting for authentication attempts

@@ -1,4 +1,6 @@
 import { Router, Request, Response } from 'express';
+import { requireAuth } from '../middleware/requireAuth';
+import { maskPII } from '../utils/sanitize';
 import { z } from 'zod';
 import prisma from '../config/database';
 import { logger } from '../utils/logger';
@@ -33,7 +35,7 @@ const updateProfileSchema = z.object({
 });
 
 // Get current user profile
-router.get('/profile', async (req: Request, res: Response) => {
+router.get('/profile', requireAuth, async (req: Request, res: Response) => {
   try {
     // In a real implementation, you would get the user ID from JWT token
     // For demo purposes, we'll return the first user
@@ -68,7 +70,7 @@ router.get('/profile', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Error fetching user profile:', error);
+    logger.error('Error fetching user profile:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_PROFILE_ERROR',
@@ -77,7 +79,7 @@ router.get('/profile', async (req: Request, res: Response) => {
 });
 
 // Update user profile
-router.put('/profile', async (req: Request, res: Response) => {
+router.put('/profile', requireAuth, async (req: Request, res: Response) => {
   try {
     const validatedData = updateProfileSchema.parse(req.body);
 
@@ -117,7 +119,7 @@ router.put('/profile', async (req: Request, res: Response) => {
       },
     });
 
-    logger.info('Profile updated', { userId: user.id });
+    logger.info('Profile updated', maskPII({ userId: user.id  }));
 
     res.json({
       message: 'Profile updated successfully',
@@ -133,7 +135,7 @@ router.put('/profile', async (req: Request, res: Response) => {
       });
     }
 
-    logger.error('Error updating profile:', error);
+    logger.error('Error updating profile:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'UPDATE_PROFILE_ERROR',
@@ -204,7 +206,7 @@ router.get('/', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    logger.error('Error fetching users:', error);
+    logger.error('Error fetching users:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_USERS_ERROR',
@@ -244,7 +246,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     res.json({ user });
 
   } catch (error) {
-    logger.error('Error fetching user:', error);
+    logger.error('Error fetching user:', maskPII(error));
     res.status(500).json({
       error: 'Internal server error',
       code: 'FETCH_USER_ERROR',
