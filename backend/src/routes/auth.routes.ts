@@ -94,7 +94,7 @@ router.post('/register', registerLimiter, async (req: Request, res: Response) =>
 
     // Sanitize and validate email
     const sanitizedEmail = sanitizeEmail(email);
-    
+
     if (!isValidEmail(sanitizedEmail)) {
       return res.status(400).json({
         error: 'Invalid email format',
@@ -128,7 +128,7 @@ router.post('/register', registerLimiter, async (req: Request, res: Response) =>
     const passwordHash = await hashPassword(password);
 
     // Generate email verification token
-    const { token: emailVerificationToken, expiresAt: emailVerificationExpires } = 
+    const { token: emailVerificationToken, expiresAt: emailVerificationExpires } =
       generateEmailVerificationToken();
 
     // Create user
@@ -140,6 +140,7 @@ router.post('/register', registerLimiter, async (req: Request, res: Response) =>
         lastName,
         role,
         emailVerificationToken,
+        emailVerificationExpires,
         status: config.enableEmailVerification ? 'PENDING_VERIFICATION' : 'ACTIVE',
         emailVerified: !config.enableEmailVerification,
       },
@@ -333,11 +334,11 @@ router.post('/logout', async (req: Request, res: Response) => {
   try {
     const authHeader = req.headers.authorization;
     let userId: string | null = null;
-    
+
     if (authHeader && authHeader.startsWith('Bearer ')) {
       const token = authHeader.substring(7);
       await invalidateSession(token);
-      
+
       // Extract user ID from token for logging
       const decoded = verifyToken(token);
       if (decoded && decoded.userId) {
@@ -443,6 +444,9 @@ router.post('/verify-email', async (req: Request, res: Response) => {
       where: {
         emailVerificationToken: token,
         emailVerified: false,
+        emailVerificationExpires: {
+          gt: getCurrentUTC()
+        }
       },
     });
 
@@ -519,7 +523,7 @@ router.post('/forgot-password', async (req: Request, res: Response) => {
       where: { id: user.id },
       data: {
         passwordResetToken: resetToken,
-        // passwordResetExpires field doesn't exist in User model
+        passwordResetExpires: expiresAt,
       },
     });
 
@@ -571,7 +575,9 @@ router.post('/reset-password', async (req: Request, res: Response) => {
     const user = await prisma.user.findFirst({
       where: {
         passwordResetToken: token,
-        // passwordResetExpires field doesn't exist in User model
+        passwordResetExpires: {
+          gt: getCurrentUTC()
+        }
       },
     });
 
@@ -591,7 +597,7 @@ router.post('/reset-password', async (req: Request, res: Response) => {
       data: {
         passwordHash,
         passwordResetToken: null,
-        // passwordResetExpires field doesn't exist in User model
+        passwordResetExpires: null,
       },
     });
 

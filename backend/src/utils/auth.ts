@@ -1,4 +1,4 @@
-// @ts-ignore
+
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
@@ -11,25 +11,23 @@ import prisma from '../config/database';
 
 // JWT utilities
 export const generateTokens = (userId: string) => {
-  // @ts-ignore
   const token = jwt.sign(
     { userId },
     config.jwtSecret,
     {
       algorithm: 'HS256',
-      expiresIn: config.jwtExpiresIn,
+      expiresIn: config.jwtExpiresIn as jwt.SignOptions['expiresIn'],
       issuer: 'meyden-api',
       audience: 'meyden-client'
     }
   );
 
-  // @ts-ignore
   const refreshToken = jwt.sign(
     { userId, type: 'refresh' },
     config.jwtSecret,
     {
       algorithm: 'HS256',
-      expiresIn: config.jwtRefreshExpiresIn,
+      expiresIn: config.jwtRefreshExpiresIn as jwt.SignOptions['expiresIn'],
       issuer: 'meyden-api',
       audience: 'meyden-client'
     }
@@ -38,10 +36,8 @@ export const generateTokens = (userId: string) => {
   return { token, refreshToken };
 };
 
-// @ts-ignore
 export const verifyToken = (token: string): any => {
   try {
-    // @ts-ignore
     return jwt.verify(token, config.jwtSecret, {
       algorithms: ['HS256'],
       issuer: 'meyden-api',
@@ -67,7 +63,7 @@ export const comparePassword = async (password: string, hashedPassword: string):
 export const generateEmailVerificationToken = (): { token: string; expiresAt: Date } => {
   const token = uuidv4();
   const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
-  
+
   return { token, expiresAt };
 };
 
@@ -75,14 +71,14 @@ export const generateEmailVerificationToken = (): { token: string; expiresAt: Da
 export const generatePasswordResetToken = (): { token: string; expiresAt: Date } => {
   const token = uuidv4();
   const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
-  
+
   return { token, expiresAt };
 };
 
 // Session management
 export const createSession = async (userId: string, deviceInfo?: string, ipAddress?: string, userAgent?: string) => {
   const { token: accessToken, refreshToken } = generateTokens(userId);
-  
+
   const session = await prisma.session.create({
     data: {
       userId,
@@ -134,7 +130,7 @@ export const rateLimitLoginAttempts = async (email: string, ipAddress: string): 
   // This is a simple implementation. In production, use Redis or similar
   const maxAttempts = 5;
   const windowMs = 15 * 60 * 1000; // 15 minutes
-  
+
   // In a real implementation, you'd check a rate limiting store
   // For now, we'll allow all attempts
   return { allowed: true, remaining: maxAttempts };
@@ -185,27 +181,27 @@ export const sanitizeEmail = (email: string): string => {
 // Password strength validation
 export const validatePasswordStrength = (password: string): { valid: boolean; errors: string[] } => {
   const errors: string[] = [];
-  
+
   if (password.length < 8) {
     errors.push('Password must be at least 8 characters long');
   }
-  
+
   if (!/[A-Z]/.test(password)) {
     errors.push('Password must contain at least one uppercase letter');
   }
-  
+
   if (!/[a-z]/.test(password)) {
     errors.push('Password must contain at least one lowercase letter');
   }
-  
+
   if (!/\d/.test(password)) {
     errors.push('Password must contain at least one number');
   }
-  
+
   if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
     errors.push('Password must contain at least one special character');
   }
-  
+
   return {
     valid: errors.length === 0,
     errors,
