@@ -12,6 +12,7 @@ healthcheckTimeout = 300
 [env]
 NODE_ENV = "production"
 NPM_CONFIG_PRODUCTION = "false"
+NIXPACKS_NODE_VERSION = "20"
 
 # Database will be provided by Railway or external service
 # Add these environment variables in Railway dashboard:
