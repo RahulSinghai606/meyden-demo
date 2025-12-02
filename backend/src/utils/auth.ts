@@ -12,14 +12,24 @@ export const generateTokens = (userId: string) => {
   const token = jwt.sign(
     { userId },
     config.jwtSecret,
-    { expiresIn: config.jwtExpiresIn }
+    {
+      algorithm: 'HS256',
+      expiresIn: config.jwtExpiresIn,
+      issuer: 'meyden-api',
+      audience: 'meyden-client'
+    }
   );
-  
+
   // @ts-ignore
   const refreshToken = jwt.sign(
     { userId, type: 'refresh' },
     config.jwtSecret,
-    { expiresIn: config.jwtRefreshExpiresIn }
+    {
+      algorithm: 'HS256',
+      expiresIn: config.jwtRefreshExpiresIn,
+      issuer: 'meyden-api',
+      audience: 'meyden-client'
+    }
   );
 
   return { token, refreshToken };
@@ -29,7 +39,11 @@ export const generateTokens = (userId: string) => {
 export const verifyToken = (token: string): any => {
   try {
     // @ts-ignore
-    return jwt.verify(token, config.jwtSecret);
+    return jwt.verify(token, config.jwtSecret, {
+      algorithms: ['HS256'],
+      issuer: 'meyden-api',
+      audience: 'meyden-client'
+    });
   } catch (error) {
     logger.warn('Token verification failed:', error);
     return null;

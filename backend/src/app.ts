@@ -4,11 +4,14 @@ import helmet from 'helmet';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
+import { doubleCsrf } from 'csrf-csrf';
 import { config } from './config/environment';
 import { logger, morganStream } from './utils/logger';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler';
 import { requestValidator } from './middleware/validation';
 import { auditLogger } from './middleware/auditLogger';
+import { getCurrentUTC } from './utils/datetime';
 
 // Import routes
 import authRoutes from './routes/auth.routes';
@@ -42,13 +45,20 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false,
 }));
 
-// CORS configuration
+// CORS configuration - SECURITY FIX: No null origin in production
 app.use(cors({
   origin: (requestOrigin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!requestOrigin) return callback(null, true);
-
     const allowedOrigins = Array.isArray(config.corsOrigin) ? config.corsOrigin : [config.corsOrigin];
+
+    // In production, reject requests with no origin (null origin attack prevention)
+    if (!requestOrigin) {
+      if (config.nodeEnv === 'production') {
+        logger.warn('🚫 CORS Blocked: Null origin rejected in production');
+        return callback(new Error('Not allowed by CORS'));
+      }
+      // Allow in development for local testing
+      return callback(null, true);
+    }
 
     logger.info(`🔒 CORS Check: Request from ${requestOrigin}`, { allowed: allowedOrigins });
 
@@ -61,7 +71,7 @@ app.use(cors({
   },
   credentials: config.corsCredentials,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'X-CSRF-Token'],
   exposedHeaders: ['X-Total-Count', 'X-Rate-Limit-Remaining'],
 }));
 
@@ -91,9 +101,49 @@ app.use(limiter);
 // Compression middleware
 app.use(compression());
 
+// Cookie parser (required for CSRF)
+app.use(cookieParser());
+
 // Request parsing middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// CSRF Protection
+const csrfProtection = doubleCsrf({
+  getSecret: () => config.jwtSecret,
+  getSessionIdentifier: (req) => req.ip || 'unknown',
+  cookieName: 'x-csrf-token',
+  cookieOptions: {
+    httpOnly: true,
+    secure: config.nodeEnv === 'production',
+    sameSite: config.nodeEnv === 'production' ? 'strict' : 'lax',
+    path: '/',
+  },
+  size: 64,
+  ignoredMethods: ['GET', 'HEAD', 'OPTIONS'],
+});
+
+// CSRF token endpoint
+app.get('/api/v1/csrf-token', (req: Request, res: Response) => {
+  const csrfToken = csrfProtection.generateCsrfToken(req, res);
+  res.json({
+    success: true,
+    csrfToken,
+  });
+});
+
+// Apply CSRF protection to state-changing routes
+app.use('/api/v1', (req: Request, res: Response, next: NextFunction) => {
+  // Skip CSRF for GET, HEAD, OPTIONS
+  if (['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
+    return next();
+  }
+  // Skip CSRF for auth endpoints (login/register) - they have rate limiting
+  if (req.path.startsWith('/auth/login') || req.path.startsWith('/auth/register')) {
+    return next();
+  }
+  return csrfProtection.doubleCsrfProtection(req, res, next);
+});
 
 // Logging middleware
 if (config.nodeEnv !== 'production') {
@@ -112,7 +162,7 @@ app.use(auditLogger);
 app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({
     status: 'OK',
-    timestamp: new Date().toISOString(),
+    timestamp: getCurrentUTC().toISOString(),
     uptime: process.uptime(),
     environment: config.nodeEnv,
     version: process.env.npm_package_version || '1.0.0',
@@ -135,7 +185,7 @@ app.get('/', (req: Request, res: Response) => {
     message: 'Meyden Backend API',
     version: config.apiVersion,
     environment: config.nodeEnv,
-    timestamp: new Date().toISOString(),
+    timestamp: getCurrentUTC().toISOString(),
     endpoints: {
       auth: `${apiPrefix}/auth`,
       users: `${apiPrefix}/users`,
@@ -145,6 +195,7 @@ app.get('/', (req: Request, res: Response) => {
       admin: `${apiPrefix}/admin`,
       upload: `${apiPrefix}/upload`,
       health: '/health',
+      csrfToken: '/api/v1/csrf-token',
     },
   });
 });
