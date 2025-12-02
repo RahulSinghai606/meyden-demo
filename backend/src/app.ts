@@ -27,6 +27,17 @@ const app: Application = express();
 // Trust proxy for accurate IP addresses (for rate limiting and security)
 app.set('trust proxy', 1);
 
+// Health check endpoint - Defined first to bypass middleware (CORS, Auth, etc.)
+app.get('/health', (req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'OK',
+    timestamp: getCurrentUTC().toISOString(),
+    uptime: process.uptime(),
+    environment: config.nodeEnv,
+    version: process.env.npm_package_version || '1.0.0',
+  });
+});
+
 // Security middleware
 app.use(helmet({
   contentSecurityPolicy: {
@@ -158,16 +169,7 @@ app.use(requestValidator);
 // Audit logging middleware
 app.use(auditLogger);
 
-// Health check endpoint
-app.get('/health', (req: Request, res: Response) => {
-  res.status(200).json({
-    status: 'OK',
-    timestamp: getCurrentUTC().toISOString(),
-    uptime: process.uptime(),
-    environment: config.nodeEnv,
-    version: process.env.npm_package_version || '1.0.0',
-  });
-});
+
 
 // API routes
 const apiPrefix = `${config.apiPrefix}/${config.apiVersion}`;
