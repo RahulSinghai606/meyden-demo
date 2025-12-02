@@ -4,6 +4,9 @@
   "engines": {
     "node": ">=20.0.0"
   },
+  "overrides": {
+    "jsdom": "22.1.0"
+  },
   "description": "Meyden Phase 1 Backend Infrastructure - Complete platform backend with authentication, vendor management, community features, and AI readiness assessments",
   "main": "dist/server.js",
   "scripts": {
