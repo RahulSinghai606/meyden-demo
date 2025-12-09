@@ -15,6 +15,7 @@ import { getCurrentUTC } from './utils/datetime';
 
 // Import routes
 import authRoutes from './routes/auth.routes';
+import oauthRoutes from './routes/oauth.routes';
 import userRoutes from './routes/user.routes';
 import vendorRoutes from './routes/vendor.routes';
 import communityRoutes from './routes/community.routes';
@@ -170,6 +171,7 @@ app.use(auditLogger);
 // API routes
 const apiPrefix = `${config.apiPrefix}/${config.apiVersion}`;
 app.use(`${apiPrefix}/auth`, authRoutes);
+app.use(`${apiPrefix}/auth/oauth`, oauthRoutes);
 app.use(`${apiPrefix}/users`, userRoutes);
 app.use(`${apiPrefix}/vendors`, vendorRoutes);
 app.use(`${apiPrefix}/community`, communityRoutes);

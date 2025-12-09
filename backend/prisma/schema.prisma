@@ -396,3 +396,20 @@ model Notification {
   
   @@map("notifications")
 }
+
+// Topic/Category Following for Community
+model TopicFollow {
+  id                String   @id @default(cuid())
+  userId            String
+  categoryId        String?
+  postId            String?
+  
+  notifyOnNew       Boolean  @default(true)
+  notifyOnReply     Boolean  @default(true)
+  
+  createdAt         DateTime @default(now())
+  
+  @@unique([userId, categoryId])
+  @@unique([userId, postId])
+  @@map("topic_follows")
+}

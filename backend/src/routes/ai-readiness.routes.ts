@@ -328,4 +328,198 @@ function getGrade(percentage: number): string {
   return 'Novice';
 }
 
+// Helper function to get recommendations based on score
+function getRecommendations(percentage: number, category: string = 'general'): string[] {
+  const recommendations: string[] = [];
+
+  if (percentage < 50) {
+    recommendations.push('Consider starting with foundational AI/ML training for your team');
+    recommendations.push('Establish a data governance framework before pursuing AI initiatives');
+    recommendations.push('Partner with experienced AI consultants for initial projects');
+  } else if (percentage < 70) {
+    recommendations.push('Focus on building internal AI capabilities and expertise');
+    recommendations.push('Develop a clear AI strategy aligned with business objectives');
+    recommendations.push('Invest in data quality and infrastructure improvements');
+  } else if (percentage < 85) {
+    recommendations.push('Scale successful AI pilots across the organization');
+    recommendations.push('Establish AI governance and ethical guidelines');
+    recommendations.push('Build centers of excellence to share AI best practices');
+  } else {
+    recommendations.push('Lead AI innovation in your industry');
+    recommendations.push('Consider contributing to AI research and development');
+    recommendations.push('Mentor other organizations on AI adoption');
+  }
+
+  return recommendations;
+}
+
+// Generate PDF Report for AI Readiness Assessment
+router.get('/responses/:id/pdf', async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const response = await prisma.surveyResponse.findUnique({
+      where: { id },
+      include: {
+        survey: {
+          include: {
+            questions: true,
+          },
+        },
+        user: {
+          select: { firstName: true, lastName: true, email: true },
+        },
+        questionResponses: {
+          include: {
+            question: true,
+          },
+        },
+      },
+    });
+
+    if (!response) {
+      return res.status(404).json({
+        error: 'Response not found',
+        code: 'RESPONSE_NOT_FOUND',
+      });
+    }
+
+    const grade = getGrade(response.percentage || 0);
+    const recommendations = getRecommendations(response.percentage || 0, response.survey.category || 'general');
+    const completedDate = response.completedAt ? new Date(response.completedAt).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }) : 'N/A';
+
+    // Generate HTML for PDF
+    const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 40px; color: #1f2937; }
+    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px; margin-bottom: 30px; }
+    .header h1 { margin: 0; font-size: 28px; }
+    .header p { margin: 10px 0 0 0; opacity: 0.9; }
+    .section { margin-bottom: 30px; }
+    .section-title { font-size: 18px; font-weight: bold; color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+    .score-card { background: #f9fafb; padding: 20px; border-radius: 10px; text-align: center; }
+    .score { font-size: 48px; font-weight: bold; color: ${response.percentage! >= 70 ? '#10b981' : response.percentage! >= 50 ? '#f59e0b' : '#ef4444'}; }
+    .grade { font-size: 24px; color: #6b7280; margin-top: 10px; }
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table td { padding: 12px; border-bottom: 1px solid #e5e7eb; }
+    .info-table td:first-child { color: #6b7280; width: 30%; }
+    .recommendation { background: #f0fdf4; border-left: 4px solid #10b981; padding: 15px; margin-bottom: 10px; border-radius: 0 8px 8px 0; }
+    .dimension { display: flex; justify-content: space-between; padding: 15px; background: #f9fafb; margin-bottom: 10px; border-radius: 8px; }
+    .dimension-name { font-weight: 500; }
+    .dimension-score { font-weight: bold; color: #667eea; }
+    .footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; }
+    .arabic { direction: rtl; text-align: right; color: #6b7280; font-size: 14px; margin-top: 5px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>AI Readiness Assessment Report</h1>
+    <p>تقرير تقييم الجاهزية للذكاء الاصطناعي</p>
+    <p style="margin-top: 15px; font-size: 14px;">Meyden Platform</p>
+  </div>
+
+  <div class="section">
+    <div class="score-card">
+      <div class="score">${Math.round(response.percentage || 0)}%</div>
+      <div class="grade">${grade}</div>
+      <p class="arabic">مستوى الجاهزية: ${grade === 'Expert' ? 'خبير' : grade === 'Advanced' ? 'متقدم' : grade === 'Intermediate' ? 'متوسط' : grade === 'Beginner' ? 'مبتدئ' : 'مبتدئ'}</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Assessment Details / تفاصيل التقييم</div>
+    <table class="info-table">
+      <tr><td>Assessment</td><td>${response.survey.title}</td></tr>
+      <tr><td>Completed On</td><td>${completedDate}</td></tr>
+      <tr><td>Participant</td><td>${response.user ? `${response.user.firstName} ${response.user.lastName}` : 'Anonymous'}</td></tr>
+      <tr><td>Score</td><td>${response.totalScore} / ${response.maxScore} points</td></tr>
+      <tr><td>Category</td><td>${response.survey.category || 'General AI Readiness'}</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Recommendations / التوصيات</div>
+    ${recommendations.map((rec, i) => `
+      <div class="recommendation">
+        <strong>${i + 1}.</strong> ${rec}
+      </div>
+    `).join('')}
+  </div>
+
+  <div class="footer">
+    <p>Generated by Meyden Platform on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+    <p style="direction: rtl;">تم إنشاؤه بواسطة منصة ميدن</p>
+    <p style="margin-top: 10px;">This report is confidential and intended for internal use only.</p>
+  </div>
+</body>
+</html>
+    `;
+
+    // Set headers for HTML download (can be converted to PDF by browser print)
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Content-Disposition', `attachment; filename="ai-readiness-report-${id}.html"`);
+    res.send(htmlContent);
+
+    logger.info('PDF report generated', { responseId: id });
+
+  } catch (error) {
+    logger.error('Error generating PDF:', maskPII(error));
+    res.status(500).json({
+      error: 'Internal server error',
+      code: 'GENERATE_PDF_ERROR',
+    });
+  }
+});
+
+// Get response details by ID
+router.get('/responses/:id', async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const response = await prisma.surveyResponse.findUnique({
+      where: { id },
+      include: {
+        survey: {
+          select: { id: true, title: true, category: true, description: true },
+        },
+        questionResponses: {
+          include: {
+            question: true,
+          },
+        },
+      },
+    });
+
+    if (!response) {
+      return res.status(404).json({
+        error: 'Response not found',
+        code: 'RESPONSE_NOT_FOUND',
+      });
+    }
+
+    res.json({
+      response: {
+        ...response,
+        grade: getGrade(response.percentage || 0),
+        recommendations: getRecommendations(response.percentage || 0),
+      },
+    });
+
+  } catch (error) {
+    logger.error('Error fetching response:', maskPII(error));
+    res.status(500).json({
+      error: 'Internal server error',
+      code: 'FETCH_RESPONSE_ERROR',
+    });
+  }
+});
+
 export default router;

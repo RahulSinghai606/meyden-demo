@@ -14,8 +14,8 @@ export const config = {
   // Database
   databaseUrl: process.env.DATABASE_URL || '',
 
-  // JWT
-  jwtSecret: process.env.JWT_SECRET || 'fallback-secret-key',
+  // JWT - SECURITY: No fallback in production
+  jwtSecret: process.env.JWT_SECRET || (process.env.NODE_ENV === 'production' ? '' : 'dev-secret-key'),
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '15m',
   jwtRefreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '7d',
 
@@ -54,11 +54,16 @@ export const config = {
   smtpUser: process.env.SMTP_USER || '',
   smtpPass: process.env.SMTP_PASS || '',
 
-  // Security
+  // Security - SECURITY: No fallback in production
   bcryptRounds: Number.parseInt(process.env.BCRYPT_ROUNDS || '12', 10),
   rateLimitWindowMs: Number.parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000', 10),
   rateLimitMaxRequests: Number.parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100', 10),
-  sessionSecret: process.env.SESSION_SECRET || 'fallback-session-secret',
+  sessionSecret: process.env.SESSION_SECRET || (process.env.NODE_ENV === 'production' ? '' : 'dev-session-secret'),
+
+  // Email (Resend - free tier)
+  resendApiKey: process.env.RESEND_API_KEY || '',
+  emailFromAddress: process.env.EMAIL_FROM_ADDRESS || 'noreply@meyden.com',
+  emailFromName: process.env.EMAIL_FROM_NAME || 'Meyden Platform',
 
   // File Upload
   maxFileSize: Number.parseInt(process.env.MAX_FILE_SIZE || '10485760', 10),
@@ -85,22 +90,22 @@ export const config = {
   sentryEnabled: process.env.SENTRY_ENABLED === 'true',
 };
 
-// Validate required environment variables (only require in development)
-const requiredEnvVars = config.nodeEnv === 'production' ? [] : ['DATABASE_URL', 'JWT_SECRET'];
+// Validate required environment variables
+const requiredEnvVars = ['DATABASE_URL'];
+const requiredInProduction = ['JWT_SECRET', 'SESSION_SECRET'];
 
-const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
+const allRequired = config.nodeEnv === 'production'
+  ? [...requiredEnvVars, ...requiredInProduction]
+  : requiredEnvVars;
+
+const missingEnvVars = allRequired.filter(envVar => !process.env[envVar]);
 
 if (missingEnvVars.length > 0) {
-  // In production, allow missing environment variables for Railway deployment
   if (config.nodeEnv === 'production') {
-    if (missingEnvVars.includes('DATABASE_URL')) {
-      console.warn('⚠️  WARNING: DATABASE_URL not provided. Database features will be disabled.');
-    }
-    if (missingEnvVars.includes('JWT_SECRET')) {
-      console.warn('⚠️  WARNING: JWT_SECRET not provided. Using fallback secret.');
-    }
+    // SECURITY: Fail fast in production if critical secrets are missing
+    throw new Error(`CRITICAL: Missing required environment variables in production: ${missingEnvVars.join(', ')}`);
   } else {
-    throw new Error(`Missing required environment variables: ${missingEnvVars.join(', ')}`);
+    console.warn(`⚠️  WARNING: Missing environment variables (OK for dev): ${missingEnvVars.join(', ')}`);
   }
 }
 
