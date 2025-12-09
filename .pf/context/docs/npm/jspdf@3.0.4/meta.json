@@ -1,0 +1,10 @@
+{
+  "source_url": "https://registry.npmjs.org/jspdf/3.0.4",
+  "last_checked": "2025-12-09T17:33:19.510429",
+  "etag": null,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parallax/jsPDF.git"
+  },
+  "from_github": true
+}

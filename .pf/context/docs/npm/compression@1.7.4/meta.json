@@ -1,0 +1,10 @@
+{
+  "source_url": "https://registry.npmjs.org/compression/1.7.4",
+  "last_checked": "2025-12-09T17:32:23.065847",
+  "etag": null,
+  "repository": {
+    "url": "git+https://github.com/expressjs/compression.git",
+    "type": "git"
+  },
+  "from_github": true
+}

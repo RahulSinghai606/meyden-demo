@@ -1,0 +1,175 @@
+{
+  "generated_at": "2025-12-09T12:01:16.294792+00:00",
+  "root": ".",
+  "seed": {
+    "mode": "all",
+    "value": "all_indexed_files"
+  },
+  "max_depth": 0,
+  "counts": {
+    "seed_files": 40,
+    "expanded_files": 40
+  },
+  "paths": [
+    {
+      "path": "backend/package.json",
+      "sha256": "5ad11c92175ada2006a8b7a8a87944311b48f296b6c77a7eff63ace96dcce5c0"
+    },
+    {
+      "path": "backend/src/app.ts",
+      "sha256": "9bd0d92116902e46682ddabefdc7698985a837eedf3dc560b73c130c86203ffd"
+    },
+    {
+      "path": "backend/src/config/database.ts",
+      "sha256": "904b4230dd6c3d3b4104822bf212f5b9daaa6fdb05c7ebb445d212ae11a9f9ec"
+    },
+    {
+      "path": "backend/src/config/environment.ts",
+      "sha256": "66f61f6c135de137364eeac9584d3387878568d161799e1da85763cf8dd3fe19"
+    },
+    {
+      "path": "backend/src/database/seed.ts",
+      "sha256": "4e5b2308621bb5d0185c40f789cc256165b5171e6a8c3e57d2b8c39d428f2262"
+    },
+    {
+      "path": "backend/src/middleware/__tests__/errorHandler.test.ts",
+      "sha256": "832b6f955586dfd88d803d77ab261d4bb679094e6332ee30dd91dd260c14c697"
+    },
+    {
+      "path": "backend/src/middleware/__tests__/requireAuth.test.ts",
+      "sha256": "87b257313d94fa670c568616425188edad0a381d8ac9b78f095b96bd642b4122"
+    },
+    {
+      "path": "backend/src/middleware/auditLogger.ts",
+      "sha256": "f99353f92843109535074f058028eb75f31a81b1cbb927167739917012a52bc8"
+    },
+    {
+      "path": "backend/src/middleware/auth.ts",
+      "sha256": "5ec549760cf4bd89cc45c3650db87bc3be0faf633be7e351b2e345f3cbdcad78"
+    },
+    {
+      "path": "backend/src/middleware/errorHandler.ts",
+      "sha256": "afbf62608ea0a3734b5fef61f4b908ae11ebd264e37ec1ee426f2e9def0054f7"
+    },
+    {
+      "path": "backend/src/middleware/requireAuth.ts",
+      "sha256": "70964e58e3b0a1c76273d4901101854ebf405a518ea933633d2fc31a5b47ee66"
+    },
+    {
+      "path": "backend/src/middleware/validation.ts",
+      "sha256": "2e7d5387b247bfdb3ef3c7b18579057ae090bb4ff7a38688fcf67d6fb681505f"
+    },
+    {
+      "path": "backend/src/routes/__tests__/admin.routes.test.ts",
+      "sha256": "f8177a02e0d940dddd2465cf68c4e9382c385cd6345596d860ab29abc6158757"
+    },
+    {
+      "path": "backend/src/routes/__tests__/ai-readiness.routes.test.ts",
+      "sha256": "2428ed29d6fa493a8c3e2061f36c43f3f078707dad96d924529d2b79ee596be0"
+    },
+    {
+      "path": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "sha256": "c1593d1ea201d8c30cf8b4cba387d2bcf39ad9af9bda7a2f3e456dcce15cb78c"
+    },
+    {
+      "path": "backend/src/routes/__tests__/community.routes.test.ts",
+      "sha256": "c7621e0225374654930b62cbeb4614a5020523a479fa0aca2dbd4097d5d05e65"
+    },
+    {
+      "path": "backend/src/routes/__tests__/user.routes.test.ts",
+      "sha256": "27ae41fb47cccc5101f8d549453e6597315c57e752d0712a40da08e79fc76534"
+    },
+    {
+      "path": "backend/src/routes/__tests__/vendor.routes.test.ts",
+      "sha256": "a103559afffff3bd93ab5cce09fb9da80d4501c8bcee7cb249fb13f0209ffe98"
+    },
+    {
+      "path": "backend/src/routes/admin.routes.ts",
+      "sha256": "7c5e69598968c6e1d3f932729dc05226dfe8909537dfebc3b0d5b1e379fffeef"
+    },
+    {
+      "path": "backend/src/routes/ai-readiness.routes.ts",
+      "sha256": "c42c1ef1d405b5b003ea6a78074d2e07285b55c64763ff5cbd4318be8ea90579"
+    },
+    {
+      "path": "backend/src/routes/auth.routes.ts",
+      "sha256": "cdc37f7ce63c2c670f0c1968f188e9c98f5702372fc5010717fc45719c644568"
+    },
+    {
+      "path": "backend/src/routes/community.routes.ts",
+      "sha256": "a8a142b567ca26f4ef069a6eb9c67551c5adecd825674c5f2f2666fb775e521b"
+    },
+    {
+      "path": "backend/src/routes/oauth.routes.ts",
+      "sha256": "c74c0086aa9473a3e01b567ff2a89490dc40d8433ab240979daef3e4f3bd482e"
+    },
+    {
+      "path": "backend/src/routes/upload.routes.ts",
+      "sha256": "13b5821f024283d571af8dce85c87a6264cbcc30fc1cc76f44a03c1c1f52f470"
+    },
+    {
+      "path": "backend/src/routes/user.routes.ts",
+      "sha256": "cf9c46fd6dadf3f187eb148898596819b55b69639945690ac375ae178ce4d479"
+    },
+    {
+      "path": "backend/src/routes/vendor.routes.ts",
+      "sha256": "204f77ab31120bd55547becfaaaffee1ac921cb1325c0bc63ad6608e12ddfef7"
+    },
+    {
+      "path": "backend/src/server.ts",
+      "sha256": "ca70ba6faed1502c75981167f09a35bd151bce73858d5816b8d84b391dda9e17"
+    },
+    {
+      "path": "backend/src/services/email.service.ts",
+      "sha256": "16a6eaa7b9b59635bae1646fecd5818f8bdbbef0be781fbb3b315ee4f8785de4"
+    },
+    {
+      "path": "backend/src/utils/__tests__/auth.test.ts",
+      "sha256": "c45de9006905f361d4696c4a54c24ddc8b528255e8b75f141fa8d80d589ef48a"
+    },
+    {
+      "path": "backend/src/utils/__tests__/logger.test.ts",
+      "sha256": "d57dbdba0667f823f47ebf78f0c4c897a1c7d8d5390dc60296bb1c24de366129"
+    },
+    {
+      "path": "backend/src/utils/__tests__/pagination.test.ts",
+      "sha256": "af15c3358139c117b24883ba69365b90bdabcf8750e058439be49858a174f853"
+    },
+    {
+      "path": "backend/src/utils/__tests__/response.test.ts",
+      "sha256": "d9cbc4983f5f3a15fc9beeb7642729431f35502b0de7f6b681db3c42d814aa95"
+    },
+    {
+      "path": "backend/src/utils/__tests__/sanitize.test.ts",
+      "sha256": "6d8a06948e2dc602aad6b89dca310450633eb4d701ca14cc36afd89c403130e2"
+    },
+    {
+      "path": "backend/src/utils/auth.ts",
+      "sha256": "103a5e6acd31e4322e1f5224e361a6402aa381544f7cbb3b3330a91c81650e8e"
+    },
+    {
+      "path": "backend/src/utils/datetime.ts",
+      "sha256": "138650fafcf5970a9553903294c9a8abe8b932bafe2ce7a5778adb900c9f8137"
+    },
+    {
+      "path": "backend/src/utils/logger.ts",
+      "sha256": "c6f4072acf79d935e79e4164330cf750ea03f55b79eb3f92684dda99473c177b"
+    },
+    {
+      "path": "backend/src/utils/pagination.ts",
+      "sha256": "24ed4304a9f3ce9e363e7d39968b9b87b1976b3b991acb78747c91fdc003ba32"
+    },
+    {
+      "path": "backend/src/utils/response.ts",
+      "sha256": "b376073d684c494f9d362e456763fab90812557c8ce0e17e5c9a2a44932cea1e"
+    },
+    {
+      "path": "backend/src/utils/sanitize.ts",
+      "sha256": "4ff5963c9c9c69804e94874bfc3f0e750482fcb0d3ac086499d766c4ab57e4e8"
+    },
+    {
+      "path": "backend/tsconfig.json",
+      "sha256": "13d6c6a47201112dd36fe94d65226a1aeb4793cfe02a304785d6de4a753ff138"
+    }
+  ]
+}

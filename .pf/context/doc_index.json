@@ -1,0 +1,395 @@
+{
+  "created_at": "2025-12-09T17:33:33.427236",
+  "capsules": [
+    {
+      "name": "jspdf",
+      "version": "3.0.4",
+      "ecosystem": "npm",
+      "path": "npm__jspdf@3.0.4.md"
+    },
+    {
+      "name": "framer-motion",
+      "version": "12.23.24",
+      "ecosystem": "npm",
+      "path": "npm__framer-motion@12.23.24.md"
+    },
+    {
+      "name": "passport",
+      "version": "0.7.0",
+      "ecosystem": "npm",
+      "path": "npm__passport@0.7.0.md"
+    },
+    {
+      "name": "helmet",
+      "version": "7.1.0",
+      "ecosystem": "npm",
+      "path": "npm__helmet@7.1.0.md"
+    },
+    {
+      "name": "supertest",
+      "version": "7.1.4",
+      "ecosystem": "npm",
+      "path": "npm__supertest@7.1.4.md"
+    },
+    {
+      "name": "dotenv",
+      "version": "16.3.1",
+      "ecosystem": "npm",
+      "path": "npm__dotenv@16.3.1.md"
+    },
+    {
+      "name": "_at_types_jest",
+      "version": "29.5.8",
+      "ecosystem": "npm",
+      "path": "npm___at_types_jest@29.5.8.md"
+    },
+    {
+      "name": "autoprefixer",
+      "version": "10.4.22",
+      "ecosystem": "npm",
+      "path": "npm__autoprefixer@10.4.22.md"
+    },
+    {
+      "name": "passport-microsoft",
+      "version": "1.0.0",
+      "ecosystem": "npm",
+      "path": "npm__passport-microsoft@1.0.0.md"
+    },
+    {
+      "name": "joi",
+      "version": "17.11.0",
+      "ecosystem": "npm",
+      "path": "npm__joi@17.11.0.md"
+    },
+    {
+      "name": "react",
+      "version": "19.2.0",
+      "ecosystem": "npm",
+      "path": "npm__react@19.2.0.md"
+    },
+    {
+      "name": "aws-sdk",
+      "version": "2.1525.0",
+      "ecosystem": "npm",
+      "path": "npm__aws-sdk@2.1525.0.md"
+    },
+    {
+      "name": "csrf-csrf",
+      "version": "4.0.3",
+      "ecosystem": "npm",
+      "path": "npm__csrf-csrf@4.0.3.md"
+    },
+    {
+      "name": "_at_types_cors",
+      "version": "2.8.17",
+      "ecosystem": "npm",
+      "path": "npm___at_types_cors@2.8.17.md"
+    },
+    {
+      "name": "cors",
+      "version": "2.8.5",
+      "ecosystem": "npm",
+      "path": "npm__cors@2.8.5.md"
+    },
+    {
+      "name": "zod",
+      "version": "3.22.4",
+      "ecosystem": "npm",
+      "path": "npm__zod@3.22.4.md"
+    },
+    {
+      "name": "_at_types_morgan",
+      "version": "1.9.10",
+      "ecosystem": "npm",
+      "path": "npm___at_types_morgan@1.9.10.md"
+    },
+    {
+      "name": "eslint",
+      "version": "8.54.0",
+      "ecosystem": "npm",
+      "path": "npm__eslint@8.54.0.md"
+    },
+    {
+      "name": "lucide-react",
+      "version": "0.555.0",
+      "ecosystem": "npm",
+      "path": "npm__lucide-react@0.555.0.md"
+    },
+    {
+      "name": "next",
+      "version": "16.0.7",
+      "ecosystem": "npm",
+      "path": "npm__next@16.0.7.md"
+    },
+    {
+      "name": "express-rate-limit",
+      "version": "7.5.1",
+      "ecosystem": "npm",
+      "path": "npm__express-rate-limit@7.5.1.md"
+    },
+    {
+      "name": "bcryptjs",
+      "version": "2.4.3",
+      "ecosystem": "npm",
+      "path": "npm__bcryptjs@2.4.3.md"
+    },
+    {
+      "name": "chart.js",
+      "version": "4.5.1",
+      "ecosystem": "npm",
+      "path": "npm__chart.js@4.5.1.md"
+    },
+    {
+      "name": "_at_types_node-cron",
+      "version": "3.0.11",
+      "ecosystem": "npm",
+      "path": "npm___at_types_node-cron@3.0.11.md"
+    },
+    {
+      "name": "_at_typescript-eslint_eslint-plugin",
+      "version": "6.13.1",
+      "ecosystem": "npm",
+      "path": "npm___at_typescript-eslint_eslint-plugin@6.13.1.md"
+    },
+    {
+      "name": "babel-plugin-react-compiler",
+      "version": "1.0.0",
+      "ecosystem": "npm",
+      "path": "npm__babel-plugin-react-compiler@1.0.0.md"
+    },
+    {
+      "name": "morgan",
+      "version": "1.10.1",
+      "ecosystem": "npm",
+      "path": "npm__morgan@1.10.1.md"
+    },
+    {
+      "name": "compression",
+      "version": "1.7.4",
+      "ecosystem": "npm",
+      "path": "npm__compression@1.7.4.md"
+    },
+    {
+      "name": "postcss",
+      "version": "8.5.6",
+      "ecosystem": "npm",
+      "path": "npm__postcss@8.5.6.md"
+    },
+    {
+      "name": "nodemailer",
+      "version": "6.9.7",
+      "ecosystem": "npm",
+      "path": "npm__nodemailer@6.9.7.md"
+    },
+    {
+      "name": "_at_types_passport",
+      "version": "1.0.16",
+      "ecosystem": "npm",
+      "path": "npm___at_types_passport@1.0.16.md"
+    },
+    {
+      "name": "node-cron",
+      "version": "3.0.3",
+      "ecosystem": "npm",
+      "path": "npm__node-cron@3.0.3.md"
+    },
+    {
+      "name": "typescript",
+      "version": "5.3.3",
+      "ecosystem": "npm",
+      "path": "npm__typescript@5.3.3.md"
+    },
+    {
+      "name": "jsonwebtoken",
+      "version": "9.0.2",
+      "ecosystem": "npm",
+      "path": "npm__jsonwebtoken@9.0.2.md"
+    },
+    {
+      "name": "html2canvas",
+      "version": "1.4.1",
+      "ecosystem": "npm",
+      "path": "npm__html2canvas@1.4.1.md"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.2.0",
+      "ecosystem": "npm",
+      "path": "npm__react-dom@19.2.0.md"
+    },
+    {
+      "name": "uuid",
+      "version": "9.0.1",
+      "ecosystem": "npm",
+      "path": "npm__uuid@9.0.1.md"
+    },
+    {
+      "name": "cookie-parser",
+      "version": "1.4.7",
+      "ecosystem": "npm",
+      "path": "npm__cookie-parser@1.4.7.md"
+    },
+    {
+      "name": "winston",
+      "version": "3.11.0",
+      "ecosystem": "npm",
+      "path": "npm__winston@3.11.0.md"
+    },
+    {
+      "name": "eslint-config-next",
+      "version": "16.0.5",
+      "ecosystem": "npm",
+      "path": "npm__eslint-config-next@16.0.5.md"
+    },
+    {
+      "name": "tsx",
+      "version": "4.6.2",
+      "ecosystem": "npm",
+      "path": "npm__tsx@4.6.2.md"
+    },
+    {
+      "name": "_at_types_compression",
+      "version": "1.7.5",
+      "ecosystem": "npm",
+      "path": "npm___at_types_compression@1.7.5.md"
+    },
+    {
+      "name": "isomorphic-dompurify",
+      "version": "2.33.0",
+      "ecosystem": "npm",
+      "path": "npm__isomorphic-dompurify@2.33.0.md"
+    },
+    {
+      "name": "_at_types_node",
+      "version": "20.10.5",
+      "ecosystem": "npm",
+      "path": "npm___at_types_node@20.10.5.md"
+    },
+    {
+      "name": "_at_types_passport-google-oauth20",
+      "version": "2.0.14",
+      "ecosystem": "npm",
+      "path": "npm___at_types_passport-google-oauth20@2.0.14.md"
+    },
+    {
+      "name": "_at_types_express",
+      "version": "4.17.21",
+      "ecosystem": "npm",
+      "path": "npm___at_types_express@4.17.21.md"
+    },
+    {
+      "name": "multer",
+      "version": "1.4.5-lts.1",
+      "ecosystem": "npm",
+      "path": "npm__multer@1.4.5-lts.1.md"
+    },
+    {
+      "name": "_at_prisma_client",
+      "version": "5.7.1",
+      "ecosystem": "npm",
+      "path": "npm___at_prisma_client@5.7.1.md"
+    },
+    {
+      "name": "jest",
+      "version": "29.7.0",
+      "ecosystem": "npm",
+      "path": "npm__jest@29.7.0.md"
+    },
+    {
+      "name": "_at_types_supertest",
+      "version": "6.0.3",
+      "ecosystem": "npm",
+      "path": "npm___at_types_supertest@6.0.3.md"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "3.4.17",
+      "ecosystem": "npm",
+      "path": "npm__tailwindcss@3.4.17.md"
+    },
+    {
+      "name": "_at_types_bcryptjs",
+      "version": "2.4.6",
+      "ecosystem": "npm",
+      "path": "npm___at_types_bcryptjs@2.4.6.md"
+    },
+    {
+      "name": "_at_types_uuid",
+      "version": "9.0.7",
+      "ecosystem": "npm",
+      "path": "npm___at_types_uuid@9.0.7.md"
+    },
+    {
+      "name": "_at_types_multer",
+      "version": "1.4.11",
+      "ecosystem": "npm",
+      "path": "npm___at_types_multer@1.4.11.md"
+    },
+    {
+      "name": "ts-jest",
+      "version": "29.1.1",
+      "ecosystem": "npm",
+      "path": "npm__ts-jest@29.1.1.md"
+    },
+    {
+      "name": "express-validator",
+      "version": "7.3.1",
+      "ecosystem": "npm",
+      "path": "npm__express-validator@7.3.1.md"
+    },
+    {
+      "name": "_at_typescript-eslint_parser",
+      "version": "6.13.1",
+      "ecosystem": "npm",
+      "path": "npm___at_typescript-eslint_parser@6.13.1.md"
+    },
+    {
+      "name": "_at_headlessui_react",
+      "version": "2.2.9",
+      "ecosystem": "npm",
+      "path": "npm___at_headlessui_react@2.2.9.md"
+    },
+    {
+      "name": "_at_types_nodemailer",
+      "version": "6.4.14",
+      "ecosystem": "npm",
+      "path": "npm___at_types_nodemailer@6.4.14.md"
+    },
+    {
+      "name": "passport-google-oauth20",
+      "version": "2.0.0",
+      "ecosystem": "npm",
+      "path": "npm__passport-google-oauth20@2.0.0.md"
+    },
+    {
+      "name": "prisma",
+      "version": "5.7.1",
+      "ecosystem": "npm",
+      "path": "npm__prisma@5.7.1.md"
+    },
+    {
+      "name": "_at_types_jsonwebtoken",
+      "version": "9.0.5",
+      "ecosystem": "npm",
+      "path": "npm___at_types_jsonwebtoken@9.0.5.md"
+    },
+    {
+      "name": "express",
+      "version": "4.18.2",
+      "ecosystem": "npm",
+      "path": "npm__express@4.18.2.md"
+    },
+    {
+      "name": "react-chartjs-2",
+      "version": "5.3.1",
+      "ecosystem": "npm",
+      "path": "npm__react-chartjs-2@5.3.1.md"
+    }
+  ],
+  "stats": {
+    "total_docs": 69,
+    "capsules_created": 64,
+    "skipped": 0,
+    "errors": []
+  }
+}

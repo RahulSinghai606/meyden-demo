@@ -1,0 +1,37 @@
+[
+  {
+    "framework": "express",
+    "language": "javascript",
+    "path": "backend",
+    "source": "backend/package.json",
+    "version": "^4.18.2"
+  },
+  {
+    "framework": "next",
+    "language": "javascript",
+    "path": "meyden-frontend-clean",
+    "source": "meyden-frontend-clean/package.json",
+    "version": "16.0.7"
+  },
+  {
+    "framework": "next",
+    "language": "javascript",
+    "path": "meyden-frontend-clean/.next/standalone",
+    "source": "meyden-frontend-clean/.next/standalone/package.json",
+    "version": "16.0.5"
+  },
+  {
+    "framework": "react",
+    "language": "javascript",
+    "path": "meyden-frontend-clean",
+    "source": "meyden-frontend-clean/package.json",
+    "version": "19.2.0"
+  },
+  {
+    "framework": "react",
+    "language": "javascript",
+    "path": "meyden-frontend-clean/.next/standalone",
+    "source": "meyden-frontend-clean/.next/standalone/package.json",
+    "version": "19.2.0"
+  }
+]

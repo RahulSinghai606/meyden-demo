@@ -1,0 +1,10 @@
+{
+  "source_url": "https://registry.npmjs.org/dotenv/16.3.1",
+  "last_checked": "2025-12-09T17:32:27.960761",
+  "etag": null,
+  "repository": {
+    "url": "git://github.com/motdotla/dotenv.git",
+    "type": "git"
+  },
+  "from_github": true
+}

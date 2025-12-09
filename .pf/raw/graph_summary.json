@@ -1,0 +1,80 @@
+{
+  "statistics": {
+    "total_nodes": 38,
+    "total_edges": 244,
+    "graph_density": 0.1735,
+    "isolated_nodes": 0,
+    "average_connections": 6.42
+  },
+  "top_connected_nodes": [
+    {
+      "id": "backend/src/app.ts",
+      "in_degree": 1,
+      "out_degree": 35,
+      "total_connections": 36
+    },
+    {
+      "id": "backend/src/utils/logger.ts",
+      "in_degree": 22,
+      "out_degree": 3,
+      "total_connections": 25
+    },
+    {
+      "id": "backend/src/config/database.ts",
+      "in_degree": 17,
+      "out_degree": 3,
+      "total_connections": 20
+    },
+    {
+      "id": "backend/src/utils/auth.ts",
+      "in_degree": 7,
+      "out_degree": 12,
+      "total_connections": 19
+    },
+    {
+      "id": "backend/src/routes/auth.routes.ts",
+      "in_degree": 2,
+      "out_degree": 13,
+      "total_connections": 15
+    },
+    {
+      "id": "backend/src/utils/sanitize.ts",
+      "in_degree": 12,
+      "out_degree": 2,
+      "total_connections": 14
+    },
+    {
+      "id": "backend/src/routes/ai-readiness.routes.ts",
+      "in_degree": 2,
+      "out_degree": 11,
+      "total_connections": 13
+    },
+    {
+      "id": "backend/src/routes/community.routes.ts",
+      "in_degree": 2,
+      "out_degree": 11,
+      "total_connections": 13
+    },
+    {
+      "id": "backend/src/routes/vendor.routes.ts",
+      "in_degree": 2,
+      "out_degree": 11,
+      "total_connections": 13
+    },
+    {
+      "id": "backend/src/middleware/auth.ts",
+      "in_degree": 4,
+      "out_degree": 8,
+      "total_connections": 12
+    }
+  ],
+  "cycles_found": [],
+  "file_types": {
+    ".ts": 38
+  },
+  "connection_distribution": {
+    "nodes_with_20_plus_connections": 2,
+    "nodes_with_30_plus_inbound": 0,
+    "cycle_count": 0
+  }
+}

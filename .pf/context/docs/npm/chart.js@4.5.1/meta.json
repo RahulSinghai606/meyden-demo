@@ -1,0 +1,10 @@
+{
+  "source_url": "https://registry.npmjs.org/chart.js/4.5.1",
+  "last_checked": "2025-12-09T17:33:15.807077",
+  "etag": null,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chartjs/Chart.js.git"
+  },
+  "from_github": true
+}

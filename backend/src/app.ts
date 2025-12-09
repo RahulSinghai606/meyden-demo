@@ -71,17 +71,30 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false,
 }));
 
-// CORS configuration - SECURITY FIX: No null origin in production
+// CORS configuration - SECURITY: Validate origins in production
+const allowedOrigins = Array.isArray(config.corsOrigin)
+  ? config.corsOrigin
+  : (config.corsOrigin as unknown as string).split(',').map((o: string) => o.trim()).filter(Boolean);
+
 app.use(cors({
   origin: (requestOrigin, callback) => {
-    // Allow all origins for now to fix the issue
-    return callback(null, true);
+    // Allow requests with no origin (mobile apps, curl, etc.) only in dev
+    if (!requestOrigin) {
+      return callback(null, config.nodeEnv !== 'production');
+    }
+    // Check if origin is in whitelist
+    if (allowedOrigins.includes(requestOrigin) || config.nodeEnv !== 'production') {
+      return callback(null, true);
+    }
+    logger.warn(`CORS blocked origin: ${requestOrigin}`);
+    return callback(new Error('Not allowed by CORS'), false);
   },
   credentials: config.corsCredentials,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'X-CSRF-Token'],
   exposedHeaders: ['X-Total-Count', 'X-Rate-Limit-Remaining'],
 }));
+
 
 // Rate limiting
 const limiter = rateLimit({
@@ -133,11 +146,16 @@ const csrfProtection = doubleCsrf({
 
 // CSRF token endpoint
 app.get('/api/v1/csrf-token', (req: Request, res: Response) => {
-  const csrfToken = csrfProtection.generateCsrfToken(req, res);
-  res.json({
-    success: true,
-    csrfToken,
-  });
+  try {
+    const csrfToken = csrfProtection.generateCsrfToken(req, res);
+    res.json({
+      success: true,
+      csrfToken,
+    });
+  } catch (error) {
+    logger.error('CSRF token generation failed:', error);
+    res.status(500).json({ error: 'Failed to generate CSRF token' });
+  }
 });
 
 // Apply CSRF protection to state-changing routes

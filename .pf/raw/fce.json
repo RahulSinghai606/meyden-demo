@@ -1,0 +1,1809 @@
+{
+  "timestamp": "2025-12-09T12:03:33.544636+00:00",
+  "all_findings": [
+    {
+      "file": "backend/src/app.ts",
+      "line": 198,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Svelte components",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 198,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in React component",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 198,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Angular components or services",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/config/environment.ts",
+      "line": 63,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 64,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 66,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Svelte components",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 66,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in React component",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 66,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Angular components or services",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 75,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 77,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Svelte components",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 77,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in React component",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 77,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Angular components or services",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 86,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 88,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Svelte components",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 88,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in React component",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 88,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Angular components or services",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 101,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 103,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Svelte components",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 103,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in React component",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 103,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Angular components or services",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 112,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 114,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Svelte components",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 114,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in React component",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 114,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Angular components or services",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 74,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 157,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 160,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 528,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 558,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Critical endpoint without rate limiting (regex fallback)",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 149,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 12,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 22,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 28,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 39,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 56,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 64,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 105,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 108,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 138,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 145,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 160,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 166,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 39,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Svelte components",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 39,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in React component",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 39,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Angular components or services",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 40,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Svelte components",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 40,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in React component",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 40,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded credentials in Angular components or services",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 64,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 78,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 14,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "JWT created with weak algorithm or missing expiration",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 25,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "JWT created with weak algorithm or missing expiration",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/utils/sanitize.ts",
+      "line": 88,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "severity": "critical"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 34,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Express route without error handling",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 75,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Null origin allowed (regex fallback)",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 135,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 135,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Express route without error handling",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 183,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Express route without error handling",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/config/database.ts",
+      "line": 31,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Database/network connection without explicit close",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/config/database.ts",
+      "line": 45,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Database/network connection without explicit close",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/config/database.ts",
+      "line": 56,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Database/network connection without explicit close",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/config/database.ts",
+      "line": 62,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Database/network connection without explicit close",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 507,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Database/network connection without explicit close",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/middleware/errorHandler.ts",
+      "line": 10,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Class field used in constructor before initialization",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 31,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 46,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 70,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 118,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 118,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 121,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Request body data used without validation",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 147,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 147,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 167,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 167,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 206,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 223,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 295,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 305,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 305,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 141,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 185,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 327,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Transaction started but no rollback in error path",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 433,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Transaction started but no rollback in error path",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 77,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 81,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 167,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 195,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 297,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 331,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 364,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 427,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 436,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 467,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 482,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 491,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 536,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 549,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 558,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 605,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 620,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 184,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 245,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 340,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 349,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 359,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 367,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 100,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 151,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 178,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/upload.routes.ts",
+      "line": 7,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 41,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 93,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 93,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/vendor.routes.ts",
+      "line": 172,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "State-changing route without CSRF protection",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/routes/vendor.routes.ts",
+      "line": 174,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Request body data used without validation",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 28,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 32,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Async function call without await - potential race condition",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 34,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 56,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 61,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 64,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 71,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Async function call without await - potential race condition",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 105,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Async function call without await - potential race condition",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 174,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Async function call without await - potential race condition",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 47,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 40,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 49,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 8,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 88,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 102,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 117,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 139,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 419,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 435,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 453,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/database/seed.ts",
+      "line": 462,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/middleware/auditLogger.ts",
+      "line": 8,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/middleware/auditLogger.ts",
+      "line": 25,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/middleware/auth.ts",
+      "line": 76,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/middleware/auth.ts",
+      "line": 102,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/middleware/auth.ts",
+      "line": 123,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/middleware/auth.ts",
+      "line": 174,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/middleware/requireAuth.ts",
+      "line": 79,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/middleware/validation.ts",
+      "line": 54,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/admin.routes.test.ts",
+      "line": 92,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 29,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 32,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 33,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 59,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 74,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Sleep/delay in loop - potential performance issue or race condition",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 84,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 110,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Sleep/delay in loop - potential performance issue or race condition",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "line": 110,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/community.routes.test.ts",
+      "line": 64,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/community.routes.test.ts",
+      "line": 79,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/__tests__/user.routes.test.ts",
+      "line": 61,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 31,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 46,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 70,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 160,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 177,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 212,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 242,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 259,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/admin.routes.ts",
+      "line": 262,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 141,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 185,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 211,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 224,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 247,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 442,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 442,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 458,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 167,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 169,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 271,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 285,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 297,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 413,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 458,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 467,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 520,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 536,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 593,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 605,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 196,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 257,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 283,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 340,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 359,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 35,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 41,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 56,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 74,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "redirect() calls that may use unvalidated user input - creates open redirect vulnerability",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 79,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 135,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 151,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 152,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 161,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 173,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 175,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/oauth.routes.ts",
+      "line": 178,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 67,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 117,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/vendor.routes.ts",
+      "line": 33,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/vendor.routes.ts",
+      "line": 172,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/routes/vendor.routes.ts",
+      "line": 274,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/server.ts",
+      "line": 26,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/services/email.service.ts",
+      "line": 39,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Hardcoded production API endpoint (should use environment variables)",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/__tests__/sanitize.test.ts",
+      "line": 74,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 65,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 73,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 90,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 120,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 129,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 139,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 149,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 167,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/auth.ts",
+      "line": 184,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/datetime.ts",
+      "line": 5,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/datetime.ts",
+      "line": 22,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Using naive datetime without timezone awareness",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/pagination.ts",
+      "line": 15,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/sanitize.ts",
+      "line": 14,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    },
+    {
+      "file": "backend/src/utils/sanitize.ts",
+      "line": 49,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "User input rendered without escaping - potential XSS",
+      "severity": "medium"
+    }
+  ],
+  "test_results": {
+    "completed_at": "2025-12-09T12:03:34.253496+00:00",
+    "failures": [],
+    "tools_run": 0
+  },
+  "correlations": {
+    "hotspots": {},
+    "total_findings": 224,
+    "total_lines_with_findings": 179,
+    "total_hotspots": 0,
+    "factual_clusters": []
+  }
+}
