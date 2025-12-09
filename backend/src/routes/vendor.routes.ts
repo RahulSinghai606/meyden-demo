@@ -1,4 +1,3 @@
-import { body, validationResult } from 'express-validator';
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import prisma from '../config/database';
@@ -6,6 +5,7 @@ import prisma from '../config/database';
 import { maskPII } from '../utils/sanitize';
 import { logger } from '../utils/logger';
 import { getCurrentUTC } from '../utils/datetime';
+import { getPaginationParams } from '../utils/pagination';
 
 const router = Router();
 
@@ -35,10 +35,8 @@ router.get('/', async (req: Request, res: Response) => {
     const country = typeof req.query.country === 'string' ? req.query.country : undefined;
     const city = typeof req.query.city === 'string' ? req.query.city : undefined;
     const minRatingStr = typeof req.query.minRating === 'string' ? req.query.minRating : undefined;
-    const minRating = minRatingStr ? parseFloat(minRatingStr) : undefined;
-    const page = parseInt(req.query.page as string) || 1;
-    const limit = parseInt(req.query.limit as string) || 20;
-    const offset = (page - 1) * limit;
+    const minRating = minRatingStr ? Number.parseFloat(minRatingStr) : undefined;
+    const { page, limit, offset } = getPaginationParams(req);
 
     // Build where clause
     const where: any = {
@@ -222,9 +220,7 @@ router.post('/', async (req: Request, res: Response) => {
 router.get('/:id/reviews', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const page = parseInt(req.query.page as string) || 1;
-    const limit = parseInt(req.query.limit as string) || 10;
-    const offset = (page - 1) * limit;
+    const { page, limit, offset } = getPaginationParams(req, 10);
 
     const [reviews, totalCount] = await Promise.all([
       prisma.review.findMany({
@@ -272,7 +268,7 @@ router.get('/:id/reviews', async (req: Request, res: Response) => {
 // Get popular vendors
 router.get('/popular/list', async (req: Request, res: Response) => {
   try {
-    const limit = parseInt(req.query.limit as string) || 10;
+    const limit = Number.parseInt(req.query.limit as string, 10) || 10;
 
     const vendors = await prisma.vendor.findMany({
       where: {

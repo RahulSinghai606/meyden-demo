@@ -27,7 +27,7 @@ async function main() {
     logger.info('🗑️  Cleared existing data');
 
     // Create categories
-    const categories = await prisma.category.createMany({
+    await prisma.category.createMany({
       data: [
         { name: 'Government AI', slug: 'government-ai', description: 'AI implementations in government sectors' },
         { name: 'Data Governance', slug: 'data-governance', description: 'Data management and governance' },
@@ -41,7 +41,7 @@ async function main() {
 
     // Create admin user
     const adminPassword = await hashPassword('admin123');
-    const admin = await prisma.user.create({
+    await prisma.user.create({
       data: {
         email: 'admin@meyden.com',
         passwordHash: adminPassword,

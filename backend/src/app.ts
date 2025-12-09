@@ -31,23 +31,25 @@ import prisma from './config/database';
 
 // Health check endpoint - Defined first to bypass middleware (CORS, Auth, etc.)
 app.get('/health', async (req: Request, res: Response) => {
-  let dbStatus = 'UNKNOWN';
   try {
     await prisma.$queryRaw`SELECT 1`;
-    dbStatus = 'CONNECTED';
+    res.status(200).json({
+      status: 'success',
+      message: 'Meyden Backend API is running',
+      timestamp: new Date().toISOString(),
+      environment: config.nodeEnv,
+      database: 'CONNECTED'
+    });
   } catch (error) {
-    dbStatus = 'DISCONNECTED';
     logger.error('Health check DB failure:', error);
+    res.status(200).json({
+      status: 'success',
+      message: 'Meyden Backend API is running',
+      timestamp: new Date().toISOString(),
+      environment: config.nodeEnv,
+      database: 'DISCONNECTED'
+    });
   }
-
-  res.status(200).json({
-    status: 'OK',
-    timestamp: getCurrentUTC().toISOString(),
-    uptime: process.uptime(),
-    environment: config.nodeEnv,
-    version: process.env.npm_package_version || '1.0.0',
-    database: dbStatus,
-  });
 });
 
 // Security middleware

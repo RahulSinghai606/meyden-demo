@@ -18,7 +18,7 @@ export function sanitizeInput(input: any): any {
   if (typeof input === 'object' && input !== null) {
     const sanitized: any = {};
     for (const key in input) {
-      if (input.hasOwnProperty(key)) {
+      if (Object.hasOwn(input, key)) {
         sanitized[key] = sanitizeInput(input[key]);
       }
     }
@@ -52,38 +52,18 @@ export function maskPII(data: any): any {
 
   const masked = { ...data };
   const piiFields = [
-    'password',
-    'email',
-    'phone',
-    'ssn',
-    'token',
-    'secret',
-    'refreshToken',
-    'accessToken',
-    'resetToken',
-    'verificationToken',
-    'creditCard',
-    'cvv',
-    'address',
+    'password', 'email', 'phone', 'ssn', 'token', 'secret',
+    'refreshToken', 'accessToken', 'resetToken', 'verificationToken',
+    'creditCard', 'cvv', 'address',
   ];
 
   for (const key in masked) {
-    if (masked.hasOwnProperty(key)) {
+    if (Object.hasOwn(masked, key)) {
       const lowerKey = key.toLowerCase();
+      const isPII = piiFields.some((field) => lowerKey.includes(field));
 
-      if (piiFields.some((field) => lowerKey.includes(field))) {
-        // Mask the value
-        if (typeof masked[key] === 'string') {
-          if (lowerKey.includes('email') && masked[key].includes('@')) {
-            // Show first char and domain for emails
-            const parts = masked[key].split('@');
-            masked[key] = `${parts[0][0]}***@${parts[1]}`;
-          } else {
-            masked[key] = '***MASKED***';
-          }
-        } else {
-          masked[key] = '***MASKED***';
-        }
+      if (isPII) {
+        masked[key] = maskValue(key, masked[key]);
       } else if (typeof masked[key] === 'object') {
         masked[key] = maskPII(masked[key]);
       }
@@ -91,6 +71,17 @@ export function maskPII(data: any): any {
   }
 
   return masked;
+}
+
+function maskValue(key: string, value: any): string {
+  if (typeof value === 'string') {
+    if (key.toLowerCase().includes('email') && value.includes('@')) {
+      const parts = value.split('@');
+      return `${parts[0][0]}***@${parts[1]}`;
+    }
+    return '***MASKED***';
+  }
+  return '***MASKED***';
 }
 
 /**

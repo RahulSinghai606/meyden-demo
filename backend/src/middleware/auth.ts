@@ -18,8 +18,8 @@ export interface AuthenticatedRequest extends Request {
 export const authenticate = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
   try {
     const authHeader = req.headers.authorization;
-    
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+
+    if (!authHeader?.startsWith('Bearer ')) {
       return res.status(401).json({
         error: 'Access token required',
         code: 'TOKEN_MISSING'
@@ -27,7 +27,7 @@ export const authenticate = async (req: AuthenticatedRequest, res: Response, nex
     }
 
     const token = authHeader.substring(7);
-    
+
     if (!token) {
       return res.status(401).json({
         error: 'Access token required',
@@ -37,8 +37,8 @@ export const authenticate = async (req: AuthenticatedRequest, res: Response, nex
 
     // Verify token
     const decoded = verifyToken(token);
-    
-    if (!decoded || !decoded.userId) {
+
+    if (!decoded?.userId) {
       return res.status(401).json({
         error: 'Invalid or expired token',
         code: 'TOKEN_INVALID'
@@ -142,7 +142,7 @@ export const requireVerifiedEmail = (req: AuthenticatedRequest, res: Response, n
   // This would require an additional query to get the email verification status
   // For now, we'll assume all active users are verified
   // In production, you might want to check this against the database
-  
+
   next();
 };
 
@@ -150,15 +150,15 @@ export const requireVerifiedEmail = (req: AuthenticatedRequest, res: Response, n
 export const optionalAuth = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
   try {
     const authHeader = req.headers.authorization;
-    
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+
+    if (!authHeader?.startsWith('Bearer ')) {
       return next();
     }
 
     const token = authHeader.substring(7);
     const decoded = verifyToken(token);
-    
-    if (decoded && decoded.userId) {
+
+    if (decoded?.userId) {
       const session = await prisma.session.findFirst({
         where: {
           token,

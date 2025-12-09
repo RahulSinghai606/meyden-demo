@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2022",
     "lib": [
-      "ES2020"
+      "ES2022"
     ],
     "module": "commonjs",
     "outDir": "./dist",
@@ -53,14 +53,17 @@
       "@/models/*": [
         "src/models/*"
       ]
-    }
+    },
+    "types": [
+      "node",
+      "jest"
+    ]
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "**/*.test.ts"
+    "dist"
   ]
 }

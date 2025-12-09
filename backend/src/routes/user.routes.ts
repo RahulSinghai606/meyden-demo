@@ -4,6 +4,7 @@ import { maskPII } from '../utils/sanitize';
 import { z } from 'zod';
 import prisma from '../config/database';
 import { logger } from '../utils/logger';
+import { getPaginationParams } from '../utils/pagination';
 
 const router = Router();
 
@@ -104,11 +105,11 @@ router.put('/profile', requireAuth, async (req: Request, res: Response) => {
 
     // Update or create profile
     const profileData: any = {};
-    Object.keys(validatedData).forEach(key => {
+    for (const key of Object.keys(validatedData)) {
       if (!['firstName', 'lastName'].includes(key)) {
         profileData[key] = validatedData[key as keyof typeof validatedData];
       }
-    });
+    }
 
     const profile = await prisma.profile.upsert({
       where: { userId: user.id },
@@ -146,11 +147,9 @@ router.put('/profile', requireAuth, async (req: Request, res: Response) => {
 // Get all users (admin only)
 router.get('/', async (req: Request, res: Response) => {
   try {
-    const page = parseInt(req.query.page as string) || 1;
-    const limit = parseInt(req.query.limit as string) || 20;
+    const { page, limit, offset } = getPaginationParams(req);
     const role = typeof req.query.role === 'string' ? req.query.role : undefined;
     const status = typeof req.query.status === 'string' ? req.query.status : undefined;
-    const offset = (page - 1) * limit;
 
     // Build where clause
     const where: any = {};

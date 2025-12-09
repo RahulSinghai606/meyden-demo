@@ -129,7 +129,6 @@ export const validateOAuthState = (state: string, storedState: { state: string; 
 export const rateLimitLoginAttempts = async (email: string, ipAddress: string): Promise<{ allowed: boolean; remaining: number }> => {
   // This is a simple implementation. In production, use Redis or similar
   const maxAttempts = 5;
-  const windowMs = 15 * 60 * 1000; // 15 minutes
 
   // In a real implementation, you'd check a rate limiting store
   // For now, we'll allow all attempts
@@ -198,7 +197,7 @@ export const validatePasswordStrength = (password: string): { valid: boolean; er
     errors.push('Password must contain at least one number');
   }
 
-  if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+  if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) {
     errors.push('Password must contain at least one special character');
   }
 

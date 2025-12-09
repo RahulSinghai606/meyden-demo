@@ -22,8 +22,7 @@ import {
 } from '../utils/auth';
 import { logger } from '../utils/logger';
 import { config } from '../config/environment';
-import { AuthenticatedRequest } from '../middleware/auth';
-import { maskPII, sanitizeUserForBroadcast } from '../utils/sanitize';
+import { maskPII } from '../utils/sanitize';
 import { getCurrentUTC } from '../utils/datetime';
 
 const router = Router();
@@ -76,7 +75,6 @@ const verifyEmailSchema = z.object({
 const sendEmail = async (to: string, subject: string, content: string) => {
   // In production, integrate with AWS SES, SendGrid, or similar
   logger.info(`Email would be sent to ${maskPII({ email: to })}: ${subject}`);
-  console.log('Email Content:', content);
 };
 
 // Register endpoint
@@ -199,7 +197,7 @@ router.post('/login', loginLimiter, async (req: Request, res: Response) => {
     const validatedData = loginSchema.parse(req.body);
     const { email, password } = validatedData;
     const sanitizedEmail = sanitizeEmail(email);
-    const ipAddress = req.ip || req.connection.remoteAddress || 'unknown';
+    const ipAddress = req.ip || req.socket.remoteAddress || 'unknown';
 
     // Check rate limiting
     const rateLimit = await rateLimitLoginAttempts(sanitizedEmail, ipAddress);
@@ -335,13 +333,13 @@ router.post('/logout', async (req: Request, res: Response) => {
     const authHeader = req.headers.authorization;
     let userId: string | null = null;
 
-    if (authHeader && authHeader.startsWith('Bearer ')) {
+    if (authHeader?.startsWith('Bearer ')) {
       const token = authHeader.substring(7);
       await invalidateSession(token);
 
       // Extract user ID from token for logging
       const decoded = verifyToken(token);
-      if (decoded && decoded.userId) {
+      if (decoded?.userId) {
         userId = decoded.userId as string;
         await invalidateAllUserSessions(userId);
       }

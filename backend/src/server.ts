@@ -1,4 +1,4 @@
-import { createServer } from 'http';
+import { createServer } from 'node:http';
 import app from './app';
 import { logger } from './utils/logger';
 import { config } from './config/environment';

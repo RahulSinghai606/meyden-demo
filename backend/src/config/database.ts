@@ -1,12 +1,12 @@
 import { PrismaClient } from '@prisma/client';
 import { logger } from '../utils/logger';
 
-declare global {
-  var __prisma: PrismaClient | undefined;
-}
+const globalForPrisma = globalThis as unknown as {
+  __prisma: PrismaClient | undefined;
+};
 
 // Prevent multiple instances of Prisma Client in development
-const prisma = global.__prisma || new PrismaClient({
+const prisma = globalForPrisma.__prisma || new PrismaClient({
   log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
 });
 
@@ -18,7 +18,7 @@ export const connectDatabase = async (): Promise<void> => {
   try {
     // Check if DATABASE_URL is provided
     const databaseUrl = process.env.DATABASE_URL;
-    
+
     if (!databaseUrl) {
       if (process.env.NODE_ENV === 'production') {
         logger.warn('⚠️  DATABASE_URL not provided. Running without database connection.');
@@ -27,7 +27,7 @@ export const connectDatabase = async (): Promise<void> => {
         throw new Error('DATABASE_URL is required for database connection');
       }
     }
-    
+
     await prisma.$connect();
     logger.info('✅ Database connection established');
   } catch (error) {

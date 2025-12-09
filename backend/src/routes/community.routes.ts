@@ -5,6 +5,7 @@ import prisma from '../config/database';
 import { maskPII } from '../utils/sanitize';
 import { logger } from '../utils/logger';
 import { getCurrentUTC } from '../utils/datetime';
+import { getPaginationParams } from '../utils/pagination';
 
 const router = Router();
 
@@ -26,11 +27,9 @@ const createCommentSchema = z.object({
 // Get all posts
 router.get('/posts', async (req: Request, res: Response) => {
   try {
-    const page = parseInt(req.query.page as string) || 1;
-    const limit = parseInt(req.query.limit as string) || 20;
+    const { page, limit, offset } = getPaginationParams(req);
     const category = typeof req.query.category === 'string' ? req.query.category : undefined;
     const type = typeof req.query.type === 'string' ? req.query.type : undefined;
-    const offset = (page - 1) * limit;
 
     // Build where clause
     const where: any = {

@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import { logger } from '../utils/logger';
-import { getCurrentUTC } from '../utils/datetime';
+
 
 // Request validation middleware
 export const requestValidator = (req: Request, res: Response, next: NextFunction): void => {
   // Basic request sanitization and validation
-  
+
   // Log suspicious requests
   const suspiciousPatterns = [
     /(<script|javascript:|onload=|onerror=)/i,

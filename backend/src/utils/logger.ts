@@ -48,22 +48,14 @@ transports.push(
   new winston.transports.Console({
     format: consoleFormat,
     level: config.logLevel,
-  })
-);
-
-// File transport for error logs
-transports.push(
+  }),
   new winston.transports.File({
     filename: 'logs/error.log',
     level: 'error',
     format: fileFormat,
     maxsize: parseSize(config.logMaxSize),
     maxFiles: config.logMaxFiles,
-  })
-);
-
-// File transport for all logs
-transports.push(
+  }),
   new winston.transports.File({
     filename: config.logFile,
     level: config.logLevel,
@@ -84,12 +76,12 @@ export const logger = winston.createLogger({
 // Helper function to parse file size strings like "10m", "100k"
 function parseSize(sizeStr: string): number {
   const units = { k: 1024, m: 1024 * 1024, g: 1024 * 1024 * 1024 };
-  const match = sizeStr.toLowerCase().match(/^(\d+)([kmg]?)$/);
+  const match = /^(\d+)([kmg]?)$/.exec(sizeStr.toLowerCase());
   if (!match) return 10 * 1024 * 1024; // default 10MB
-  
-  const value = parseInt(match[1], 10);
+
+  const value = Number.parseInt(match[1], 10);
   const unit = match[2] || '';
-  
+
   return units[unit as keyof typeof units] || value;
 }
 

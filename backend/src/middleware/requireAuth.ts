@@ -22,7 +22,7 @@ export const requireAuth = async (
   try {
     const authHeader = req.headers.authorization;
 
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    if (!authHeader?.startsWith('Bearer ')) {
       res.status(401).json({
         success: false,
         error: 'Authentication required. Please provide a valid token.',
@@ -110,7 +110,7 @@ export const optionalAuth = async (
   try {
     const authHeader = req.headers.authorization;
 
-    if (authHeader && authHeader.startsWith('Bearer ')) {
+    if (authHeader?.startsWith('Bearer ')) {
       const token = authHeader.replace('Bearer ', '');
       const decoded = verifyToken(token);
 

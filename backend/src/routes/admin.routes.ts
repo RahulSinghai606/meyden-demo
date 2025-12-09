@@ -3,6 +3,7 @@ import prisma from '../config/database';
 import { logger } from '../utils/logger';
 import { requireAuth, requireAdmin } from '../middleware/requireAuth';
 import { maskPII } from '../utils/sanitize';
+import { handleRouteError } from '../utils/response';
 
 const router = Router();
 
@@ -16,8 +17,7 @@ router.get('/vendors/pending', requireAuth, requireAdmin, async (req: Request, r
 
     res.json({ vendors });
   } catch (error) {
-    logger.error('Error fetching pending vendors:', maskPII(error));
-    res.status(500).json({ error: 'Internal server error' });
+    handleRouteError(res, error, 'FETCH_PENDING_VENDORS_ERROR', 'Error fetching pending vendors');
   }
 });
 
@@ -32,8 +32,7 @@ router.patch('/vendors/:id/approve', requireAuth, requireAdmin, async (req: Requ
     logger.info('Vendor approved', maskPII({ vendorId: vendor.id }));
     res.json({ vendor });
   } catch (error) {
-    logger.error('Error approving vendor:', maskPII(error));
-    res.status(500).json({ error: 'Internal server error' });
+    handleRouteError(res, error, 'APPROVE_VENDOR_ERROR', 'Error approving vendor');
   }
 });
 
@@ -48,8 +47,7 @@ router.patch('/vendors/:id/reject', requireAuth, requireAdmin, async (req: Reque
     logger.info('Vendor rejected', maskPII({ vendorId: vendor.id }));
     res.json({ vendor });
   } catch (error) {
-    logger.error('Error rejecting vendor:', maskPII(error));
-    res.status(500).json({ error: 'Internal server error' });
+    handleRouteError(res, error, 'REJECT_VENDOR_ERROR', 'Error rejecting vendor');
   }
 });
 
@@ -97,11 +95,7 @@ router.get('/analytics', async (req: Request, res: Response) => {
     res.json({ analytics });
 
   } catch (error) {
-    logger.error('Error fetching analytics:', maskPII(error));
-    res.status(500).json({
-      error: 'Internal server error',
-      code: 'FETCH_ANALYTICS_ERROR',
-    });
+    handleRouteError(res, error, 'FETCH_ANALYTICS_ERROR', 'Error fetching analytics');
   }
 });
 
@@ -115,11 +109,7 @@ router.get('/settings', async (req: Request, res: Response) => {
     res.json({ settings });
 
   } catch (error) {
-    logger.error('Error fetching settings:', maskPII(error));
-    res.status(500).json({
-      error: 'Internal server error',
-      code: 'FETCH_SETTINGS_ERROR',
-    });
+    handleRouteError(res, error, 'FETCH_SETTINGS_ERROR', 'Error fetching settings');
   }
 });
 

@@ -6,7 +6,7 @@ dotenv.config();
 // Environment configuration
 export const config = {
   // Server
-  port: parseInt(process.env.PORT || '3001', 10),
+  port: Number.parseInt(process.env.PORT || '3001', 10),
   nodeEnv: process.env.NODE_ENV || 'development',
   apiPrefix: process.env.API_PREFIX || '/api',
   apiVersion: process.env.API_VERSION || 'v1',
@@ -49,19 +49,19 @@ export const config = {
 
   // Email (SMTP)
   smtpHost: process.env.SMTP_HOST || '',
-  smtpPort: parseInt(process.env.SMTP_PORT || '587', 10),
+  smtpPort: Number.parseInt(process.env.SMTP_PORT || '587', 10),
   smtpSecure: process.env.SMTP_SECURE === 'true',
   smtpUser: process.env.SMTP_USER || '',
   smtpPass: process.env.SMTP_PASS || '',
 
   // Security
-  bcryptRounds: parseInt(process.env.BCRYPT_ROUNDS || '12', 10),
-  rateLimitWindowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000', 10),
-  rateLimitMaxRequests: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100', 10),
+  bcryptRounds: Number.parseInt(process.env.BCRYPT_ROUNDS || '12', 10),
+  rateLimitWindowMs: Number.parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000', 10),
+  rateLimitMaxRequests: Number.parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100', 10),
   sessionSecret: process.env.SESSION_SECRET || 'fallback-session-secret',
 
   // File Upload
-  maxFileSize: parseInt(process.env.MAX_FILE_SIZE || '10485760', 10),
+  maxFileSize: Number.parseInt(process.env.MAX_FILE_SIZE || '10485760', 10),
   allowedFileTypes: process.env.ALLOWED_FILE_TYPES?.split(',') || [],
 
   // Logging

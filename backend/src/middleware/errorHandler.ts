@@ -83,7 +83,7 @@ const sendErrorProd = (err: AppError, res: Response): void => {
   } else {
     // Programming or other unknown error: don't leak error details
     logger.error('ERROR:', err);
-    
+
     res.status(500).json({
       status: 'error',
       message: 'Something went wrong!',
@@ -112,7 +112,7 @@ export const errorHandler = (
   });
 
   // Prisma error
-  if (err.code && err.code.startsWith('P')) {
+  if (err.code?.startsWith('P')) {
     error = handlePrismaError(err);
   }
 
