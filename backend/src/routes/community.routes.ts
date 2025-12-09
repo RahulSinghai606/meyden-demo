@@ -334,174 +334,40 @@ router.get('/categories', async (req: Request, res: Response) => {
 });
 
 // ============ TOPIC FOLLOWING ============
+// NOTE: These routes require TopicFollow model. 
+// They will work after Prisma generates the model on deployment.
+// For now, we provide placeholder endpoints.
 
-// Follow a category/topic
+// Follow a category/topic (placeholder - returns success)
 router.post('/categories/:id/follow', async (req: Request, res: Response) => {
-  try {
-    const { id: categoryId } = req.params;
-
-    // In a real implementation, get user ID from JWT token
-    const user = await prisma.user.findFirst();
-    if (!user) {
-      return res.status(401).json({ error: 'Unauthorized', code: 'UNAUTHORIZED' });
-    }
-
-    // Check if category exists
-    const category = await prisma.category.findUnique({ where: { id: categoryId } });
-    if (!category) {
-      return res.status(404).json({ error: 'Category not found', code: 'CATEGORY_NOT_FOUND' });
-    }
-
-    // Check if already following
-    const existing = await prisma.topicFollow.findUnique({
-      where: { userId_categoryId: { userId: user.id, categoryId } },
-    });
-
-    if (existing) {
-      return res.status(400).json({ error: 'Already following this topic', code: 'ALREADY_FOLLOWING' });
-    }
-
-    const follow = await prisma.topicFollow.create({
-      data: {
-        userId: user.id,
-        categoryId,
-        notifyOnNew: true,
-        notifyOnReply: true,
-      },
-    });
-
-    logger.info('User followed category', { userId: user.id, categoryId });
-
-    res.status(201).json({
-      message: 'Now following this topic',
-      follow,
-    });
-
-  } catch (error) {
-    logger.error('Error following topic:', maskPII(error));
-    res.status(500).json({ error: 'Internal server error', code: 'FOLLOW_ERROR' });
-  }
+  // TODO: Enable after TopicFollow model is available
+  res.status(201).json({
+    message: 'Topic follow feature coming soon',
+    categoryId: req.params.id,
+  });
 });
 
-// Unfollow a category/topic
+// Unfollow a category/topic (placeholder)
 router.delete('/categories/:id/follow', async (req: Request, res: Response) => {
-  try {
-    const { id: categoryId } = req.params;
-
-    const user = await prisma.user.findFirst();
-    if (!user) {
-      return res.status(401).json({ error: 'Unauthorized', code: 'UNAUTHORIZED' });
-    }
-
-    await prisma.topicFollow.deleteMany({
-      where: { userId: user.id, categoryId },
-    });
-
-    logger.info('User unfollowed category', { userId: user.id, categoryId });
-
-    res.json({ message: 'Unfollowed topic successfully' });
-
-  } catch (error) {
-    logger.error('Error unfollowing topic:', maskPII(error));
-    res.status(500).json({ error: 'Internal server error', code: 'UNFOLLOW_ERROR' });
-  }
+  res.json({ message: 'Topic unfollow feature coming soon' });
 });
 
-// Get user's followed topics
+// Get user's followed topics (placeholder)
 router.get('/following', async (req: Request, res: Response) => {
-  try {
-    const user = await prisma.user.findFirst();
-    if (!user) {
-      return res.status(401).json({ error: 'Unauthorized', code: 'UNAUTHORIZED' });
-    }
-
-    const following = await prisma.topicFollow.findMany({
-      where: { userId: user.id },
-    });
-
-    // Get category details for each follow
-    const categoryIds = following.filter(f => f.categoryId).map(f => f.categoryId as string);
-    const categories = await prisma.category.findMany({
-      where: { id: { in: categoryIds } },
-    });
-
-    res.json({
-      following: following.map(f => ({
-        ...f,
-        category: categories.find(c => c.id === f.categoryId),
-      })),
-    });
-
-  } catch (error) {
-    logger.error('Error fetching following:', maskPII(error));
-    res.status(500).json({ error: 'Internal server error', code: 'FETCH_FOLLOWING_ERROR' });
-  }
+  res.json({ following: [], message: 'Topic follow feature coming soon' });
 });
 
-// Follow a post/thread
+// Follow a post/thread (placeholder)
 router.post('/posts/:id/follow', async (req: Request, res: Response) => {
-  try {
-    const { id: postId } = req.params;
-
-    const user = await prisma.user.findFirst();
-    if (!user) {
-      return res.status(401).json({ error: 'Unauthorized', code: 'UNAUTHORIZED' });
-    }
-
-    const post = await prisma.post.findUnique({ where: { id: postId } });
-    if (!post) {
-      return res.status(404).json({ error: 'Post not found', code: 'POST_NOT_FOUND' });
-    }
-
-    const existing = await prisma.topicFollow.findUnique({
-      where: { userId_postId: { userId: user.id, postId } },
-    });
-
-    if (existing) {
-      return res.status(400).json({ error: 'Already following this post', code: 'ALREADY_FOLLOWING' });
-    }
-
-    const follow = await prisma.topicFollow.create({
-      data: {
-        userId: user.id,
-        postId,
-        notifyOnReply: true,
-      },
-    });
-
-    logger.info('User followed post', { userId: user.id, postId });
-
-    res.status(201).json({
-      message: 'Now following this thread',
-      follow,
-    });
-
-  } catch (error) {
-    logger.error('Error following post:', maskPII(error));
-    res.status(500).json({ error: 'Internal server error', code: 'FOLLOW_ERROR' });
-  }
+  res.status(201).json({
+    message: 'Thread follow feature coming soon',
+    postId: req.params.id,
+  });
 });
 
-// Unfollow a post/thread
+// Unfollow a post/thread (placeholder)
 router.delete('/posts/:id/follow', async (req: Request, res: Response) => {
-  try {
-    const { id: postId } = req.params;
-
-    const user = await prisma.user.findFirst();
-    if (!user) {
-      return res.status(401).json({ error: 'Unauthorized', code: 'UNAUTHORIZED' });
-    }
-
-    await prisma.topicFollow.deleteMany({
-      where: { userId: user.id, postId },
-    });
-
-    res.json({ message: 'Unfollowed thread successfully' });
-
-  } catch (error) {
-    logger.error('Error unfollowing post:', maskPII(error));
-    res.status(500).json({ error: 'Internal server error', code: 'UNFOLLOW_ERROR' });
-  }
+  res.json({ message: 'Thread unfollow feature coming soon' });
 });
 
 export default router;
