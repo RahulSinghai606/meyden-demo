@@ -1,10 +1,10 @@
-// Minimal Prisma schema for SQLite demo
+// Prisma schema for PostgreSQL (Railway deployment)
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
