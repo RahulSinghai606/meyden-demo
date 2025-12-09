@@ -1,7 +1,8 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import prisma from '../config/database';
-
+import { requireAuth } from '../middleware/requireAuth';
+import { AuthenticatedRequest } from '../middleware/auth';
 import { maskPII } from '../utils/sanitize';
 import { logger } from '../utils/logger';
 import { getCurrentUTC } from '../utils/datetime';
@@ -200,8 +201,8 @@ router.post('/responses', async (req: Request, res: Response) => {
       });
     }
 
-    // In a real implementation, get user ID from JWT token
-    const user = await prisma.user.findFirst();
+    // Get user ID from authenticated request (optional for public surveys)
+    const userId = (req as AuthenticatedRequest).user?.id;
 
     // Calculate score
     let totalScore = 0;
@@ -223,7 +224,7 @@ router.post('/responses', async (req: Request, res: Response) => {
     const response = await prisma.surveyResponse.create({
       data: {
         surveyId: validatedData.surveyId,
-        userId: user?.id,
+        userId,
         status: 'completed',
         completedAt: getCurrentUTC(),
         totalScore,
@@ -281,21 +282,20 @@ router.post('/responses', async (req: Request, res: Response) => {
   }
 });
 
-// Get user's responses
-router.get('/responses/my', async (req: Request, res: Response) => {
+// Get user's responses - REQUIRES AUTHENTICATION
+router.get('/responses/my', requireAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
-    // In a real implementation, get user ID from JWT token
-    const user = await prisma.user.findFirst();
+    const userId = req.user?.id;
 
-    if (!user) {
-      return res.status(404).json({
-        error: 'User not found',
-        code: 'USER_NOT_FOUND',
+    if (!userId) {
+      return res.status(401).json({
+        error: 'Authentication required',
+        code: 'AUTH_REQUIRED',
       });
     }
 
     const responses = await prisma.surveyResponse.findMany({
-      where: { userId: user.id },
+      where: { userId },
       include: {
         survey: {
           select: {

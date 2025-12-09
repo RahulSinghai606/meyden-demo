@@ -112,9 +112,9 @@ app.use(compression());
 // Cookie parser (required for CSRF)
 app.use(cookieParser());
 
-// Request parsing middleware
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+// Request parsing middleware - SECURITY: Limit request sizes to prevent DoS
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 
 // CSRF Protection
 const csrfProtection = doubleCsrf({

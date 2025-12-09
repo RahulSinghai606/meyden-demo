@@ -1,11 +1,13 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import prisma from '../config/database';
-
+import { requireAuth } from '../middleware/requireAuth';
+import { AuthenticatedRequest } from '../middleware/auth';
 import { maskPII } from '../utils/sanitize';
 import { logger } from '../utils/logger';
 import { getCurrentUTC } from '../utils/datetime';
 import { getPaginationParams } from '../utils/pagination';
+
 
 const router = Router();
 
@@ -166,14 +168,16 @@ router.get('/:id', async (req: Request, res: Response) => {
   }
 });
 
-// Create vendor (simplified for demo)
-router.post('/', async (req: Request, res: Response) => {
+// Create vendor - REQUIRES AUTHENTICATION
+router.post('/', requireAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
     const validatedData = createVendorSchema.parse(req.body);
+    const userId = req.user?.id;
 
-    // Create a demo vendor with PENDING_APPROVAL status
+    // Create vendor linked to authenticated user
     const vendor = await prisma.vendor.create({
       data: {
+        userId, // Link to authenticated user
         companyName: validatedData.companyName,
         businessName: validatedData.businessName,
         description: validatedData.description,
@@ -192,12 +196,13 @@ router.post('/', async (req: Request, res: Response) => {
       },
     });
 
-    logger.info('Vendor created', { vendorId: vendor.id });
+    logger.info('Vendor created', { vendorId: vendor.id, userId });
 
     res.status(201).json({
       message: 'Vendor profile created successfully',
       vendor,
     });
+
 
   } catch (error) {
     if (error instanceof z.ZodError) {

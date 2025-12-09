@@ -1,7 +1,8 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import prisma from '../config/database';
-
+import { requireAuth } from '../middleware/requireAuth';
+import { AuthenticatedRequest } from '../middleware/auth';
 import { maskPII } from '../utils/sanitize';
 import { logger } from '../utils/logger';
 import { getCurrentUTC } from '../utils/datetime';
@@ -179,24 +180,22 @@ router.get('/posts/:id', async (req: Request, res: Response) => {
   }
 });
 
-// Create post
-router.post('/posts', async (req: Request, res: Response) => {
+// Create post - REQUIRES AUTHENTICATION
+router.post('/posts', requireAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
     const validatedData = createPostSchema.parse(req.body);
+    const userId = req.user?.id;
 
-    // In a real implementation, get user ID from JWT token
-    const user = await prisma.user.findFirst();
-
-    if (!user) {
-      return res.status(404).json({
-        error: 'User not found',
-        code: 'USER_NOT_FOUND',
+    if (!userId) {
+      return res.status(401).json({
+        error: 'Authentication required',
+        code: 'AUTH_REQUIRED',
       });
     }
 
     const post = await prisma.post.create({
       data: {
-        userId: user.id,
+        userId,
         title: validatedData.title,
         content: validatedData.content,
         type: validatedData.type || 'ARTICLE',
@@ -218,7 +217,7 @@ router.post('/posts', async (req: Request, res: Response) => {
       },
     });
 
-    logger.info('Post created', { postId: post.id, userId: user.id });
+    logger.info('Post created', { postId: post.id, userId });
 
     res.status(201).json({
       message: 'Post created successfully',
@@ -242,24 +241,22 @@ router.post('/posts', async (req: Request, res: Response) => {
   }
 });
 
-// Create comment
-router.post('/comments', async (req: Request, res: Response) => {
+// Create comment - REQUIRES AUTHENTICATION
+router.post('/comments', requireAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
     const validatedData = createCommentSchema.parse(req.body);
+    const userId = req.user?.id;
 
-    // In a real implementation, get user ID from JWT token
-    const user = await prisma.user.findFirst();
-
-    if (!user) {
-      return res.status(404).json({
-        error: 'User not found',
-        code: 'USER_NOT_FOUND',
+    if (!userId) {
+      return res.status(401).json({
+        error: 'Authentication required',
+        code: 'AUTH_REQUIRED',
       });
     }
 
     const comment = await prisma.comment.create({
       data: {
-        userId: user.id,
+        userId,
         content: validatedData.content,
         status: 'PUBLISHED',
         postId: validatedData.postId,
@@ -290,12 +287,13 @@ router.post('/comments', async (req: Request, res: Response) => {
       });
     }
 
-    logger.info('Comment created', { commentId: comment.id, userId: user.id });
+    logger.info('Comment created', { commentId: comment.id, userId });
 
     res.status(201).json({
       message: 'Comment created successfully',
       comment,
     });
+
 
   } catch (error) {
     if (error instanceof z.ZodError) {

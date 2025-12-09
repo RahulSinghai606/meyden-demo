@@ -1,5 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { requireAuth } from '../middleware/requireAuth';
+import { AuthenticatedRequest } from '../middleware/auth';
+
 import { maskPII } from '../utils/sanitize';
 import { z } from 'zod';
 import prisma from '../config/database';
@@ -36,11 +38,19 @@ const updateProfileSchema = z.object({
 });
 
 // Get current user profile
-router.get('/profile', requireAuth, async (req: Request, res: Response) => {
+router.get('/profile', requireAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
-    // In a real implementation, you would get the user ID from JWT token
-    // For demo purposes, we'll return the first user
-    const user = await prisma.user.findFirst({
+    const userId = req.user?.id;
+
+    if (!userId) {
+      return res.status(401).json({
+        error: 'Authentication required',
+        code: 'AUTH_REQUIRED',
+      });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
       include: {
         profile: true,
         vendor: true,
@@ -80,12 +90,19 @@ router.get('/profile', requireAuth, async (req: Request, res: Response) => {
 });
 
 // Update user profile
-router.put('/profile', requireAuth, async (req: Request, res: Response) => {
+router.put('/profile', requireAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
     const validatedData = updateProfileSchema.parse(req.body);
+    const userId = req.user?.id;
 
-    // In a real implementation, get user ID from JWT token
-    const user = await prisma.user.findFirst();
+    if (!userId) {
+      return res.status(401).json({
+        error: 'Authentication required',
+        code: 'AUTH_REQUIRED',
+      });
+    }
+
+    const user = await prisma.user.findUnique({ where: { id: userId } });
 
     if (!user) {
       return res.status(404).json({
@@ -96,7 +113,7 @@ router.put('/profile', requireAuth, async (req: Request, res: Response) => {
 
     // Update user basic info
     await prisma.user.update({
-      where: { id: user.id },
+      where: { id: userId },
       data: {
         firstName: validatedData.firstName || user.firstName,
         lastName: validatedData.lastName || user.lastName,
@@ -112,15 +129,15 @@ router.put('/profile', requireAuth, async (req: Request, res: Response) => {
     }
 
     const profile = await prisma.profile.upsert({
-      where: { userId: user.id },
+      where: { userId },
       update: profileData,
       create: {
-        userId: user.id,
+        userId,
         ...profileData,
       },
     });
 
-    logger.info('Profile updated', maskPII({ userId: user.id }));
+    logger.info('Profile updated', maskPII({ userId }));
 
     res.json({
       message: 'Profile updated successfully',

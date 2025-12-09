@@ -125,21 +125,44 @@ export const validateOAuthState = (state: string, storedState: { state: string; 
   return state === storedState.state && storedState.expiresAt > getCurrentUTC();
 };
 
-// Rate limiting for authentication attempts
+// Rate limiting for authentication attempts - uses database
 export const rateLimitLoginAttempts = async (email: string, ipAddress: string): Promise<{ allowed: boolean; remaining: number }> => {
-  // This is a simple implementation. In production, use Redis or similar
   const maxAttempts = 5;
 
-  // In a real implementation, you'd check a rate limiting store
-  // For now, we'll allow all attempts
-  return { allowed: true, remaining: maxAttempts };
+  const user = await prisma.user.findUnique({ where: { email } });
+
+  if (!user) {
+    return { allowed: true, remaining: maxAttempts };
+  }
+
+  const remaining = Math.max(0, maxAttempts - user.loginAttempts);
+  return {
+    allowed: user.loginAttempts < maxAttempts,
+    remaining
+  };
 };
 
-// Account lockout utilities (simplified for demo)
+// Account lockout utilities - checks database for login attempts
+const LOCKOUT_THRESHOLD = 5;
+const LOCKOUT_DURATION_MS = 30 * 60 * 1000; // 30 minutes
+
 export const checkAccountLockout = async (email: string): Promise<{ locked: boolean; remaining: number }> => {
-  // Simplified for demo - always return not locked
+  const user = await prisma.user.findUnique({ where: { email } });
+
+  if (!user) {
+    return { locked: false, remaining: 0 };
+  }
+
+  // Account is locked if too many attempts
+  if (user.loginAttempts >= LOCKOUT_THRESHOLD) {
+    // Calculate remaining lockout time (simplified - resets are handled separately)
+    const remaining = Math.ceil(LOCKOUT_DURATION_MS / 1000);
+    return { locked: true, remaining };
+  }
+
   return { locked: false, remaining: 0 };
 };
+
 
 export const incrementLoginAttempts = async (email: string): Promise<void> => {
   const user = await prisma.user.findUnique({
