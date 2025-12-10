@@ -2,6 +2,14 @@ import request from 'supertest';
 import express from 'express';
 import communityRoutes from '../community.routes';
 
+// Mock requireAuth middleware
+jest.mock('../../middleware/requireAuth', () => ({
+    requireAuth: (req: any, res: any, next: any) => {
+        req.user = { id: 'u1', role: 'USER' };
+        next();
+    },
+}));
+
 // Mock dependencies
 jest.mock('../../config/database', () => ({
     __esModule: true,
@@ -21,6 +29,7 @@ jest.mock('../../config/database', () => ({
         },
         user: {
             findFirst: jest.fn(),
+            findUnique: jest.fn(),
         },
     },
 }));

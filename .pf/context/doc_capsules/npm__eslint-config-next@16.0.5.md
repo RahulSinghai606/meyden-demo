@@ -14,4 +14,4 @@ npm install eslint-config-next
 ## Source
 
 - URL: https://registry.npmjs.org/eslint-config-next/16.0.5
-- Fetched: 2025-12-09T17:33:30.346088
+- Fetched: 2025-12-09T17:44:44.060014

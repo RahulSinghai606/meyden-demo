@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import { randomUUID } from 'crypto';
 import { logger } from '../utils/logger';
 
 
@@ -43,16 +44,14 @@ export const requestValidator = (req: Request, res: Response, next: NextFunction
     }
   }
 
-  // Add request ID for tracking
-  req.requestId = generateRequestId();
+  // Add request ID for tracking using cryptographically secure random
+  req.requestId = randomUUID();
 
   next();
 };
 
-// Generate unique request ID
-const generateRequestId = (): string => {
-  return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-};
+// generateRequestId removed - using randomUUID() directly
+
 
 // Extend Request interface to include requestId
 declare global {

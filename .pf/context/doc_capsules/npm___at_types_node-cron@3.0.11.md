@@ -14,4 +14,4 @@ npm install @types/node-cron
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fnode-cron/3.0.11
-- Fetched: 2025-12-09T17:33:00.152037
+- Fetched: 2025-12-09T17:44:15.250773

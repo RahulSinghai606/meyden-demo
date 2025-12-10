@@ -1,0 +1,10 @@
+{
+  "source_url": "https://registry.npmjs.org/aws-sdk/2.1525.0",
+  "last_checked": "2025-12-09T17:32:20.691585",
+  "etag": null,
+  "repository": {
+    "url": "git://github.com/aws/aws-sdk-js.git",
+    "type": "git"
+  },
+  "from_github": true
+}

@@ -14,4 +14,4 @@ npm install aws-sdk
 ## Source
 
 - URL: https://registry.npmjs.org/aws-sdk/2.1525.0
-- Fetched: 2025-12-09T17:32:20.691585
+- Fetched: 2025-12-09T17:43:17.441764

@@ -1,0 +1,10 @@
+{
+  "source_url": "https://registry.npmjs.org/react-chartjs-2/5.3.1",
+  "last_checked": "2025-12-09T17:33:25.068278",
+  "etag": null,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactchartjs/react-chartjs-2.git"
+  },
+  "from_github": true
+}

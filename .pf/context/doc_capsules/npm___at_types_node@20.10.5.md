@@ -14,4 +14,4 @@ npm install @types/node
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fnode/20.10.5
-- Fetched: 2025-12-09T17:32:18.503214
+- Fetched: 2025-12-09T17:43:15.340674

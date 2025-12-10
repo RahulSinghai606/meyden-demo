@@ -14,4 +14,4 @@ npm install @types/bcryptjs
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fbcryptjs/2.4.6
-- Fetched: 2025-12-09T17:32:14.089070
+- Fetched: 2025-12-09T17:43:11.179528

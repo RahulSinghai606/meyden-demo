@@ -1,0 +1,11 @@
+{
+  "source_url": "https://registry.npmjs.org/%40types%2Fnodemailer/6.4.14",
+  "last_checked": "2025-12-09T17:33:01.051570",
+  "etag": null,
+  "repository": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "type": "git",
+    "directory": "types/nodemailer"
+  },
+  "from_github": true
+}

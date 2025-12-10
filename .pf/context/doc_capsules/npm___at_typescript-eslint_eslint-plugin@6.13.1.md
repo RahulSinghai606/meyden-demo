@@ -14,4 +14,4 @@ npm install @typescript-eslint/eslint-plugin
 ## Source
 
 - URL: https://registry.npmjs.org/%40typescript-eslint%2Feslint-plugin/6.13.1
-- Fetched: 2025-12-09T17:33:04.637607
+- Fetched: 2025-12-09T17:44:19.813143

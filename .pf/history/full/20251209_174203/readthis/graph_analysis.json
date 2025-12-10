@@ -1,0 +1,400 @@
+{
+  "cycles": [],
+  "hotspots": [
+    {
+      "centrality": 0.5810239981235648,
+      "churn": 0,
+      "id": "backend/src/utils/logger.ts",
+      "in_degree": 22,
+      "loc": 102,
+      "out_degree": 3,
+      "score": 7.384507199437069
+    },
+    {
+      "centrality": 0.1133173648260847,
+      "churn": 0,
+      "id": "backend/src/app.ts",
+      "in_degree": 1,
+      "loc": 222,
+      "out_degree": 35,
+      "score": 7.356195209447825
+    },
+    {
+      "centrality": 0.27987690041040136,
+      "churn": 0,
+      "id": "backend/src/config/database.ts",
+      "in_degree": 17,
+      "loc": 66,
+      "out_degree": 3,
+      "score": 5.790563070123119
+    },
+    {
+      "centrality": 0.24402193495348307,
+      "churn": 0,
+      "id": "backend/src/utils/auth.ts",
+      "in_degree": 7,
+      "loc": 231,
+      "out_degree": 12,
+      "score": 4.596306580486045
+    },
+    {
+      "centrality": 0.2985243634238699,
+      "churn": 0,
+      "id": "backend/src/utils/sanitize.ts",
+      "in_degree": 12,
+      "loc": 119,
+      "out_degree": 2,
+      "score": 4.10145730902716
+    },
+    {
+      "centrality": 0.11334268394207557,
+      "churn": 0,
+      "id": "backend/src/routes/auth.routes.ts",
+      "in_degree": 2,
+      "loc": 628,
+      "out_degree": 13,
+      "score": 3.2968028051826233
+    },
+    {
+      "centrality": 0.17956647047645255,
+      "churn": 0,
+      "id": "backend/src/middleware/requireAuth.ts",
+      "in_degree": 7,
+      "loc": 127,
+      "out_degree": 5,
+      "score": 3.166569941142936
+    },
+    {
+      "centrality": 0.11606935797186105,
+      "churn": 0,
+      "id": "backend/src/routes/ai-readiness.routes.ts",
+      "in_degree": 2,
+      "loc": 525,
+      "out_degree": 11,
+      "score": 2.887320807391559
+    },
+    {
+      "centrality": 0.11606935797186105,
+      "churn": 0,
+      "id": "backend/src/routes/community.routes.ts",
+      "in_degree": 2,
+      "loc": 371,
+      "out_degree": 11,
+      "score": 2.8719208073915587
+    },
+    {
+      "centrality": 0.11606935797186105,
+      "churn": 0,
+      "id": "backend/src/routes/vendor.routes.ts",
+      "in_degree": 2,
+      "loc": 313,
+      "out_degree": 11,
+      "score": 2.8661208073915585
+    },
+    {
+      "centrality": 0.13758844735696701,
+      "churn": 0,
+      "id": "backend/src/middleware/auth.ts",
+      "in_degree": 4,
+      "loc": 189,
+      "out_degree": 8,
+      "score": 2.8601765342070897
+    },
+    {
+      "centrality": 0.20925624267044904,
+      "churn": 0,
+      "id": "backend/src/utils/datetime.ts",
+      "in_degree": 9,
+      "loc": 55,
+      "out_degree": 0,
+      "score": 2.7682768728011347
+    },
+    {
+      "centrality": 0.35488479173034493,
+      "churn": 0,
+      "id": "backend/src/config/environment.ts",
+      "in_degree": 8,
+      "loc": 113,
+      "out_degree": 1,
+      "score": 2.7177654375191036
+    },
+    {
+      "centrality": 0.11334268394207557,
+      "churn": 0,
+      "id": "backend/src/routes/user.routes.ts",
+      "in_degree": 2,
+      "loc": 273,
+      "out_degree": 10,
+      "score": 2.661302805182623
+    },
+    {
+      "centrality": 0.11606935797186105,
+      "churn": 0,
+      "id": "backend/src/routes/admin.routes.ts",
+      "in_degree": 2,
+      "loc": 323,
+      "out_degree": 9,
+      "score": 2.4671208073915585
+    },
+    {
+      "centrality": 0.1037993248378264,
+      "churn": 0,
+      "id": "backend/src/routes/oauth.routes.ts",
+      "in_degree": 1,
+      "loc": 209,
+      "out_degree": 10,
+      "score": 2.352039797451348
+    },
+    {
+      "centrality": 0.16621852466971454,
+      "churn": 0,
+      "id": "backend/src/utils/pagination.ts",
+      "in_degree": 5,
+      "loc": 21,
+      "out_degree": 2,
+      "score": 1.9519655574009143
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/routes/__tests__/auth.routes.test.ts",
+      "in_degree": 0,
+      "loc": 129,
+      "out_degree": 9,
+      "score": 1.843214199507615
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/routes/__tests__/user.routes.test.ts",
+      "in_degree": 0,
+      "loc": 86,
+      "out_degree": 9,
+      "score": 1.838914199507615
+    },
+    {
+      "centrality": 0.13348199570728644,
+      "churn": 0,
+      "id": "backend/src/utils/response.ts",
+      "in_degree": 2,
+      "loc": 24,
+      "out_degree": 4,
+      "score": 1.4424445987121859
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/routes/__tests__/admin.routes.test.ts",
+      "in_degree": 0,
+      "loc": 117,
+      "out_degree": 7,
+      "score": 1.4420141995076152
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/routes/__tests__/vendor.routes.test.ts",
+      "in_degree": 0,
+      "loc": 106,
+      "out_degree": 7,
+      "score": 1.4409141995076151
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/routes/__tests__/community.routes.test.ts",
+      "in_degree": 0,
+      "loc": 93,
+      "out_degree": 7,
+      "score": 1.4396141995076153
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/routes/__tests__/ai-readiness.routes.test.ts",
+      "in_degree": 0,
+      "loc": 88,
+      "out_degree": 7,
+      "score": 1.439114199507615
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/server.ts",
+      "in_degree": 0,
+      "loc": 45,
+      "out_degree": 7,
+      "score": 1.4348141995076151
+    },
+    {
+      "centrality": 0.13242940215057392,
+      "churn": 0,
+      "id": "backend/src/middleware/errorHandler.ts",
+      "in_degree": 2,
+      "loc": 167,
+      "out_degree": 3,
+      "score": 1.2564288206451724
+    },
+    {
+      "centrality": 0.1037993248378264,
+      "churn": 0,
+      "id": "backend/src/middleware/auditLogger.ts",
+      "in_degree": 1,
+      "loc": 44,
+      "out_degree": 4,
+      "score": 1.135539797451348
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/database/seed.ts",
+      "in_degree": 0,
+      "loc": 508,
+      "out_degree": 5,
+      "score": 1.081114199507615
+    },
+    {
+      "centrality": 0.10987027430326529,
+      "churn": 0,
+      "id": "backend/src/services/email.service.ts",
+      "in_degree": 1,
+      "loc": 208,
+      "out_degree": 3,
+      "score": 0.9537610822909798
+    },
+    {
+      "centrality": 0.1037993248378264,
+      "churn": 0,
+      "id": "backend/src/middleware/validation.ts",
+      "in_degree": 1,
+      "loc": 64,
+      "out_degree": 3,
+      "score": 0.937539797451348
+    },
+    {
+      "centrality": 0.1037993248378264,
+      "churn": 0,
+      "id": "backend/src/routes/upload.routes.ts",
+      "in_degree": 1,
+      "loc": 23,
+      "out_degree": 3,
+      "score": 0.933439797451348
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/middleware/__tests__/requireAuth.test.ts",
+      "in_degree": 0,
+      "loc": 76,
+      "out_degree": 4,
+      "score": 0.8379141995076151
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/utils/__tests__/response.test.ts",
+      "in_degree": 0,
+      "loc": 49,
+      "out_degree": 4,
+      "score": 0.8352141995076151
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/middleware/__tests__/errorHandler.test.ts",
+      "in_degree": 0,
+      "loc": 54,
+      "out_degree": 3,
+      "score": 0.6357141995076151
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/utils/__tests__/pagination.test.ts",
+      "in_degree": 0,
+      "loc": 28,
+      "out_degree": 3,
+      "score": 0.6331141995076152
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/utils/__tests__/sanitize.test.ts",
+      "in_degree": 0,
+      "loc": 105,
+      "out_degree": 2,
+      "score": 0.440814199507615
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/utils/__tests__/auth.test.ts",
+      "in_degree": 0,
+      "loc": 59,
+      "out_degree": 2,
+      "score": 0.43621419950761503
+    },
+    {
+      "centrality": 0.10104733169205006,
+      "churn": 0,
+      "id": "backend/src/utils/__tests__/logger.test.ts",
+      "in_degree": 0,
+      "loc": 19,
+      "out_degree": 2,
+      "score": 0.432214199507615
+    }
+  ],
+  "impact": null,
+  "summary": {
+    "call_graph": {
+      "edges": 0,
+      "nodes": 0
+    },
+    "cycles": {
+      "largest": 0,
+      "nodes_in_cycles": 0,
+      "total": 0
+    },
+    "health_metrics": {
+      "cycle_free": true,
+      "density": 0.17354196301564723,
+      "fragility_score": 57.35419630156473,
+      "health_grade": "A",
+      "health_score": 100,
+      "loosely_coupled": true,
+      "no_god_objects": true,
+      "well_layered": true
+    },
+    "hotspots": {
+      "max_in_degree": 22,
+      "max_out_degree": 35,
+      "top_5": [
+        "backend/src/utils/logger.ts",
+        "backend/src/app.ts",
+        "backend/src/config/database.ts",
+        "backend/src/utils/auth.ts",
+        "backend/src/utils/sanitize.ts"
+      ]
+    },
+    "import_graph": {
+      "density": 0.17354196301564723,
+      "edges": 244,
+      "nodes": 38
+    },
+    "layers": {
+      "count": 9,
+      "distribution": {
+        "0": 15,
+        "1": 5,
+        "2": 26,
+        "3": 8,
+        "4": 2,
+        "5": 9,
+        "6": 4,
+        "7": 3,
+        "8": 1
+      }
+    },
+    "recommendations": []
+  }
+}

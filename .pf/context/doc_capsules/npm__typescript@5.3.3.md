@@ -14,4 +14,4 @@ npm install -D typescript
 ## Source
 
 - URL: https://registry.npmjs.org/typescript/5.3.3
-- Fetched: 2025-12-09T17:33:12.128175
+- Fetched: 2025-12-09T17:44:27.202424

@@ -1,0 +1,75 @@
+{
+  "extraction_timestamp": "1765281674.055477",
+  "budget_kb": 1500,
+  "total_used_bytes": 329283,
+  "total_used_kb": 321,
+  "utilization_percent": 21.4376953125,
+  "files_extracted": 15,
+  "files_skipped": 0,
+  "files_failed": 0,
+  "extracted": [
+    {
+      "file": "deps.json",
+      "size": 12575
+    },
+    {
+      "file": "deps_latest.json",
+      "size": 11367
+    },
+    {
+      "file": "fce.json",
+      "size": 52914
+    },
+    {
+      "file": "frameworks.json",
+      "size": 933
+    },
+    {
+      "file": "graph_analysis.json",
+      "size": 9571
+    },
+    {
+      "file": "graph_metrics.json",
+      "size": 2444
+    },
+    {
+      "file": "graph_summary.json",
+      "size": 1738
+    },
+    {
+      "file": "import_graph.dot",
+      "size": 37286
+    },
+    {
+      "file": "import_graph_cycles.dot",
+      "size": 37286
+    },
+    {
+      "file": "import_graph_hotspots.dot",
+      "size": 31383
+    },
+    {
+      "file": "import_graph_layers.dot",
+      "size": 41011
+    },
+    {
+      "file": "lint.json",
+      "size": 2
+    },
+    {
+      "file": "patterns_chunk01.json",
+      "size": 63186
+    },
+    {
+      "file": "patterns_chunk02.json",
+      "size": 27040
+    },
+    {
+      "file": "taint_analysis.json",
+      "size": 547
+    }
+  ],
+  "skipped": [],
+  "failed": [],
+  "strategy": "Pure courier model - chunk if needed, no filtering"
+}

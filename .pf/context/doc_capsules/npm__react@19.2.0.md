@@ -35,4 +35,4 @@ root.render(<HelloMessage name="Taylor" />);
 ## Source
 
 - URL: https://registry.npmjs.org/react/19.2.0
-- Fetched: 2025-12-09T17:33:23.692823
+- Fetched: 2025-12-09T17:44:37.647487

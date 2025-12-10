@@ -35,4 +35,4 @@ root.render(<HelloMessage name="Taylor" />);
 ## Source
 
 - URL: https://registry.npmjs.org/babel-plugin-react-compiler/1.0.0
-- Fetched: 2025-12-09T17:33:29.036041
+- Fetched: 2025-12-09T17:44:42.675800

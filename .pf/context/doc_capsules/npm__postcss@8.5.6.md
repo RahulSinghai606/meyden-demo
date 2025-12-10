@@ -29,4 +29,4 @@ module.exports = {
 ## Source
 
 - URL: https://registry.npmjs.org/postcss/8.5.6
-- Fetched: 2025-12-09T17:33:31.359456
+- Fetched: 2025-12-09T17:44:44.933898

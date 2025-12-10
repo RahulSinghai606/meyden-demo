@@ -14,4 +14,4 @@ npm install @types/morgan
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fmorgan/1.9.10
-- Fetched: 2025-12-09T17:32:59.365801
+- Fetched: 2025-12-09T17:44:14.444056

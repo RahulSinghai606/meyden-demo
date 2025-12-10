@@ -14,4 +14,4 @@ npm install lucide-react
 ## Source
 
 - URL: https://registry.npmjs.org/lucide-react/0.555.0
-- Fetched: 2025-12-09T17:33:20.486245
+- Fetched: 2025-12-09T17:44:34.364272

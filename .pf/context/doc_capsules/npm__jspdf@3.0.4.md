@@ -28,4 +28,4 @@ doc.save("a4.pdf");
 ## Source
 
 - URL: https://registry.npmjs.org/jspdf/3.0.4
-- Fetched: 2025-12-09T17:33:19.510429
+- Fetched: 2025-12-09T17:44:33.288445

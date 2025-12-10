@@ -14,4 +14,4 @@ npm install jsonwebtoken
 ## Source
 
 - URL: https://registry.npmjs.org/jsonwebtoken/9.0.2
-- Fetched: 2025-12-09T17:32:43.653987
+- Fetched: 2025-12-09T17:43:40.565398

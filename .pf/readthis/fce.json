@@ -1,9 +1,9 @@
 {
-  "timestamp": "2025-12-09T12:03:33.544636+00:00",
+  "timestamp": "2025-12-09T12:14:47.329769+00:00",
   "all_findings": [
     {
       "file": "backend/src/app.ts",
-      "line": 198,
+      "line": 216,
       "rule": "unknown",
       "tool": "patterns",
       "message": "Hardcoded credentials in Svelte components",
@@ -11,7 +11,7 @@
     },
     {
       "file": "backend/src/app.ts",
-      "line": 198,
+      "line": 216,
       "rule": "unknown",
       "tool": "patterns",
       "message": "Hardcoded credentials in React component",
@@ -19,7 +19,7 @@
     },
     {
       "file": "backend/src/app.ts",
-      "line": 198,
+      "line": 216,
       "rule": "unknown",
       "tool": "patterns",
       "message": "Hardcoded credentials in Angular components or services",
@@ -435,7 +435,7 @@
     },
     {
       "file": "backend/src/app.ts",
-      "line": 75,
+      "line": 79,
       "rule": "unknown",
       "tool": "patterns",
       "message": "Null origin allowed (regex fallback)",
@@ -443,7 +443,7 @@
     },
     {
       "file": "backend/src/app.ts",
-      "line": 135,
+      "line": 148,
       "rule": "unknown",
       "tool": "patterns",
       "message": "Route/endpoint without authentication decorator or middleware",
@@ -451,7 +451,7 @@
     },
     {
       "file": "backend/src/app.ts",
-      "line": 135,
+      "line": 148,
       "rule": "unknown",
       "tool": "patterns",
       "message": "Express route without error handling",
@@ -459,7 +459,15 @@
     },
     {
       "file": "backend/src/app.ts",
-      "line": 183,
+      "line": 156,
+      "rule": "unknown",
+      "tool": "patterns",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "severity": "high"
+    },
+    {
+      "file": "backend/src/app.ts",
+      "line": 201,
       "rule": "unknown",
       "tool": "patterns",
       "message": "Express route without error handling",
@@ -1795,14 +1803,14 @@
     }
   ],
   "test_results": {
-    "completed_at": "2025-12-09T12:03:34.253496+00:00",
+    "completed_at": "2025-12-09T12:14:48.033048+00:00",
     "failures": [],
     "tools_run": 0
   },
   "correlations": {
     "hotspots": {},
-    "total_findings": 224,
-    "total_lines_with_findings": 179,
+    "total_findings": 225,
+    "total_lines_with_findings": 180,
     "total_hotspots": 0,
     "factual_clusters": []
   }

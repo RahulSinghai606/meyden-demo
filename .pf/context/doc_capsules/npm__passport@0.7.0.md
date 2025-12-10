@@ -29,4 +29,4 @@ passport.use(new LocalStrategy(
 ## Source
 
 - URL: https://registry.npmjs.org/passport/0.7.0
-- Fetched: 2025-12-09T17:32:49.601768
+- Fetched: 2025-12-09T17:43:50.905779

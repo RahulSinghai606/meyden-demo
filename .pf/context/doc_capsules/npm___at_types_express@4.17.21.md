@@ -14,4 +14,4 @@ npm install @types/express
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fexpress/4.17.21
-- Fetched: 2025-12-09T17:32:15.925561
+- Fetched: 2025-12-09T17:43:12.719913

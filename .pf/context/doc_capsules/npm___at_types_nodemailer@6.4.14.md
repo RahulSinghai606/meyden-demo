@@ -14,4 +14,4 @@ npm install @types/nodemailer
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fnodemailer/6.4.14
-- Fetched: 2025-12-09T17:33:01.051570
+- Fetched: 2025-12-09T17:44:16.051250

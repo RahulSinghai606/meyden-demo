@@ -14,4 +14,4 @@ npm install zod
 ## Source
 
 - URL: https://registry.npmjs.org/zod/3.22.4
-- Fetched: 2025-12-09T17:32:56.670003
+- Fetched: 2025-12-09T17:44:01.145578

@@ -18,4 +18,4 @@ npm install framer-motion
 ## Source
 
 - URL: https://registry.npmjs.org/framer-motion/12.23.24
-- Fetched: 2025-12-09T17:33:16.884180
+- Fetched: 2025-12-09T17:44:30.617737

@@ -14,4 +14,4 @@ npm install ts-jest
 ## Source
 
 - URL: https://registry.npmjs.org/ts-jest/29.1.1
-- Fetched: 2025-12-09T17:33:09.648176
+- Fetched: 2025-12-09T17:44:24.801010

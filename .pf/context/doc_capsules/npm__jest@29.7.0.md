@@ -14,4 +14,4 @@ npm install jest
 ## Source
 
 - URL: https://registry.npmjs.org/jest/29.7.0
-- Fetched: 2025-12-09T17:33:07.377692
+- Fetched: 2025-12-09T17:44:22.528591

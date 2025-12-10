@@ -1,0 +1,10 @@
+{
+  "source_url": "https://registry.npmjs.org/tailwindcss/3.4.17",
+  "last_checked": "2025-12-09T17:33:32.425643",
+  "etag": null,
+  "repository": {
+    "url": "git+https://github.com/tailwindlabs/tailwindcss.git",
+    "type": "git"
+  },
+  "from_github": true
+}

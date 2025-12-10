@@ -14,4 +14,4 @@ npm install next
 ## Source
 
 - URL: https://registry.npmjs.org/next/16.0.7
-- Fetched: 2025-12-09T17:33:22.675135
+- Fetched: 2025-12-09T17:44:36.520642

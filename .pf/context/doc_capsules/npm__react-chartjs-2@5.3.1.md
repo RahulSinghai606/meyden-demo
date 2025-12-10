@@ -14,4 +14,4 @@ npm install react-chartjs-2
 ## Source
 
 - URL: https://registry.npmjs.org/react-chartjs-2/5.3.1
-- Fetched: 2025-12-09T17:33:25.068278
+- Fetched: 2025-12-09T17:44:38.941764

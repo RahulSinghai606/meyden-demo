@@ -1,5 +1,5 @@
 TheAuditor Full Pipeline Execution Log
-Started: 2025-12-09 17:31:14
+Started: 2025-12-09 17:42:03
 Working Directory: /Users/rahul.singh/Downloads/Meyden
 ================================================================================
 
@@ -8,7 +8,7 @@ Working Directory: /Users/rahul.singh/Downloads/Meyden
 ============================================================
 
 [Phase 1/18] 1. Index repository
-[OK] 1. Index repository completed in 0.2s
+[OK] 1. Index repository completed in 0.1s
   [Full output below, truncated in terminal]
   [Indexer] Monorepo detected. Using whitelist for 1 src directories
   [Indexer] Created database: ./.pf/repo_index.db
@@ -138,7 +138,7 @@ Working Directory: /Users/rahul.singh/Downloads/Meyden
   [Indexer] Database updated: ./.pf/repo_index.db
 
 [Phase 2/18] 2. Detect frameworks
-[OK] 2. Detect frameworks completed in 2.0s
+[OK] 2. Detect frameworks completed in 2.2s
   [Full output below, truncated in terminal]
   Frameworks written to /Users/rahul.singh/Downloads/Meyden/.pf/raw/frameworks.json
   FRAMEWORK          LANGUAGE      PATH            VERSION          SOURCE
@@ -162,7 +162,7 @@ Launching 3 parallel tracks:
 [SYNC] Waiting for parallel tracks to complete...
 [OK] Track C (Graph & Taint) completed in 0.8s
 [OK] Track B (Code Analysis) completed in 7.4s
-[OK] Track A (Network I/O) completed in 137.3s
+[OK] Track A (Network I/O) completed in 161.8s
 
 ============================================================
 [STAGE 2 RESULTS] Parallel Track Outputs
@@ -275,7 +275,7 @@ Launching 3 parallel tracks:
 ============================================================
 [Track B (Code Analysis)] 8. Detect patterns
 ============================================================
-[OK] 8. Detect patterns completed in 1.9s
+[OK] 8. Detect patterns completed in 2.0s
   Warning: Tree-sitter not available. Install with: pip install tree-sitter tree-sitter-python tree-sitter-javascript tree-sitter-typescript
   Detected frameworks: express, next, next, react, react
   Querying indexed files from database...
@@ -287,7 +287,7 @@ Launching 3 parallel tracks:
 ============================================================
 [Track A (Network I/O)] 3. Check dependencies
 ============================================================
-[OK] 3. Check dependencies completed in 54.5s
+[OK] 3. Check dependencies completed in 62.5s
   Checking 69 dependencies for updates...
     Unique packages to check: 66
     Connecting to: npm registry and PyPI
@@ -299,7 +299,7 @@ Launching 3 parallel tracks:
 ============================================================
 [Track A (Network I/O)] 4. Fetch documentation
 ============================================================
-[OK] 4. Fetch documentation completed in 82.5s
+[OK] 4. Fetch documentation completed in 99.1s
   Documentation fetch complete:
     Fetched: 64
     Cached: 0
@@ -321,10 +321,10 @@ Launching 3 parallel tracks:
 [Phase 16/18] 16. Factual correlation engine
 [OK] 16. Factual correlation engine completed in 0.8s
   [Full output below, truncated in terminal]
-  [FCE] Sorted 224 findings
+  [FCE] Sorted 225 findings
   [FCE] First: critical from patterns
   [FCE] Last: medium from patterns
-  Found 224 failures
+  Found 225 failures
   FCE report written to: .pf/raw/fce.json
 
 ============================================================
@@ -341,21 +341,21 @@ Launching 3 parallel tracks:
   [Full output below, truncated in terminal]
   [OK] Audit summary generated in 0.0s
     Overall status: CRITICAL
-    Total findings: 224
-    Critical: 53, High: 72, Medium: 99, Low: 0
+    Total findings: 225
+    Critical: 53, High: 73, Medium: 99, Low: 0
     Summary saved to: .pf/raw/audit_summary.json
 
 ============================================================
 [OK] AUDIT COMPLETE - All 18 phases successful
-[TIME] Total time: 140.5s (2.3 minutes)
+[TIME] Total time: 165.1s (2.8 minutes)
 
 ============================================================
 [FILES] ALL CREATED FILES
 ============================================================
 
 [STATS] Summary:
-  Total files created: 235
-  .pf/ files: 235
+  Total files created: 469
+  .pf/ files: 469
   .pf/readthis/ files: 16
   Root files: 0
 

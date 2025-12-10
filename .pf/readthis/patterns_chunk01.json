@@ -23,116 +23,6 @@
       "snippet": "const duration = Date.now() - startTime;"
     },
     {
-      "category": "security",
-      "column": 0,
-      "file": "backend/src/app.ts",
-      "line": 75,
-      "match_type": "ast",
-      "message": "Null origin allowed (regex fallback)",
-      "pattern_name": "CORS_NULL_ORIGIN_ALLOWED",
-      "severity": "high",
-      "snippet": "app.use(cors({"
-    },
-    {
-      "category": "security",
-      "column": 0,
-      "file": "backend/src/app.ts",
-      "line": 135,
-      "match_type": "regex",
-      "message": "Route/endpoint without authentication decorator or middleware",
-      "pattern_name": "missing-authentication-decorator",
-      "severity": "high",
-      "snippet": "app.get('/api/v1/csrf-tok\u200cen', (req: Request, res: Response) => {"
-    },
-    {
-      "category": "business_logic",
-      "column": 17,
-      "file": "backend/src/app.ts",
-      "line": 40,
-      "match_type": "regex",
-      "message": "Using naive datetime without timezone awareness",
-      "pattern_name": "timezone-naive-datetime",
-      "severity": "medium",
-      "snippet": "timestamp: new Date().toISOString(),"
-    },
-    {
-      "category": "business_logic",
-      "column": 17,
-      "file": "backend/src/app.ts",
-      "line": 49,
-      "match_type": "regex",
-      "message": "Using naive datetime without timezone awareness",
-      "pattern_name": "timezone-naive-datetime",
-      "severity": "medium",
-      "snippet": "timestamp: new Date().toISOString(),"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 10,
-      "file": "backend/src/app.ts",
-      "line": 198,
-      "match_type": "regex",
-      "message": "Hardcoded credentials in Svelte components",
-      "pattern_name": "svelte-hardcoded-credentials",
-      "severity": "critical",
-      "snippet": "csrfToken: '/api/v1/csrf-tok\u200cen',"
-    },
-    {
-      "category": "frameworks/react",
-      "column": 10,
-      "file": "backend/src/app.ts",
-      "line": 198,
-      "match_type": "regex",
-      "message": "Hardcoded credentials in React component",
-      "pattern_name": "react-hardcoded-credentials",
-      "severity": "critical",
-      "snippet": "csrfToken: '/api/v1/csrf-tok\u200cen',"
-    },
-    {
-      "category": "frameworks/express",
-      "column": 0,
-      "file": "backend/src/app.ts",
-      "line": 34,
-      "match_type": "regex",
-      "message": "Express route without error handling",
-      "pattern_name": "express-missing-error-handler",
-      "severity": "high",
-      "snippet": "app.get('/health', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/express",
-      "column": 0,
-      "file": "backend/src/app.ts",
-      "line": 135,
-      "match_type": "regex",
-      "message": "Express route without error handling",
-      "pattern_name": "express-missing-error-handler",
-      "severity": "high",
-      "snippet": "app.get('/api/v1/csrf-tok\u200cen', (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/express",
-      "column": 0,
-      "file": "backend/src/app.ts",
-      "line": 183,
-      "match_type": "regex",
-      "message": "Express route without error handling",
-      "pattern_name": "express-missing-error-handler",
-      "severity": "high",
-      "snippet": "app.get('/', (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/angular",
-      "column": 10,
-      "file": "backend/src/app.ts",
-      "line": 198,
-      "match_type": "regex",
-      "message": "Hardcoded credentials in Angular components or services",
-      "pattern_name": "angular-hardcoded-credentials",
-      "severity": "critical",
-      "snippet": "csrfToken: '/api/v1/csrf-tok\u200cen',"
-    },
-    {
       "category": "flow_sensitive",
       "column": 21,
       "file": "backend/src/database/seed.ts",
@@ -243,6 +133,17 @@
       "snippet": "await prisma.comment.create({"
     },
     {
+      "category": "security",
+      "column": 14,
+      "file": "backend/src/config/environment.ts",
+      "line": 63,
+      "match_type": "regex",
+      "message": "WebSocket broadcasting potentially sensitive data",
+      "pattern_name": "websocket-broadcast-sensitive-data",
+      "severity": "critical",
+      "snippet": "// Email (Resend - free tier)"
+    },
+    {
       "category": "flow_sensitive",
       "column": 18,
       "file": "backend/src/config/database.ts",
@@ -285,6 +186,127 @@
       "pattern_name": "connection-no-close",
       "severity": "high",
       "snippet": "await prisma.$disconnect();"
+    },
+    {
+      "category": "security",
+      "column": 0,
+      "file": "backend/src/app.ts",
+      "line": 79,
+      "match_type": "ast",
+      "message": "Null origin allowed (regex fallback)",
+      "pattern_name": "CORS_NULL_ORIGIN_ALLOWED",
+      "severity": "high",
+      "snippet": "app.use(cors({"
+    },
+    {
+      "category": "security",
+      "column": 0,
+      "file": "backend/src/app.ts",
+      "line": 148,
+      "match_type": "regex",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "pattern_name": "missing-authentication-decorator",
+      "severity": "high",
+      "snippet": "app.get('/api/v1/csrf-tok\u200cen', (req: Request, res: Response) => {"
+    },
+    {
+      "category": "business_logic",
+      "column": 17,
+      "file": "backend/src/app.ts",
+      "line": 40,
+      "match_type": "regex",
+      "message": "Using naive datetime without timezone awareness",
+      "pattern_name": "timezone-naive-datetime",
+      "severity": "medium",
+      "snippet": "timestamp: new Date().toISOString(),"
+    },
+    {
+      "category": "business_logic",
+      "column": 17,
+      "file": "backend/src/app.ts",
+      "line": 49,
+      "match_type": "regex",
+      "message": "Using naive datetime without timezone awareness",
+      "pattern_name": "timezone-naive-datetime",
+      "severity": "medium",
+      "snippet": "timestamp: new Date().toISOString(),"
+    },
+    {
+      "category": "security_compliance",
+      "column": 4,
+      "file": "backend/src/app.ts",
+      "line": 156,
+      "match_type": "regex",
+      "message": "Logging of Personally Identifiable Information without masking",
+      "pattern_name": "pii-logging-leak",
+      "severity": "high",
+      "snippet": "logger.error('CSRF tok\u200cen generation failed:', error);"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 10,
+      "file": "backend/src/app.ts",
+      "line": 216,
+      "match_type": "regex",
+      "message": "Hardcoded credentials in Svelte components",
+      "pattern_name": "svelte-hardcoded-credentials",
+      "severity": "critical",
+      "snippet": "csrfToken: '/api/v1/csrf-tok\u200cen',"
+    },
+    {
+      "category": "frameworks/react",
+      "column": 10,
+      "file": "backend/src/app.ts",
+      "line": 216,
+      "match_type": "regex",
+      "message": "Hardcoded credentials in React component",
+      "pattern_name": "react-hardcoded-credentials",
+      "severity": "critical",
+      "snippet": "csrfToken: '/api/v1/csrf-tok\u200cen',"
+    },
+    {
+      "category": "frameworks/express",
+      "column": 0,
+      "file": "backend/src/app.ts",
+      "line": 34,
+      "match_type": "regex",
+      "message": "Express route without error handling",
+      "pattern_name": "express-missing-error-handler",
+      "severity": "high",
+      "snippet": "app.get('/health', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "frameworks/express",
+      "column": 0,
+      "file": "backend/src/app.ts",
+      "line": 148,
+      "match_type": "regex",
+      "message": "Express route without error handling",
+      "pattern_name": "express-missing-error-handler",
+      "severity": "high",
+      "snippet": "app.get('/api/v1/csrf-tok\u200cen', (req: Request, res: Response) => {"
+    },
+    {
+      "category": "frameworks/express",
+      "column": 0,
+      "file": "backend/src/app.ts",
+      "line": 201,
+      "match_type": "regex",
+      "message": "Express route without error handling",
+      "pattern_name": "express-missing-error-handler",
+      "severity": "high",
+      "snippet": "app.get('/', (req: Request, res: Response) => {"
+    },
+    {
+      "category": "frameworks/angular",
+      "column": 10,
+      "file": "backend/src/app.ts",
+      "line": 216,
+      "match_type": "regex",
+      "message": "Hardcoded credentials in Angular components or services",
+      "pattern_name": "angular-hardcoded-credentials",
+      "severity": "critical",
+      "snippet": "csrfToken: '/api/v1/csrf-tok\u200cen',"
     },
     {
       "category": "frameworks/svelte",
@@ -331,15 +353,26 @@
       "snippet": "if (session && session.user) {"
     },
     {
-      "category": "security",
-      "column": 14,
-      "file": "backend/src/config/environment.ts",
-      "line": 63,
+      "category": "business_logic",
+      "column": 12,
+      "file": "backend/src/middleware/validation.ts",
+      "line": 54,
       "match_type": "regex",
-      "message": "WebSocket broadcasting potentially sensitive data",
-      "pattern_name": "websocket-broadcast-sensitive-data",
-      "severity": "critical",
-      "snippet": "// Email (Resend - free tier)"
+      "message": "Using naive datetime without timezone awareness",
+      "pattern_name": "timezone-naive-datetime",
+      "severity": "medium",
+      "snippet": "return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;"
+    },
+    {
+      "category": "flow_sensitive",
+      "column": 2,
+      "file": "backend/src/middleware/errorHandler.ts",
+      "line": 10,
+      "match_type": "regex",
+      "message": "Class field used in constructor before initialization",
+      "pattern_name": "field-use-before-init",
+      "severity": "high",
+      "snippet": "constructor(message: string, statusCode: number) {"
     },
     {
       "category": "frameworks/svelte",
@@ -353,17 +386,6 @@
       "snippet": "if (!userRole || !allowedRoles.includes(userRole)) {"
     },
     {
-      "category": "business_logic",
-      "column": 12,
-      "file": "backend/src/middleware/validation.ts",
-      "line": 54,
-      "match_type": "regex",
-      "message": "Using naive datetime without timezone awareness",
-      "pattern_name": "timezone-naive-datetime",
-      "severity": "medium",
-      "snippet": "return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;"
-    },
-    {
       "category": "frameworks/svelte",
       "column": 47,
       "file": "backend/src/routes/__tests__/admin.routes.test.ts",
@@ -373,28 +395,6 @@
       "pattern_name": "svelte-unescaped-user-input",
       "severity": "medium",
       "snippet": "describe('GET /api/admin/analytics', () => {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 48,
-      "file": "backend/src/routes/__tests__/community.routes.test.ts",
-      "line": 64,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "describe('POST /api/community/posts', () => {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 51,
-      "file": "backend/src/routes/__tests__/community.routes.test.ts",
-      "line": 79,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "describe('POST /api/community/comments', () => {"
     },
     {
       "category": "security",
@@ -716,15 +716,158 @@
       "snippet": "it('should return 404 if user not found', async () => {"
     },
     {
-      "category": "flow_sensitive",
-      "column": 2,
-      "file": "backend/src/middleware/errorHandler.ts",
-      "line": 10,
+      "category": "frameworks/svelte",
+      "column": 48,
+      "file": "backend/src/routes/__tests__/community.routes.test.ts",
+      "line": 64,
       "match_type": "regex",
-      "message": "Class field used in constructor before initialization",
-      "pattern_name": "field-use-before-init",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "describe('POST /api/community/posts', () => {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 51,
+      "file": "backend/src/routes/__tests__/community.routes.test.ts",
+      "line": 79,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "describe('POST /api/community/comments', () => {"
+    },
+    {
+      "category": "business_logic",
+      "column": 41,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 458,
+      "match_type": "regex",
+      "message": "Using naive datetime without timezone awareness",
+      "pattern_name": "timezone-naive-datetime",
+      "severity": "medium",
+      "snippet": "<p>Generated by Meyden Platform on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>"
+    },
+    {
+      "category": "db_issues",
+      "column": 32,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 327,
+      "match_type": "regex",
+      "message": "Transaction started but no rollback in error path",
+      "pattern_name": "transaction-not-rolled-back",
       "severity": "high",
-      "snippet": "constructor(message: string, statusCode: number) {"
+      "snippet": "if (percentage >= 60) return 'Beginner';"
+    },
+    {
+      "category": "db_issues",
+      "column": 153,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 433,
+      "match_type": "regex",
+      "message": "Transaction started but no rollback in error path",
+      "pattern_name": "transaction-not-rolled-back",
+      "severity": "high",
+      "snippet": "<p class=\"arabic\">\u0645\u0633\u062a\u0648\u0649 \u0627\u0644\u062c\u0627\u0647\u0632\u064a\u0629: ${grade === 'Expert' ? '\u062e\u0628\u064a\u0631' : grade === 'Advanced' ? '\u0645\u062a\u0642\u062f\u0645' : grade === 'Intermediate' ? '\u0645\u062a\u0648\u0633\u0637' : grade === 'Beginner' ? '\u0645\u0628\u062a\u062f\u0626' : '\u0645\u0628\u062a\u062f\u0626'}</p>"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 141,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.post('/surveys', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 185,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.post('/responses', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 63,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 141,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "router.post('/surveys', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 65,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 185,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "router.post('/responses', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 45,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 211,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "for (const question of survey.questions) {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 56,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 224,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "const response = await prisma.surveyResponse.create({"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 31,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 247,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "await prisma.survey.UPD\u200cATE({"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 35,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 442,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "<tr><td>Participant</td><td>${response.user ? `${response.user.firstName} ${response.user.lastName}` : 'Anonymous'}</td></tr>"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 81,
+      "file": "backend/src/routes/ai-readiness.routes.ts",
+      "line": 442,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "<tr><td>Participant</td><td>${response.user ? `${response.user.firstName} ${response.user.lastName}` : 'Anonymous'}</td></tr>"
     },
     {
       "category": "security",
@@ -991,259 +1134,6 @@
       "snippet": "router.get('/analytics', async (req: Request, res: Response) => {"
     },
     {
-      "category": "business_logic",
-      "column": 41,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 458,
-      "match_type": "regex",
-      "message": "Using naive datetime without timezone awareness",
-      "pattern_name": "timezone-naive-datetime",
-      "severity": "medium",
-      "snippet": "<p>Generated by Meyden Platform on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>"
-    },
-    {
-      "category": "db_issues",
-      "column": 32,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 327,
-      "match_type": "regex",
-      "message": "Transaction started but no rollback in error path",
-      "pattern_name": "transaction-not-rolled-back",
-      "severity": "high",
-      "snippet": "if (percentage >= 60) return 'Beginner';"
-    },
-    {
-      "category": "db_issues",
-      "column": 153,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 433,
-      "match_type": "regex",
-      "message": "Transaction started but no rollback in error path",
-      "pattern_name": "transaction-not-rolled-back",
-      "severity": "high",
-      "snippet": "<p class=\"arabic\">\u0645\u0633\u062a\u0648\u0649 \u0627\u0644\u062c\u0627\u0647\u0632\u064a\u0629: ${grade === 'Expert' ? '\u062e\u0628\u064a\u0631' : grade === 'Advanced' ? '\u0645\u062a\u0642\u062f\u0645' : grade === 'Intermediate' ? '\u0645\u062a\u0648\u0633\u0637' : grade === 'Beginner' ? '\u0645\u0628\u062a\u062f\u0626' : '\u0645\u0628\u062a\u062f\u0626'}</p>"
-    },
-    {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 141,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.post('/surveys', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 185,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.post('/responses', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 63,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 141,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "router.post('/surveys', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 65,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 185,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "router.post('/responses', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 45,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 211,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "for (const question of survey.questions) {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 56,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 224,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "const response = await prisma.surveyResponse.create({"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 31,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 247,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "await prisma.survey.UPD\u200cATE({"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 35,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 442,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "<tr><td>Participant</td><td>${response.user ? `${response.user.firstName} ${response.user.lastName}` : 'Anonymous'}</td></tr>"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 81,
-      "file": "backend/src/routes/ai-readiness.routes.ts",
-      "line": 442,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "<tr><td>Participant</td><td>${response.user ? `${response.user.firstName} ${response.user.lastName}` : 'Anonymous'}</td></tr>"
-    },
-    {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 184,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.post('/posts', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
-    },
-    {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 245,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.post('/comments', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
-    },
-    {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 340,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.post('/categories/:id/follow', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 349,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.DEL\u200cETE('/categories/:id/follow', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 359,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.post('/posts/:id/follow', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 367,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.DEL\u200cETE('/posts/:id/follow', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 42,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 196,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "const post = await prisma.post.create({"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 48,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 257,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "const comment = await prisma.comment.create({"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 30,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 283,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "if (validatedData.postId) {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 77,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 340,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "router.post('/categories/:id/follow', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 72,
-      "file": "backend/src/routes/community.routes.ts",
-      "line": 359,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "router.post('/posts/:id/follow', async (req: Request, res: Response) => {"
-    },
-    {
       "category": "security",
       "column": 15,
       "file": "backend/src/routes/oauth.routes.ts",
@@ -1422,68 +1312,123 @@
     {
       "category": "security_compliance",
       "column": 0,
-      "file": "backend/src/routes/upload.routes.ts",
-      "line": 7,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 184,
       "match_type": "regex",
       "message": "State-changing route without CSRF protection",
       "pattern_name": "missing-csrf-protection",
       "severity": "high",
-      "snippet": "router.post('/upload', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "security",
-      "column": 0,
-      "file": "backend/src/routes/user.routes.ts",
-      "line": 41,
-      "match_type": "regex",
-      "message": "Route/endpoint without authentication decorator or middleware",
-      "pattern_name": "missing-authentication-decorator",
-      "severity": "high",
-      "snippet": "router.get('/profile', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
-    },
-    {
-      "category": "security",
-      "column": 0,
-      "file": "backend/src/routes/user.routes.ts",
-      "line": 93,
-      "match_type": "regex",
-      "message": "Route/endpoint without authentication decorator or middleware",
-      "pattern_name": "missing-authentication-decorator",
-      "severity": "high",
-      "snippet": "router.put('/profile', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
+      "snippet": "router.post('/posts', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
     },
     {
       "category": "security_compliance",
       "column": 0,
-      "file": "backend/src/routes/user.routes.ts",
-      "line": 93,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 245,
       "match_type": "regex",
       "message": "State-changing route without CSRF protection",
       "pattern_name": "missing-csrf-protection",
       "severity": "high",
-      "snippet": "router.put('/profile', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
+      "snippet": "router.post('/comments', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 340,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.post('/categories/:id/follow', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 349,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.DEL\u200cETE('/categories/:id/follow', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 359,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.post('/posts/:id/follow', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 367,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.DEL\u200cETE('/posts/:id/follow', async (req: Request, res: Response) => {"
     },
     {
       "category": "frameworks/svelte",
-      "column": 13,
-      "file": "backend/src/routes/user.routes.ts",
-      "line": 67,
+      "column": 42,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 196,
       "match_type": "regex",
       "message": "User input rendered without escaping - potential XSS",
       "pattern_name": "svelte-unescaped-user-input",
       "severity": "medium",
-      "snippet": "res.json({"
+      "snippet": "const post = await prisma.post.create({"
     },
     {
       "category": "frameworks/svelte",
-      "column": 12,
-      "file": "backend/src/routes/user.routes.ts",
-      "line": 117,
+      "column": 48,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 257,
       "match_type": "regex",
       "message": "User input rendered without escaping - potential XSS",
       "pattern_name": "svelte-unescaped-user-input",
       "severity": "medium",
-      "snippet": "data: {"
+      "snippet": "const comment = await prisma.comment.create({"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 30,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 283,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "if (validatedData.postId) {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 77,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 340,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "router.post('/categories/:id/follow', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 72,
+      "file": "backend/src/routes/community.routes.ts",
+      "line": 359,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "router.post('/posts/:id/follow', async (req: Request, res: Response) => {"
     },
     {
       "category": "security",
@@ -1726,12 +1671,67 @@
       "pattern_name": "missing-csrf-protection",
       "severity": "high",
       "snippet": "router.post('/forgot-pass\u200cword', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 558,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.post('/reset-pass\u200cword', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 56,
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 167,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "logger.info('User registered successfully', maskPII({ userId: user.id, email: user.email }));"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 25,
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 169,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "res.status(201).json({"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 29,
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 271,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "await prisma.user.UPD\u200cATE({"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 21,
+      "file": "backend/src/routes/auth.routes.ts",
+      "line": 285,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "const userData = {"
     }
   ],
   "chunk_info": {
     "chunk_number": 1,
     "total_items_in_chunk": 157,
-    "original_total_items": 224,
+    "original_total_items": 225,
     "list_key": "findings",
     "truncated": false
   }

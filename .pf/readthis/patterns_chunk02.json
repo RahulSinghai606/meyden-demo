@@ -1,61 +1,6 @@
 {
   "findings": [
     {
-      "category": "security_compliance",
-      "column": 0,
-      "file": "backend/src/routes/auth.routes.ts",
-      "line": 558,
-      "match_type": "regex",
-      "message": "State-changing route without CSRF protection",
-      "pattern_name": "missing-csrf-protection",
-      "severity": "high",
-      "snippet": "router.post('/reset-pass\u200cword', async (req: Request, res: Response) => {"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 56,
-      "file": "backend/src/routes/auth.routes.ts",
-      "line": 167,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "logger.info('User registered successfully', maskPII({ userId: user.id, email: user.email }));"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 25,
-      "file": "backend/src/routes/auth.routes.ts",
-      "line": 169,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "res.status(201).json({"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 29,
-      "file": "backend/src/routes/auth.routes.ts",
-      "line": 271,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "await prisma.user.UPD\u200cATE({"
-    },
-    {
-      "category": "frameworks/svelte",
-      "column": 21,
-      "file": "backend/src/routes/auth.routes.ts",
-      "line": 285,
-      "match_type": "regex",
-      "message": "User input rendered without escaping - potential XSS",
-      "pattern_name": "svelte-unescaped-user-input",
-      "severity": "medium",
-      "snippet": "const userData = {"
-    },
-    {
       "category": "frameworks/svelte",
       "column": 55,
       "file": "backend/src/routes/auth.routes.ts",
@@ -131,6 +76,72 @@
       "pattern_name": "svelte-unescaped-user-input",
       "severity": "medium",
       "snippet": "logger.info('Password reset successfully', maskPII({ userId: user.id }));"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/upload.routes.ts",
+      "line": 7,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.post('/upload', async (req: Request, res: Response) => {"
+    },
+    {
+      "category": "security",
+      "column": 0,
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 41,
+      "match_type": "regex",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "pattern_name": "missing-authentication-decorator",
+      "severity": "high",
+      "snippet": "router.get('/profile', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
+    },
+    {
+      "category": "security",
+      "column": 0,
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 93,
+      "match_type": "regex",
+      "message": "Route/endpoint without authentication decorator or middleware",
+      "pattern_name": "missing-authentication-decorator",
+      "severity": "high",
+      "snippet": "router.put('/profile', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
+    },
+    {
+      "category": "security_compliance",
+      "column": 0,
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 93,
+      "match_type": "regex",
+      "message": "State-changing route without CSRF protection",
+      "pattern_name": "missing-csrf-protection",
+      "severity": "high",
+      "snippet": "router.put('/profile', requireAuth, async (req: AuthenticatedRequest, res: Response) => {"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 13,
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 67,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "res.json({"
+    },
+    {
+      "category": "frameworks/svelte",
+      "column": 12,
+      "file": "backend/src/routes/user.routes.ts",
+      "line": 117,
+      "match_type": "regex",
+      "message": "User input rendered without escaping - potential XSS",
+      "pattern_name": "svelte-unescaped-user-input",
+      "severity": "medium",
+      "snippet": "data: {"
     },
     {
       "category": "business_logic",
@@ -541,28 +552,6 @@
     },
     {
       "category": "business_logic",
-      "column": 18,
-      "file": "backend/src/utils/datetime.ts",
-      "line": 5,
-      "match_type": "regex",
-      "message": "Using naive datetime without timezone awareness",
-      "pattern_name": "timezone-naive-datetime",
-      "severity": "medium",
-      "snippet": "return new Date(Date.now());"
-    },
-    {
-      "category": "business_logic",
-      "column": 18,
-      "file": "backend/src/utils/datetime.ts",
-      "line": 22,
-      "match_type": "regex",
-      "message": "Using naive datetime without timezone awareness",
-      "pattern_name": "timezone-naive-datetime",
-      "severity": "medium",
-      "snippet": "return new Date(Date.now() + offsetMs);"
-    },
-    {
-      "category": "business_logic",
       "column": 29,
       "file": "backend/src/utils/auth.ts",
       "line": 65,
@@ -694,6 +683,28 @@
       "snippet": "export const resetLoginAttempts = async (email: string): Promise<void> => {"
     },
     {
+      "category": "business_logic",
+      "column": 18,
+      "file": "backend/src/utils/datetime.ts",
+      "line": 5,
+      "match_type": "regex",
+      "message": "Using naive datetime without timezone awareness",
+      "pattern_name": "timezone-naive-datetime",
+      "severity": "medium",
+      "snippet": "return new Date(Date.now());"
+    },
+    {
+      "category": "business_logic",
+      "column": 18,
+      "file": "backend/src/utils/datetime.ts",
+      "line": 22,
+      "match_type": "regex",
+      "message": "Using naive datetime without timezone awareness",
+      "pattern_name": "timezone-naive-datetime",
+      "severity": "medium",
+      "snippet": "return new Date(Date.now() + offsetMs);"
+    },
+    {
       "category": "frameworks/svelte",
       "column": 90,
       "file": "backend/src/utils/pagination.ts",
@@ -740,8 +751,8 @@
   ],
   "chunk_info": {
     "chunk_number": 2,
-    "total_items_in_chunk": 67,
-    "original_total_items": 224,
+    "total_items_in_chunk": 68,
+    "original_total_items": 225,
     "list_key": "findings",
     "truncated": false
   }

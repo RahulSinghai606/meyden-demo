@@ -14,4 +14,4 @@ npm install @types/cors
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fcors/2.8.17
-- Fetched: 2025-12-09T17:32:15.120179
+- Fetched: 2025-12-09T17:43:11.955714

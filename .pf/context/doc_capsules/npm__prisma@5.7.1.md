@@ -24,4 +24,4 @@ datasource db {
 ## Source
 
 - URL: https://registry.npmjs.org/prisma/5.7.1
-- Fetched: 2025-12-09T17:32:53.624829
+- Fetched: 2025-12-09T17:43:56.930440

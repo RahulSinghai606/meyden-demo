@@ -14,4 +14,4 @@ npm install joi
 ## Source
 
 - URL: https://registry.npmjs.org/joi/17.11.0
-- Fetched: 2025-12-09T17:32:42.291482
+- Fetched: 2025-12-09T17:43:39.178331

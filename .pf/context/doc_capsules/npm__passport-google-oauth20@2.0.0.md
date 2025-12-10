@@ -29,4 +29,4 @@ passport.use(new GoogleStrategy({
 ## Source
 
 - URL: https://registry.npmjs.org/passport-google-oauth20/2.0.0
-- Fetched: 2025-12-09T17:32:50.925097
+- Fetched: 2025-12-09T17:43:53.261867

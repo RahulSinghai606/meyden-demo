@@ -14,4 +14,4 @@ npm install @types/multer
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fmulter/1.4.11
-- Fetched: 2025-12-09T17:32:17.533804
+- Fetched: 2025-12-09T17:43:14.359370

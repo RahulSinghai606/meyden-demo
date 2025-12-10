@@ -14,4 +14,4 @@ npm install tailwindcss
 ## Source
 
 - URL: https://registry.npmjs.org/tailwindcss/3.4.17
-- Fetched: 2025-12-09T17:33:32.425643
+- Fetched: 2025-12-09T17:44:46.230229

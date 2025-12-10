@@ -20,4 +20,4 @@
 ## Source
 
 - URL: https://registry.npmjs.org/winston/3.11.0
-- Fetched: 2025-12-09T17:32:55.720636
+- Fetched: 2025-12-09T17:44:00.051588

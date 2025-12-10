@@ -20,4 +20,4 @@ $> npm install bcryptjs
 ## Source
 
 - URL: https://registry.npmjs.org/bcryptjs/2.4.3
-- Fetched: 2025-12-09T17:32:21.792918
+- Fetched: 2025-12-09T17:43:18.424067

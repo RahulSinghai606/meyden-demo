@@ -1,0 +1,10 @@
+{
+  "source_url": "https://registry.npmjs.org/passport-google-oauth20/2.0.0",
+  "last_checked": "2025-12-09T17:32:50.925097",
+  "etag": null,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jaredhanson/passport-google-oauth2.git"
+  },
+  "from_github": true
+}

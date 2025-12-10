@@ -14,4 +14,4 @@ npm install @typescript-eslint/parser
 ## Source
 
 - URL: https://registry.npmjs.org/%40typescript-eslint%2Fparser/6.13.1
-- Fetched: 2025-12-09T17:33:05.436141
+- Fetched: 2025-12-09T17:44:20.674072

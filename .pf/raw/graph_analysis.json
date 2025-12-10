@@ -15,12 +15,12 @@
       "churn": 0,
       "id": "backend/src/app.ts",
       "in_degree": 1,
-      "loc": 222,
+      "loc": 240,
       "out_degree": 35,
-      "score": 7.356195209447825
+      "score": 7.357995209447825
     },
     {
-      "centrality": 0.27987690041040136,
+      "centrality": 0.2798769004104014,
       "churn": 0,
       "id": "backend/src/config/database.ts",
       "in_degree": 17,
@@ -29,7 +29,7 @@
       "score": 5.790563070123119
     },
     {
-      "centrality": 0.24402193495348307,
+      "centrality": 0.24402193495348304,
       "churn": 0,
       "id": "backend/src/utils/auth.ts",
       "in_degree": 7,
@@ -38,7 +38,7 @@
       "score": 4.596306580486045
     },
     {
-      "centrality": 0.2985243634238699,
+      "centrality": 0.29852436342387006,
       "churn": 0,
       "id": "backend/src/utils/sanitize.ts",
       "in_degree": 12,
@@ -56,7 +56,7 @@
       "score": 3.2968028051826233
     },
     {
-      "centrality": 0.17956647047645255,
+      "centrality": 0.17956647047645258,
       "churn": 0,
       "id": "backend/src/middleware/requireAuth.ts",
       "in_degree": 7,
@@ -101,7 +101,7 @@
       "score": 2.8601765342070897
     },
     {
-      "centrality": 0.20925624267044904,
+      "centrality": 0.20925624267044898,
       "churn": 0,
       "id": "backend/src/utils/datetime.ts",
       "in_degree": 9,
@@ -110,7 +110,7 @@
       "score": 2.7682768728011347
     },
     {
-      "centrality": 0.35488479173034493,
+      "centrality": 0.35488479173034504,
       "churn": 0,
       "id": "backend/src/config/environment.ts",
       "in_degree": 8,

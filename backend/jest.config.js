@@ -15,5 +15,7 @@ module.exports = {
         '!src/**/*.d.ts',
         '!src/**/*.test.ts',
         '!src/types/**/*',
+        '!src/database/seed.ts',
+        '!src/server.ts',
     ],
 };

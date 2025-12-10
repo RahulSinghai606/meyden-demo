@@ -1,6 +1,7 @@
 
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
+import { randomBytes, timingSafeEqual } from 'crypto';
 import { v4 as uuidv4 } from 'uuid';
 import { config } from '../config/environment';
 
@@ -114,16 +115,30 @@ export const invalidateAllUserSessions = async (userId: string) => {
   }
 };
 
-// OAuth utilities
+// OAuth utilities - using cryptographically secure random bytes
 export const generateOAuthState = (): { state: string; expiresAt: Date } => {
-  const state = uuidv4();
+  const state = randomBytes(32).toString('hex'); // 64 char hex string
   const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
   return { state, expiresAt };
 };
 
+// Use constant-time comparison to prevent timing attacks
 export const validateOAuthState = (state: string, storedState: { state: string; expiresAt: Date }): boolean => {
-  return state === storedState.state && storedState.expiresAt > getCurrentUTC();
+  if (storedState.expiresAt <= getCurrentUTC()) {
+    return false;
+  }
+
+  // Constant-time comparison to prevent timing attacks
+  const stateBuffer = Buffer.from(state);
+  const storedBuffer = Buffer.from(storedState.state);
+
+  if (stateBuffer.length !== storedBuffer.length) {
+    return false;
+  }
+
+  return timingSafeEqual(stateBuffer, storedBuffer);
 };
+
 
 // Rate limiting for authentication attempts - uses database
 export const rateLimitLoginAttempts = async (email: string, ipAddress: string): Promise<{ allowed: boolean; remaining: number }> => {

@@ -14,4 +14,4 @@ npm install csrf-csrf
 ## Source
 
 - URL: https://registry.npmjs.org/csrf-csrf/4.0.3
-- Fetched: 2025-12-09T17:32:26.727555
+- Fetched: 2025-12-09T17:43:23.123062

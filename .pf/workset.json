@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-09T12:01:16.294792+00:00",
+  "generated_at": "2025-12-09T12:12:05.537457+00:00",
   "root": ".",
   "seed": {
     "mode": "all",
@@ -17,7 +17,7 @@
     },
     {
       "path": "backend/src/app.ts",
-      "sha256": "9bd0d92116902e46682ddabefdc7698985a837eedf3dc560b73c130c86203ffd"
+      "sha256": "11f8f365bbf5773a94ff8457911e3ea15af3fd5178fa0d21bd2960863ccf4ef8"
     },
     {
       "path": "backend/src/config/database.ts",

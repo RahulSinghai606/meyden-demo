@@ -14,4 +14,4 @@ npm install @types/supertest
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fsupertest/6.0.3
-- Fetched: 2025-12-09T17:33:03.456675
+- Fetched: 2025-12-09T17:44:18.660341

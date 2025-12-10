@@ -14,4 +14,4 @@ npm install @types/jest
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fjest/29.5.8
-- Fetched: 2025-12-09T17:32:58.529759
+- Fetched: 2025-12-09T17:44:13.667874

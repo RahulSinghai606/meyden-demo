@@ -21,4 +21,4 @@ html2canvas
 ## Source
 
 - URL: https://registry.npmjs.org/html2canvas/1.4.1
-- Fetched: 2025-12-09T17:33:18.254802
+- Fetched: 2025-12-09T17:44:31.968656

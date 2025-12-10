@@ -1,9 +1,9 @@
 {
   "extraction_timestamp": "1765281674.055477",
   "budget_kb": 1500,
-  "total_used_bytes": 329283,
-  "total_used_kb": 321,
-  "utilization_percent": 21.4376953125,
+  "total_used_bytes": 329897,
+  "total_used_kb": 322,
+  "utilization_percent": 21.47766927083333,
   "files_extracted": 15,
   "files_skipped": 0,
   "files_failed": 0,
@@ -18,7 +18,7 @@
     },
     {
       "file": "fce.json",
-      "size": 52914
+      "size": 53141
     },
     {
       "file": "frameworks.json",
@@ -58,11 +58,11 @@
     },
     {
       "file": "patterns_chunk01.json",
-      "size": 63186
+      "size": 63136
     },
     {
       "file": "patterns_chunk02.json",
-      "size": 27040
+      "size": 27477
     },
     {
       "file": "taint_analysis.json",

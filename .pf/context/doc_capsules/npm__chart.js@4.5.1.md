@@ -14,4 +14,4 @@ npm install chart.js
 ## Source
 
 - URL: https://registry.npmjs.org/chart.js/4.5.1
-- Fetched: 2025-12-09T17:33:15.807077
+- Fetched: 2025-12-09T17:44:29.616149

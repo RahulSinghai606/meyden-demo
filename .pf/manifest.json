@@ -11,15 +11,15 @@
     "sha256": "5ad11c92175ada2006a8b7a8a87944311b48f296b6c77a7eff63ace96dcce5c0"
   },
   {
-    "bytes": 6915,
+    "bytes": 7636,
     "ext": ".ts",
     "first_lines": [
       "import express, { Application, Request, Response, NextFunction } from 'express';",
       "import cors from 'cors';"
     ],
-    "loc": 222,
+    "loc": 240,
     "path": "backend/src/app.ts",
-    "sha256": "9bd0d92116902e46682ddabefdc7698985a837eedf3dc560b73c130c86203ffd"
+    "sha256": "11f8f365bbf5773a94ff8457911e3ea15af3fd5178fa0d21bd2960863ccf4ef8"
   },
   {
     "bytes": 2004,

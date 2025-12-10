@@ -2,462 +2,462 @@
   "npm:@headlessui/react": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:55.173191",
+    "last_checked": "2025-12-09T17:42:50.143710",
     "latest": "2.2.9",
     "locked": "2.2.9"
   },
   "npm:@prisma/client": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:27.890899",
+    "last_checked": "2025-12-09T17:42:20.950709",
     "latest": "7.1.0",
     "locked": "5.7.1"
   },
   "npm:@types/bcryptjs": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:28.067820",
+    "last_checked": "2025-12-09T17:42:21.126845",
     "latest": "3.0.0",
     "locked": "2.4.6"
   },
   "npm:@types/compression": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:43.639429",
+    "last_checked": "2025-12-09T17:42:37.344073",
     "latest": "1.8.1",
     "locked": "1.7.5"
   },
   "npm:@types/cors": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:28.260840",
+    "last_checked": "2025-12-09T17:42:21.306129",
     "latest": "2.8.19",
     "locked": "2.8.17"
   },
   "npm:@types/express": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:28.522019",
+    "last_checked": "2025-12-09T17:42:21.541536",
     "latest": "5.0.6",
     "locked": "4.17.21"
   },
   "npm:@types/jest": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:43.876880",
+    "last_checked": "2025-12-09T17:42:37.655775",
     "latest": "30.0.0",
     "locked": "29.5.8"
   },
   "npm:@types/jsonwebtoken": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:28.710655",
+    "last_checked": "2025-12-09T17:42:21.724326",
     "latest": "9.0.10",
     "locked": "9.0.5"
   },
   "npm:@types/morgan": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:44.056555",
+    "last_checked": "2025-12-09T17:42:37.847559",
     "latest": "1.9.10",
     "locked": "1.9.10"
   },
   "npm:@types/multer": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:28.886977",
+    "last_checked": "2025-12-09T17:42:21.928386",
     "latest": "2.0.0",
     "locked": "1.4.11"
   },
   "npm:@types/node": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:03.611662",
+    "last_checked": "2025-12-09T17:42:59.778293",
     "latest": "24.10.2",
     "locked": "20"
   },
   "npm:@types/node-cron": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:44.235295",
+    "last_checked": "2025-12-09T17:42:38.022739",
     "latest": "3.0.11",
     "locked": "3.0.11"
   },
   "npm:@types/nodemailer": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:44.414095",
+    "last_checked": "2025-12-09T17:42:38.215065",
     "latest": "7.0.4",
     "locked": "6.4.14"
   },
   "npm:@types/passport": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:45.454320",
+    "last_checked": "2025-12-09T17:42:38.387526",
     "latest": "1.0.17",
     "locked": "1.0.16"
   },
   "npm:@types/passport-google-oauth20": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:45.628533",
+    "last_checked": "2025-12-09T17:42:38.651008",
     "latest": "2.0.17",
     "locked": "2.0.14"
   },
   "npm:@types/react": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:03.937913",
+    "last_checked": "2025-12-09T17:43:00.205349",
     "latest": "19.2.7",
     "locked": "19"
   },
   "npm:@types/react-dom": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:04.189220",
+    "last_checked": "2025-12-09T17:43:00.442804",
     "latest": "19.2.3",
     "locked": "19"
   },
   "npm:@types/supertest": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:45.935955",
+    "last_checked": "2025-12-09T17:42:38.909292",
     "latest": "6.0.3",
     "locked": "6.0.3"
   },
   "npm:@types/uuid": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:30.407708",
+    "last_checked": "2025-12-09T17:42:23.677634",
     "latest": "11.0.0",
     "locked": "9.0.7"
   },
   "npm:@typescript-eslint/eslint-plugin": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:47.667953",
+    "last_checked": "2025-12-09T17:42:42.858296",
     "latest": "8.49.0",
     "locked": "6.13.1"
   },
   "npm:@typescript-eslint/parser": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:50.646394",
+    "last_checked": "2025-12-09T17:42:45.550822",
     "latest": "8.49.0",
     "locked": "6.13.1"
   },
   "npm:autoprefixer": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:32:04.433957",
+    "last_checked": "2025-12-09T17:43:00.761869",
     "latest": "10.4.22",
     "locked": "10.4.22"
   },
   "npm:aws-sdk": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:31.590480",
+    "last_checked": "2025-12-09T17:42:25.409887",
     "latest": "2.1692.0",
     "locked": "2.1525.0"
   },
   "npm:babel-plugin-react-compiler": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:32:04.691674",
+    "last_checked": "2025-12-09T17:43:01.056379",
     "latest": "1.0.0",
     "locked": "1.0.0"
   },
   "npm:bcryptjs": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:31.755771",
+    "last_checked": "2025-12-09T17:42:25.600008",
     "latest": "3.0.3",
     "locked": "2.4.3"
   },
   "npm:chart.js": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:55.371173",
+    "last_checked": "2025-12-09T17:42:50.571379",
     "latest": "4.5.1",
     "locked": "4.5.1"
   },
   "npm:compression": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:31.929328",
+    "last_checked": "2025-12-09T17:42:25.863666",
     "latest": "1.8.1",
     "locked": "1.7.4"
   },
   "npm:cookie-parser": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:32.091537",
+    "last_checked": "2025-12-09T17:42:26.083102",
     "latest": "1.4.7",
     "locked": "1.4.7"
   },
   "npm:cors": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:32.281713",
+    "last_checked": "2025-12-09T17:42:26.270737",
     "latest": "2.8.5",
     "locked": "2.8.5"
   },
   "npm:csrf-csrf": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:32.542505",
+    "last_checked": "2025-12-09T17:42:26.468235",
     "latest": "4.0.3",
     "locked": "4.0.3"
   },
   "npm:dotenv": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:32.850801",
+    "last_checked": "2025-12-09T17:42:26.654727",
     "latest": "17.2.3",
     "locked": "16.3.1"
   },
   "npm:eslint": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:04.999340",
+    "last_checked": "2025-12-09T17:43:01.511104",
     "latest": "9.39.1",
     "locked": "9"
   },
   "npm:eslint-config-next": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:05.713745",
+    "last_checked": "2025-12-09T17:43:02.620262",
     "latest": "16.0.8",
     "locked": "16.0.5"
   },
   "npm:express": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:33.284556",
+    "last_checked": "2025-12-09T17:42:26.919577",
     "latest": "5.2.1",
     "locked": "4.18.2"
   },
   "npm:express-rate-limit": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:33.511539",
+    "last_checked": "2025-12-09T17:42:27.140180",
     "latest": "8.2.1",
     "locked": "7.5.1"
   },
   "npm:express-validator": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:33.720093",
+    "last_checked": "2025-12-09T17:42:27.980632",
     "latest": "7.3.1",
     "locked": "7.3.1"
   },
   "npm:framer-motion": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:56.783354",
+    "last_checked": "2025-12-09T17:42:51.809955",
     "latest": "12.23.25",
     "locked": "12.23.24"
   },
   "npm:helmet": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:33.907411",
+    "last_checked": "2025-12-09T17:42:28.186716",
     "latest": "8.1.0",
     "locked": "7.1.0"
   },
   "npm:html2canvas": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:56.950442",
+    "last_checked": "2025-12-09T17:42:52.007197",
     "latest": "1.4.1",
     "locked": "1.4.1"
   },
   "npm:isomorphic-dompurify": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:34.125573",
+    "last_checked": "2025-12-09T17:42:28.384943",
     "latest": "2.34.0",
     "locked": "2.33.0"
   },
   "npm:jest": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:51.500402",
+    "last_checked": "2025-12-09T17:42:46.134693",
     "latest": "30.2.0",
     "locked": "29.7.0"
   },
   "npm:joi": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:34.377209",
+    "last_checked": "2025-12-09T17:42:28.617384",
     "latest": "18.0.2",
     "locked": "17.11.0"
   },
   "npm:jsonwebtoken": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:34.550702",
+    "last_checked": "2025-12-09T17:42:28.797266",
     "latest": "9.0.3",
     "locked": "9.0.2"
   },
   "npm:jspdf": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:57.125508",
+    "last_checked": "2025-12-09T17:42:52.196816",
     "latest": "3.0.4",
     "locked": "3.0.4"
   },
   "npm:lucide-react": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:57.440841",
+    "last_checked": "2025-12-09T17:42:52.520308",
     "latest": "0.556.0",
     "locked": "0.555.0"
   },
   "npm:morgan": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:34.723191",
+    "last_checked": "2025-12-09T17:42:29.017283",
     "latest": "1.10.1",
     "locked": "1.10.1"
   },
   "npm:multer": {
     "delta": "unknown",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:34.906389",
+    "last_checked": "2025-12-09T17:42:29.204468",
     "latest": "2.0.2",
     "locked": "1.4.5-lts.1"
   },
   "npm:next": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:00.861294",
+    "last_checked": "2025-12-09T17:42:55.849521",
     "latest": "16.0.8",
     "locked": "16.0.7"
   },
   "npm:node-cron": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:35.155016",
+    "last_checked": "2025-12-09T17:42:29.383637",
     "latest": "4.2.1",
     "locked": "3.0.3"
   },
   "npm:nodemailer": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:35.372416",
+    "last_checked": "2025-12-09T17:42:29.637101",
     "latest": "7.0.11",
     "locked": "6.9.7"
   },
   "npm:passport": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:35.565630",
+    "last_checked": "2025-12-09T17:42:29.803602",
     "latest": "0.7.0",
     "locked": "0.7.0"
   },
   "npm:passport-google-oauth20": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:35.742203",
+    "last_checked": "2025-12-09T17:42:29.968266",
     "latest": "2.0.0",
     "locked": "2.0.0"
   },
   "npm:passport-microsoft": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:36.752441",
+    "last_checked": "2025-12-09T17:42:30.173004",
     "latest": "2.1.0",
     "locked": "1.0.0"
   },
   "npm:postcss": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:32:06.316895",
+    "last_checked": "2025-12-09T17:43:02.856783",
     "latest": "8.5.6",
     "locked": "8.5.6"
   },
   "npm:prisma": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:42.506004",
+    "last_checked": "2025-12-09T17:42:36.218175",
     "latest": "7.1.0",
     "locked": "5.7.1"
   },
   "npm:react": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:01.530640",
+    "last_checked": "2025-12-09T17:42:56.613012",
     "latest": "19.2.1",
     "locked": "19.2.0"
   },
   "npm:react-chartjs-2": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:32:01.727223",
+    "last_checked": "2025-12-09T17:42:56.785947",
     "latest": "5.3.1",
     "locked": "5.3.1"
   },
   "npm:react-dom": {
     "delta": "patch",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:02.472420",
+    "last_checked": "2025-12-09T17:42:58.062399",
     "latest": "19.2.1",
     "locked": "19.2.0"
   },
   "npm:supertest": {
     "delta": "equal",
     "is_outdated": false,
-    "last_checked": "2025-12-09T17:31:51.682633",
+    "last_checked": "2025-12-09T17:42:46.313317",
     "latest": "7.1.4",
     "locked": "7.1.4"
   },
   "npm:tailwindcss": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:07.724498",
+    "last_checked": "2025-12-09T17:43:04.739870",
     "latest": "4.1.17",
     "locked": "3.4.17"
   },
   "npm:ts-jest": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:51.922871",
+    "last_checked": "2025-12-09T17:42:46.548676",
     "latest": "29.4.6",
     "locked": "29.1.1"
   },
   "npm:tsx": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:52.108012",
+    "last_checked": "2025-12-09T17:42:46.747277",
     "latest": "4.21.0",
     "locked": "4.6.2"
   },
   "npm:typescript": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:32:10.628630",
+    "last_checked": "2025-12-09T17:43:07.774103",
     "latest": "5.9.3",
     "locked": "5"
   },
   "npm:uuid": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:42.695696",
+    "last_checked": "2025-12-09T17:42:36.402171",
     "latest": "13.0.0",
     "locked": "9.0.1"
   },
   "npm:winston": {
     "delta": "minor",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:42.887928",
+    "last_checked": "2025-12-09T17:42:36.587509",
     "latest": "3.19.0",
     "locked": "3.11.0"
   },
   "npm:zod": {
     "delta": "major",
     "is_outdated": true,
-    "last_checked": "2025-12-09T17:31:43.418561",
+    "last_checked": "2025-12-09T17:42:37.175709",
     "latest": "4.1.13",
     "locked": "3.22.4"
   }

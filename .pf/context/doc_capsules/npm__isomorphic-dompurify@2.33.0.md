@@ -20,4 +20,4 @@ import DOMPurify from "isomorphic-dompurify";
 ## Source
 
 - URL: https://registry.npmjs.org/isomorphic-dompurify/2.33.0
-- Fetched: 2025-12-09T17:32:38.103423
+- Fetched: 2025-12-09T17:43:35.259980

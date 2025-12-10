@@ -14,4 +14,4 @@ npm install @types/compression
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fcompression/1.7.5
-- Fetched: 2025-12-09T17:32:57.445640
+- Fetched: 2025-12-09T17:44:12.840096

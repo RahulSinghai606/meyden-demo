@@ -14,4 +14,4 @@ npm install @headlessui/react
 ## Source
 
 - URL: https://registry.npmjs.org/%40headlessui%2Freact/2.2.9
-- Fetched: 2025-12-09T17:33:14.308824
+- Fetched: 2025-12-09T17:44:28.281577

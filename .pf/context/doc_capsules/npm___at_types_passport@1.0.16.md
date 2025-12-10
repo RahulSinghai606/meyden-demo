@@ -14,4 +14,4 @@ npm install @types/passport
 ## Source
 
 - URL: https://registry.npmjs.org/%40types%2Fpassport/1.0.16
-- Fetched: 2025-12-09T17:33:01.850820
+- Fetched: 2025-12-09T17:44:16.822631

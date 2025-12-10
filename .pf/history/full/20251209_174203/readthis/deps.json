@@ -1,0 +1,554 @@
+[
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@prisma/client",
+    "source": "package.json",
+    "version": "5.7.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/bcryptjs",
+    "source": "package.json",
+    "version": "2.4.6",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/cors",
+    "source": "package.json",
+    "version": "2.8.17",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/express",
+    "source": "package.json",
+    "version": "4.17.21",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/jsonwebtoken",
+    "source": "package.json",
+    "version": "9.0.5",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/multer",
+    "source": "package.json",
+    "version": "1.4.11",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/node",
+    "source": "package.json",
+    "version": "20.10.5",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/uuid",
+    "source": "package.json",
+    "version": "9.0.7",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "aws-sdk",
+    "source": "package.json",
+    "version": "2.1525.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "bcryptjs",
+    "source": "package.json",
+    "version": "2.4.3",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "compression",
+    "source": "package.json",
+    "version": "1.7.4",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "cookie-parser",
+    "source": "package.json",
+    "version": "1.4.7",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "cors",
+    "source": "package.json",
+    "version": "2.8.5",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "csrf-csrf",
+    "source": "package.json",
+    "version": "4.0.3",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "dotenv",
+    "source": "package.json",
+    "version": "16.3.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "express",
+    "source": "package.json",
+    "version": "4.18.2",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "express-rate-limit",
+    "source": "package.json",
+    "version": "7.5.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "express-validator",
+    "source": "package.json",
+    "version": "7.3.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "helmet",
+    "source": "package.json",
+    "version": "7.1.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "isomorphic-dompurify",
+    "source": "package.json",
+    "version": "2.33.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "joi",
+    "source": "package.json",
+    "version": "17.11.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "jsonwebtoken",
+    "source": "package.json",
+    "version": "9.0.2",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "morgan",
+    "source": "package.json",
+    "version": "1.10.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "multer",
+    "source": "package.json",
+    "version": "1.4.5-lts.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "node-cron",
+    "source": "package.json",
+    "version": "3.0.3",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "nodemailer",
+    "source": "package.json",
+    "version": "6.9.7",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "passport",
+    "source": "package.json",
+    "version": "0.7.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "passport-google-oauth20",
+    "source": "package.json",
+    "version": "2.0.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "passport-microsoft",
+    "source": "package.json",
+    "version": "1.0.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "prisma",
+    "source": "package.json",
+    "version": "5.7.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "uuid",
+    "source": "package.json",
+    "version": "9.0.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "winston",
+    "source": "package.json",
+    "version": "3.11.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "zod",
+    "source": "package.json",
+    "version": "3.22.4",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/compression",
+    "source": "package.json",
+    "version": "1.7.5",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/jest",
+    "source": "package.json",
+    "version": "29.5.8",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/morgan",
+    "source": "package.json",
+    "version": "1.9.10",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/node-cron",
+    "source": "package.json",
+    "version": "3.0.11",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/nodemailer",
+    "source": "package.json",
+    "version": "6.4.14",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/passport",
+    "source": "package.json",
+    "version": "1.0.16",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/passport-google-oauth20",
+    "source": "package.json",
+    "version": "2.0.14",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/supertest",
+    "source": "package.json",
+    "version": "6.0.3",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@typescript-eslint/eslint-plugin",
+    "source": "package.json",
+    "version": "6.13.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@typescript-eslint/parser",
+    "source": "package.json",
+    "version": "6.13.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "eslint",
+    "source": "package.json",
+    "version": "8.54.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "jest",
+    "source": "package.json",
+    "version": "29.7.0",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "supertest",
+    "source": "package.json",
+    "version": "7.1.4",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "ts-jest",
+    "source": "package.json",
+    "version": "29.1.1",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "tsx",
+    "source": "package.json",
+    "version": "4.6.2",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "typescript",
+    "source": "package.json",
+    "version": "5.3.3",
+    "workspace_package": "backend/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@headlessui/react",
+    "source": "package.json",
+    "version": "2.2.9",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "chart.js",
+    "source": "package.json",
+    "version": "4.5.1",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "framer-motion",
+    "source": "package.json",
+    "version": "12.23.24",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "html2canvas",
+    "source": "package.json",
+    "version": "1.4.1",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "jspdf",
+    "source": "package.json",
+    "version": "3.0.4",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "lucide-react",
+    "source": "package.json",
+    "version": "0.555.0",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "next",
+    "source": "package.json",
+    "version": "16.0.7",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "react",
+    "source": "package.json",
+    "version": "19.2.0",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "react-chartjs-2",
+    "source": "package.json",
+    "version": "5.3.1",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "react-dom",
+    "source": "package.json",
+    "version": "19.2.0",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/node",
+    "source": "package.json",
+    "version": "20",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/react",
+    "source": "package.json",
+    "version": "19",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "@types/react-dom",
+    "source": "package.json",
+    "version": "19",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "autoprefixer",
+    "source": "package.json",
+    "version": "10.4.22",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "babel-plugin-react-compiler",
+    "source": "package.json",
+    "version": "1.0.0",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "eslint",
+    "source": "package.json",
+    "version": "9",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "eslint-config-next",
+    "source": "package.json",
+    "version": "16.0.5",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "postcss",
+    "source": "package.json",
+    "version": "8.5.6",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "tailwindcss",
+    "source": "package.json",
+    "version": "3.4.17",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  },
+  {
+    "files": [],
+    "manager": "npm",
+    "name": "typescript",
+    "source": "package.json",
+    "version": "5",
+    "workspace_package": "meyden-frontend-clean/package.json"
+  }
+]

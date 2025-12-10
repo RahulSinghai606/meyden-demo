@@ -29,4 +29,4 @@ const limiter = rateLimit({
 ## Source
 
 - URL: https://registry.npmjs.org/express-rate-limit/7.5.1
-- Fetched: 2025-12-09T17:32:34.403784
+- Fetched: 2025-12-09T17:43:31.508099

@@ -33,4 +33,4 @@ var MicrosoftStrategy = require('passport-microsoft').Strategy;
 ## Source
 
 - URL: https://registry.npmjs.org/passport-microsoft/1.0.0
-- Fetched: 2025-12-09T17:32:52.303247
+- Fetched: 2025-12-09T17:43:55.614978

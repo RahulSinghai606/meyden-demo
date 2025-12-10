@@ -14,4 +14,4 @@ npm install dotenv
 ## Source
 
 - URL: https://registry.npmjs.org/dotenv/16.3.1
-- Fetched: 2025-12-09T17:32:27.960761
+- Fetched: 2025-12-09T17:43:24.387205
